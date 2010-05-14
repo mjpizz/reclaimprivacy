@@ -277,8 +277,8 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
 
             "           <span class='content inprogress'><span class='soft'>scanning friendship sharing settings...</span></span>",
             "           <span class='content fixing'><span class='soft'>fixing friendship sharing settings...</span></span>",
-            "           <span class='content insecure'>your friends can accidentally share your personal information. <a id='action-disablefriendsharing' class='uiButton uiButtonConfirm' href='#'>Prevent friends from sharing your data</a></span>",
-            "           <span class='content caution'>your friends can accidentally share your personal information. <a id='action-disablefriendsharing' class='uiButton uiButtonConfirm' href='#'>Prevent friends from sharing your data</a></span>",
+            "           <span class='content insecure'>your friends can <a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=friends_share'>accidentally share</a> your personal information. <a id='action-disablefriendsharing' class='uiButton uiButtonConfirm' href='#'>Prevent friends from sharing your data</a></span>",
+            "           <span class='content caution'>your friends can <a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=friends_share'>accidentally share</a> your personal information. <a id='action-disablefriendsharing' class='uiButton uiButtonConfirm' href='#'>Prevent friends from sharing your data</a></span>",
             "           <span class='content good'><span class='soft'>your friends are protected from accidentally sharing your personal information</span></span>",
             "       </div>",
 
