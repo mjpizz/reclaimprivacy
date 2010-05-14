@@ -1,11 +1,22 @@
-Getting Started
-===============
+Using it
+========
+
+1. go to http://www.reclaimprivacy.org
+2. drag the bookmarklet into your browser bar
+3. log in to Facebook
+4. click the bookmarklet
+
+Improving it
+============
 
 1. download the Google AppEngine launcher: http://code.google.com/appengine/downloads.html
 2. open the launcher
 3. add this directory
 4. click the "Run" button in the launcher
-5. edit `javascripts/privacyscanner.js` :)
+5. preview in your browser
+6. add the bookmarklet you see there (it will point at your local copy of the bookmarklet)
+7. edit `javascripts/privacyscanner.js` :)
+
 
 Known Issues (or, a Todo List)
 ==============================
