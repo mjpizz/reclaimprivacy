@@ -40,11 +40,11 @@ a img {
     background: #ccc;
     padding: 0.5em;
     font-size: 0.8em;
-    text-decoration: none;
-    background: #222;
+    background: #555;
     color: #eee;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
+    -webkit-box-shadow: 1px 1px 4px #444;
 }
 
 ol li {
