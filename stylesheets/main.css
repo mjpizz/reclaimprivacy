@@ -1,0 +1,52 @@
+body {
+    position: relative;
+    font-family: "Lucida Sans", Helvetica, Arial, sans-serif;
+    margin: 30px auto 0px auto;
+    width: 800px;
+}
+
+h1 {
+    color: #999;
+    margin: 0px 0px 0px 0px;
+    font-size: 1.2em;
+    border-bottom: 1px solid #ccc;
+}
+
+#logo {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#content {
+    padding: 0px 0px 0px 225px;
+}
+
+.soft {
+    color: #aaa;
+}
+
+a {
+    color: #3D528B;
+}
+
+a img {
+    border-width: 0px;
+}
+
+.bookmarklet {
+    background: #ccc;
+    padding: 0.5em;
+    font-size: 0.8em;
+    text-decoration: none;
+    background: #222;
+    color: #eee;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+ol li {
+    margin-bottom: 0.5em;
+}

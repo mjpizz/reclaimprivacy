@@ -1,0 +1,22 @@
+application: reclaimprivacy
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+
+- url: /favicon.ico
+  static_files: favicon.ico
+  upload: favicon.ico
+
+- url: /images
+  static_dir: images
+
+- url: /stylesheets
+  static_dir: stylesheets
+
+- url: /javascripts
+  static_dir: javascripts
+
+- url: /.*
+  script: handler.py
