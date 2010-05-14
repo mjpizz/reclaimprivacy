@@ -88,6 +88,25 @@ class Facebook(webapp.RequestHandler):
                     keep the privacy scanner up-to-date.
             </p>
         </p>
+
+        <h1>Read Our Own Privacy Policy</h1>
+        <p>
+            Our privacy policy is not long:
+            <ul>
+                <li>we <strong>never see</strong> your Facebook data</li>
+                <li>we <strong>never share</strong> your personal information</li>
+            </ul>
+            Simple.  The scanner operates entirely within your own browser.
+        </p>
+        <p>
+            <em>Statement of limitation of liability:</em>
+            <strong>you use this tool at your own risk</strong>, and by using this tool you agree
+            to hold neither ReclaimPrivacy.org (nor its contributors) liable for
+            damage to your Facebook account.
+            <strong>However, we do strive to reduce that risk
+            by keeping the source code open and transparent</strong>, so that
+            we can identify bugs and quickly fix any functionality.
+        </p>
     </div>
 
 <!-- begin olark code -->
