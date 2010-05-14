@@ -8,14 +8,11 @@ class Facebook(webapp.RequestHandler):
         self.response.headers['Content-Type'] = 'text/html'
 
         parts = urlparse.urlparse(self.request.url)
-        if 'reclaimprivacy' in parts.hostname:
-            hostname = 'static.' + parts.hostname.replace('www.', '')
-        else:
-            hostname = parts.hostname
         if parts.port:
             bookmarklet_host = parts.hostname + ':' + str(parts.port)
         else:
             bookmarklet_host = parts.hostname
+        bookmarklet_host = bookmarklet_host.replace('www.reclaimprivacy.org', 'static.reclaimprivacy.org')
 
         self.response.out.write('''
 <html>
