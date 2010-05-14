@@ -17,6 +17,7 @@ handlers:
 
 - url: /javascripts
   static_dir: javascripts
+  expiration: 1m
 
 - url: /.*
   script: handler.py
