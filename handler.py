@@ -20,7 +20,7 @@ class Facebook(webapp.RequestHandler):
         self.response.out.write('''
 <html>
 <head>
-    <title>ReclaimPrivacy.org | Faceook Privacy Scanner</title>
+    <title>ReclaimPrivacy.org | Facebook Privacy Scanner</title>
     <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="screen" title="no title" charset="utf-8">
     
 </head>
