@@ -217,8 +217,8 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
 
             "           <span class='content inprogress'><span class='soft'>scanning Instant Personalization settings...</span></span>",
             "           <span class='content fixing'><span class='soft'>fixing Instant Personalization settings...</span></span>",
-            "           <span class='content insecure'>Instant Personalization is currently sharing personal information with non-Facebook websites. <a id='action-optoutinstantpersonalization' class='uiButton uiButtonConfirm' href='#'>Opt-out of Instant Personalization</a></span>",
-            "           <span class='content caution'>Instant Personalization is currently sharing personal information with non-Facebook websites. <a id='action-optoutinstantpersonalization' class='uiButton uiButtonConfirm' href='#'>Opt-out of Instant Personalization</a></span>",
+            "           <span class='content insecure'><a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=instant_personalization'>Instant Personalization</a> is currently sharing personal information with non-Facebook websites. <a id='action-optoutinstantpersonalization' class='uiButton uiButtonConfirm' href='#'>Opt-out of Instant Personalization</a></span>",
+            "           <span class='content caution'><a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=instant_personalization'>Instant Personalization</a> is currently sharing personal information with non-Facebook websites. <a id='action-optoutinstantpersonalization' class='uiButton uiButtonConfirm' href='#'>Opt-out of Instant Personalization</a></span>",
             "           <span class='content good'><span class='soft'>you are opted-out of the Instant Personalization feature</span></span>",
             "       </div>",
 
