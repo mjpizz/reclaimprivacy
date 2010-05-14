@@ -90,6 +90,23 @@ class Facebook(webapp.RequestHandler):
         </p>
     </div>
 
+<!-- begin olark code -->
+<script type='text/javascript'>
+(function(d,u){var h=d.location.protocol=='https:'?'https://':'http://';d.write(
+unescape("%%3Cscript src='"+h+u+"' type='text/javascript'%%3E%%3C/script%%3E"));
+})(document,'static.olark.com/javascript/olark.js');
+</script>
+<a href='http://olark.com/about' id='olark-key' class='site-9122-608-10-8698' style='display:none' rel='nofollow'>
+Powered by Olark
+</a>
+<!-- end olark code-->
+
+<script type='text/javascript'>
+olark.extend(function(api){
+    api.chat.updateVisitorNickname({snippet: 'reclaimprivacy'})
+});
+</script>
+
 </body>
 </html>
 ''' % locals())
