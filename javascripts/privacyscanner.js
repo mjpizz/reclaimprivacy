@@ -159,7 +159,7 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
 (function($){
 
     // constants
-    var BOOKMARKLET_JS_URL = 'http://localhost:7331/bookmarklet.js'; // TODO: point at server
+    var BOOKMARKLET_JS_URL = 'http://static.reclaimprivacy.org/javascripts/privacyscanner.js'; // TODO: point at server
     var REQUEST_COMPLETION_DELTA_IN_MILLISECONDS = 2000;
     var TRANSIENT_STATUS_DELTA_IN_MILLISECONDS = 4000;
     var FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS = 1000;
