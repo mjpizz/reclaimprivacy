@@ -5,6 +5,7 @@ Getting Started
 2. open the launcher
 3. add this directory
 4. click the "Run" button in the launcher
+5. edit `javascripts/privacyscanner.js` :)
 
 Known Issues (or, a Todo List)
 ==============================
