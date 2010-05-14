@@ -78,10 +78,9 @@ class Facebook(webapp.RequestHandler):
         <h1>Get Involved</h1>
         <p>
             Our mission is to promote privacy awareness on Facebook and elsewhere.
-            Spread awareness to your friends on Facebook by sharing your
-            recommendation publicly:
+            Spread awareness to your friends on Facebook by sharing this website with them:
             <p>
-                <iframe src="http://www.facebook.com/plugins/like.php?href=http%%253A%%252F%%252Fwww.reclaimprivacy.org&amp;layout=standard&amp;show_faces=false&amp;width=475&amp;action=recommend&amp;font&amp;colorscheme=light&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:475px; height:35px;" allowTransparency="true"></iframe>
+                <a name="fb_share" type="button_count" share_url="http://www.reclaimprivacy.org/facebook" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
             </p>
             <p>
                     <em>Are you a coder?</em> Contribute to the <a href='http://github.com/mjpizz/reclaimprivacy'>source code</a> and help to
