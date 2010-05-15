@@ -72,6 +72,10 @@ class Facebook(webapp.RequestHandler):
                     You will see a series of privacy scans that inspect your privacy settings and warn you about
                     settings that might be unexpectedly public.
                 </li>
+                <li>
+                    <a href="http://www.facebook.com/pages/Reclaim-Privacy/121897834504447">Follow us</a> on Facebook
+                    to hear about the latest updates.
+                </li>
             </ol>
         </p>
 
