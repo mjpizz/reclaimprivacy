@@ -1,20 +1,21 @@
 import urlparse
+from google.appengine.api import memcache
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 
 
 class Facebook(webapp.RequestHandler):
     def get(self):
-        self.response.headers['Content-Type'] = 'text/html'
-
-        parts = urlparse.urlparse(self.request.url)
-        if parts.port:
-            bookmarklet_host = parts.hostname + ':' + str(parts.port)
-        else:
-            bookmarklet_host = parts.hostname
-        bookmarklet_host = bookmarklet_host.replace('www.reclaimprivacy.org', 'static.reclaimprivacy.org')
-
-        self.response.out.write('''
+        # try to get a cached version of the page content
+        page_content = memcache.get('page_content')
+        if not page_content:
+            parts = urlparse.urlparse(self.request.url)
+            if parts.port:
+                bookmarklet_host = parts.hostname + ':' + str(parts.port)
+            else:
+                bookmarklet_host = parts.hostname
+            bookmarklet_host = bookmarklet_host.replace('www.reclaimprivacy.org', 'static.reclaimprivacy.org')
+            page_content = '''
 <html>
 <head>
     <title>ReclaimPrivacy.org | Facebook Privacy Scanner</title>
@@ -131,7 +132,12 @@ olark.extend(function(api){
 
 </body>
 </html>
-''' % locals())
+            ''' % locals()
+            memcache.set('page_content', page_content)
+
+        # write the response
+        self.response.headers['Content-Type'] = 'text/html'
+        self.response.out.write(page_content)
 
 
 application = webapp.WSGIApplication([
