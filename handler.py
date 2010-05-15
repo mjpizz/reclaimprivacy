@@ -73,7 +73,7 @@ class Facebook(webapp.RequestHandler):
                     settings that might be unexpectedly public.
                 </li>
                 <li>
-                    <a href="http://www.facebook.com/pages/Reclaim-Privacy/121897834504447">Follow us</a> on Facebook
+                    <a href="http://www.facebook.com/pages/Reclaim-Privacy/121897834504447">Follow us on Facebook</a>
                     to hear about the latest updates.
                 </li>
             </ol>

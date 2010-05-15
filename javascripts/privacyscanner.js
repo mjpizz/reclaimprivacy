@@ -204,6 +204,7 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
         htmlContent = [
             "<div class='privacy-scanner-titlebar'>",
             "   <h1>privacy scanner</h1>",
+            "   &nbsp;&nbsp;<span class='soft'>don't forget to</span> <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447'>follow us on Facebook</a> <span class='soft'>to hear about the latest updates</span>",
             "   <span class='source'>",
             "       <span class='soft'>service provided by <a href='http://www.reclaimprivacy.org/facebook'>reclaimprivacy.org</a></span>",
             "       <a id='close-privacy-scanner' class='uiButton uiButtonConfirm' href='#'>done</a>",
