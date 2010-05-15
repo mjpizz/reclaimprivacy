@@ -213,6 +213,7 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
 
             "<div class='wrongdomain-splash'>",
             "   You must be logged in to <a href='http://www.facebook.com'>Facebook.com</a> in order to run the privacy scanner.",
+            "   <a class='close' href='#'>x</a>",
             "</div>",
 
             "<div class='scanners'>",
@@ -404,6 +405,19 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
             "    display: none;",
             "    font-size: 1.6em;",
             "    text-align: center;",
+            "}",
+
+            "#privacy-scanner .wrongdomain-splash .close {",
+            "   display: block;",
+            "   position: absolute;",
+            "   top: 5px;",
+            "   right: 5px;",
+            "   font-size: 12pt;",
+            "   font-family: monospace;",
+            "   text-decoration: none;",
+            "   padding: 7px 10px 7px 10px;",
+            "   background-color: #425995;",
+            "   color: white;",
             "}",
 
             // the scanners container has some padding
@@ -1052,7 +1066,7 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
         });
 
         // make sure the close button works
-        $('#close-privacy-scanner').click(function(){
+        $('#close-privacy-scanner, .wrongdomain-splash .close').click(function(){
             debug("closing privacy scanner...");
             hidePrivacyScannerInterface();
             return false;
