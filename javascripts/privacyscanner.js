@@ -170,6 +170,11 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
         "Yelp": '97534753161'
     };
 
+    // helper that returns true if we are on facebook.com
+    var isOnFacebook = function(){
+        return /(facebook.com)/.test(document.location.toString());
+    };
+
     // helper for doing debug statements
     var debug = function(){
         try {
@@ -203,6 +208,10 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
             "       <span class='soft'>service provided by <a href='http://www.reclaimprivacy.org/facebook'>reclaimprivacy.org</a></span>",
             "       <a id='close-privacy-scanner' class='uiButton uiButtonConfirm' href='#'>done</a>",
             "   </span>",
+            "</div>",
+
+            "<div class='wrongdomain-splash'>",
+            "   You must be logged in to <a href='http://www.facebook.com'>Facebook.com</a> in order to run the privacy scanner.",
             "</div>",
 
             "<div class='scanners'>",
@@ -388,6 +397,14 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
             "   opacity: 0.85;",
             "}",
 
+            // when not running this on facebook, we style the #wrongdomain-splash div
+            "#privacy-scanner .wrongdomain-splash {",
+            "    padding: 50px 0px 0px 0px;",
+            "    display: none;",
+            "    font-size: 1.6em;",
+            "    text-align: center;",
+            "}",
+
             // the scanners container has some padding
             "#privacy-scanner .scanners {",
             "   padding: 10px !important;",
@@ -497,6 +514,14 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
 
             ""
         ].join('');
+
+        // kill the scanners section when not being displayed on facebook
+        if (!isOnFacebook()) {
+            stylingContent += "#privacy-scanner .wrongdomain-splash {display: block;}";
+            stylingContent += "#privacy-scanner .scanners {display: none;}";
+            stylingContent += "#privacy-scanner .privacy-scanner-titlebar {display: none;}";
+            stylingContent += "#privacy-scanner .privacy-scanner-footer {display: none;}";
+        }
 
         // append our styling information into the <head> tag
         $('head').append($('<style></style>').text(stylingContent));
@@ -1036,7 +1061,9 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
         var refreshAndScheduleFutureRefresh = function(){
             debug("refreshing and scheduling future refresh...");
             showPrivacyScannerInterface();
-            indicatorController.refreshAll();
+            if (isOnFacebook()) {
+                indicatorController.refreshAll();
+            }
             window.__facebook_privacy_load_callback = refreshAndScheduleFutureRefresh;
         };
         refreshAndScheduleFutureRefresh();
