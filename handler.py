@@ -61,7 +61,7 @@ class Facebook(webapp.RequestHandler):
             your Facebook privacy settings.  <em>The <a href='http://github.com/mjpizz/reclaimprivacy'>source code</a> and its development will always remain open and transparent.</em>
             <ol>
                 <li>
-                    Drag this link to your bookmarks bar:
+                    Drag this link to your web browser bookmarks bar:
                     <strong>
                         <a class='bookmarklet' title="Scan for Privacy" href="javascript:(function(){var%%20script=document.createElement('script');script.src='http://%(bookmarklet_host)s/javascripts/privacyscanner.js';document.getElementsByTagName('head')[0].appendChild(script);})()">Scan for Privacy</a>
                     </strong>
