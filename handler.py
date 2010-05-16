@@ -3,11 +3,14 @@ from google.appengine.api import memcache
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 
+VERSION = '1'
+
 
 class Facebook(webapp.RequestHandler):
     def get(self):
         # try to get a cached version of the page content
-        page_content = memcache.get('page_content')
+        memcache_key = 'page_content:' + VERSION
+        page_content = memcache.get(memcache_key)
         if not page_content:
             parts = urlparse.urlparse(self.request.url)
             if parts.port:
@@ -133,7 +136,7 @@ olark.extend(function(api){
 </body>
 </html>
             ''' % locals()
-            memcache.set('page_content', page_content)
+            memcache.set(memcache_key, page_content)
 
         # write the response
         self.response.headers['Content-Type'] = 'text/html'
