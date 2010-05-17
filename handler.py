@@ -1,10 +1,36 @@
 import os
+import logging
 import urlparse
 from google.appengine.api import memcache
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
+from google.appengine.ext import db
 
-VERSION = '9'
+VERSION = '10'
+
+
+class NewsletterEntry(db.Model):
+    email_address = db.StringProperty()
+    date = db.DateTimeProperty(auto_now_add=True)
+
+
+class Newsletter(webapp.RequestHandler):
+    def get(self):
+        email = self.request.get('email')
+        if email:
+            try:
+                num_previous_entries = NewsletterEntry.gql('WHERE email_address = :1 LIMIT 1', email).count()
+                if num_previous_entries != 0:
+                    logging.error("already have email addres: %(email)s" % locals())
+                else:
+                    entry = NewsletterEntry()
+                    entry.email_address = email
+                    entry.put()
+            except Exception, e:
+                logging.error('error adding email: ', e)
+        else:
+            logging.error('email not given')
+        self.redirect('/')
 
 
 class Facebook(webapp.RequestHandler):
@@ -123,6 +149,16 @@ class Facebook(webapp.RequestHandler):
                 You can <a href='http://twitter.com/reclaimprivacy'>follow us on Twitter</a> too!
             </p>
             <p>
+                <form class='newsletter' action='/newsletter'>
+                    <div class='message'>
+                        If you prefer email, you can also sign up for the newsletter to get informed of privacy updates:
+                    </div>
+                    <label for='email'>email:</label>
+                    <input type='text' name='email' />
+                    <input type='submit' value='sign me up for the newsletter' />
+                </form>
+            </p>
+            <p>
                     <em>Are you a coder?</em> Contribute to the <a href='http://github.com/mjpizz/reclaimprivacy'>source code</a> and help to
                     keep the privacy scanner up-to-date.
             </p>
@@ -186,6 +222,7 @@ olark.extend(function(api){
 
 
 application = webapp.WSGIApplication([
+    ('/newsletter', Newsletter),
     ('/facebook', Facebook),
     ('/', Facebook),
 ], debug=True)

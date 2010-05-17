@@ -83,3 +83,17 @@ ol li {
 .about-section p {
     font-size: 0.8em;
 }
+
+.newsletter {
+    display: block;
+    padding: 10px;
+    background-color: #ddd;
+}
+
+.newsletter label {
+    color: #999;
+}
+
+.newsletter .message {
+    margin-bottom: 10px;
+}
