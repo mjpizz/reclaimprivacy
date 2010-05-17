@@ -157,6 +157,13 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
 
 // build the view
 (function($){
+/*!
+ * ReclaimPrivacy JavaScript Library
+ * http://www.reclaimprivacy.org/
+ *
+ * Copyright 2010, Matt Pizzimenti
+ * Licensed under the GPL Version 2 license
+ */
 
     // constants
     var BOOKMARKLET_JS_URL = 'http://static.reclaimprivacy.org/javascripts/privacyscanner.js'; // TODO: point at server
