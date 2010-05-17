@@ -33,7 +33,7 @@ class Facebook(webapp.RequestHandler):
 
             # we need to serve a different bookmarklet Javascript for MSIE
             if is_iebrowser:
-                step_one_instructions = "Right-click this link and 'Add to Favorites...'"
+                step_one_instructions = "Right-click this link and 'Add to Favorites'"
                 step_two_instructions = "Log in to <a href='http://www.facebook.com'>facebook.com</a>, open your Favorites, and click the link called 'Scan for Privacy'"
             else:
                 step_one_instructions = "Drag this link to your web browser bookmarks bar"
