@@ -1,3 +1,4 @@
+import os
 import urlparse
 from google.appengine.api import memcache
 from google.appengine.ext import webapp
@@ -8,15 +9,37 @@ VERSION = '1'
 
 class Facebook(webapp.RequestHandler):
     def get(self):
-        # try to get a cached version of the page content
-        memcache_key = 'page_content:' + VERSION
+        # detect MSIE
+        if 'MSIE' in os.environ['HTTP_USER_AGENT']:
+            is_iebrowser = 1
+        else:
+            is_iebrowser = 0
+
+        # build the memcache key we will use
+        version = VERSION
+        memcache_key = 'page_content:%(version)s:%(is_iebrowser)s' % locals()
+
+        # try to get a cached page, and otherwise build the page
         page_content = memcache.get(memcache_key)
         if not page_content:
+
+            # figure out the host name of this server (for serving the proper
+            # javascript bookmarklet)
             parts = urlparse.urlparse(self.request.url)
             if parts.port:
                 bookmarklet_host = parts.hostname + ':' + str(parts.port)
             else:
                 bookmarklet_host = parts.hostname
+
+            # we need to serve a different bookmarklet Javascript for MSIE
+            if is_iebrowser:
+                step_one_instructions = "Right-click this link and 'Add to Favorites...'"
+                step_two_instructions = "Log in to <a href='http://www.facebook.com'>facebook.com</a>, open your Favorites, and click the link called 'Scan for Privacy'"
+            else:
+                step_one_instructions = "Drag this link to your web browser bookmarks bar"
+                step_two_instructions = "Log in to <a href='http://www.facebook.com'>facebook.com</a> and then click that bookmark"
+
+            # build the page HTML
             bookmarklet_host = bookmarklet_host.replace('www.reclaimprivacy.org', 'static.reclaimprivacy.org')
             page_content = '''
 <html>
@@ -64,13 +87,13 @@ class Facebook(webapp.RequestHandler):
             your Facebook privacy settings.  <em>The <a href='http://github.com/mjpizz/reclaimprivacy'>source code</a> and its development will always remain open and transparent.</em>
             <ol>
                 <li>
-                    Drag this link to your web browser bookmarks bar:
+                    %(step_one_instructions)s:
                     <strong>
                         <a class='bookmarklet' title="Scan for Privacy" href="javascript:(function(){var%%20script=document.createElement('script');script.src='http://%(bookmarklet_host)s/javascripts/privacyscanner.js';document.getElementsByTagName('head')[0].appendChild(script);})()">Scan for Privacy</a>
                     </strong>
                 </li>
                 <li>
-                    Log in to <a href='http://www.facebook.com'>facebook.com</a> and then click that bookmark
+                    %(step_two_instructions)s
                 </li>
                 <li>
                     You will see a series of privacy scans that inspect your privacy settings and warn you about
@@ -136,6 +159,8 @@ olark.extend(function(api){
 </body>
 </html>
             ''' % locals()
+
+            # cache the page in memcache
             memcache.set(memcache_key, page_content)
 
         # write the response
