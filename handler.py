@@ -4,7 +4,7 @@ from google.appengine.api import memcache
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 
-VERSION = '5'
+VERSION = '6'
 
 
 class Facebook(webapp.RequestHandler):
@@ -34,7 +34,7 @@ class Facebook(webapp.RequestHandler):
             # we need to serve a different bookmarklet Javascript for MSIE
             if is_iebrowser:
                 step_one_instructions = "Right-click this link and 'Add to Favorites'"
-                step_two_instructions = "Log in to the <a href='http://www.facebook.com/settings/?tab=privacy'>facebook.com</a> privacy settings, open your Favorites, and click the link called 'Scan for Privacy'"
+                step_two_instructions = "Log in to the <a href='http://www.facebook.com/settings/?tab=privacy&ref=mb'>facebook.com</a> privacy settings, open your Favorites, and click the link called 'Scan for Privacy'"
             else:
                 step_one_instructions = "Drag this link to your web browser bookmarks bar"
                 step_two_instructions = "Log in to <a href='http://www.facebook.com'>facebook.com</a> and then click that bookmark"
