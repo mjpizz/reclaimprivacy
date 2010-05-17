@@ -66,3 +66,20 @@ ol li {
     font-size: 11pt;
     color: #999;
 }
+
+.about-section * {
+    font-style: italic;
+    color: #999;
+}
+
+.about-section {
+    margin: 40px 0px 40px 0px;
+}
+
+.about-section h2 {
+    font-size: 1.0em;
+}
+
+.about-section p {
+    font-size: 0.8em;
+}

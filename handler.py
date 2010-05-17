@@ -4,7 +4,7 @@ from google.appengine.api import memcache
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 
-VERSION = '8'
+VERSION = '9'
 
 
 class Facebook(webapp.RequestHandler):
@@ -146,6 +146,14 @@ class Facebook(webapp.RequestHandler):
             by keeping the source code open and transparent</strong>, so that
             we can identify bugs and quickly fix any functionality.
         </p>
+
+        <div class='about-section'>
+            <h2>about the author</h2>
+            <p>
+                I am an an avid Javascript developer and co-founder at <a href='http://www.olark.com/'>Olark</a> (check it out!).  You
+                can chat with me about ReclaimPrivacy.org on my <a href='http://www.mjpizz.com'>website</a>. 
+            </p>
+        </div>
     </div>
 
 <!-- begin olark code -->
