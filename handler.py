@@ -4,7 +4,7 @@ from google.appengine.api import memcache
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 
-VERSION = '1'
+VERSION = '2'
 
 
 class Facebook(webapp.RequestHandler):
