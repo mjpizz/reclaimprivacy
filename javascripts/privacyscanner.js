@@ -539,7 +539,7 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
         }
 
         // append our styling information into the <head> tag
-        $('head').append($('<style></style>').text(stylingContent));
+        $('head').append($('<style></style>').html(stylingContent));
         $('body').append($('<div id="privacy-scanner-padding"></div>'));
         $('body').append($('<div id="privacy-scanner"></div>').html(htmlContent));
     };
