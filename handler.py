@@ -4,7 +4,7 @@ from google.appengine.api import memcache
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 
-VERSION = '6'
+VERSION = '7'
 
 
 class Facebook(webapp.RequestHandler):
@@ -54,6 +54,12 @@ class Facebook(webapp.RequestHandler):
         <a href="http://www.reclaimprivacy.org"><img src='/images/logo.png' /></a>
         <div>
             <strong>ReclaimPrivacy</strong><span class='soft'>.org</span>
+        </div>
+        <div class='donation-box'>
+            <a href='http://www.pledgie.com/campaigns/10721'><img alt='Click here to lend your support to: reclaimprivacy and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/10721.png?skin_name=chrome' border='0' /></a>
+            <br/>
+            donations help us cover bandwidth costs,
+            <br/>even $5 or $10 helps
         </div>
     </div>
 

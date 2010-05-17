@@ -58,3 +58,11 @@ ol li {
     margin-bottom: 10px;
     font-style: italic;
 }
+
+.donation-box {
+    margin-top: 10px;
+    width: 200px;
+    font-style: italic;
+    font-size: 11pt;
+    color: #999;
+}
