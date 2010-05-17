@@ -4,7 +4,7 @@ from google.appengine.api import memcache
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 
-VERSION = '7'
+VERSION = '8'
 
 
 class Facebook(webapp.RequestHandler):
@@ -118,6 +118,9 @@ class Facebook(webapp.RequestHandler):
             Spread awareness to your friends on Facebook by sharing this website with them:
             <p>
                 <a name="fb_share" type="button_count" share_url="http://www.reclaimprivacy.org/facebook" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+            </p>
+            <p>
+                You can <a href='http://twitter.com/reclaimprivacy'>follow us on Twitter</a> too!
             </p>
             <p>
                     <em>Are you a coder?</em> Contribute to the <a href='http://github.com/mjpizz/reclaimprivacy'>source code</a> and help to
