@@ -50,3 +50,11 @@ a img {
 ol li {
     margin-bottom: 0.5em;
 }
+
+.msie-warning-message {
+    background-color: #A31914;
+    color: #FF5C56;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-style: italic;
+}
