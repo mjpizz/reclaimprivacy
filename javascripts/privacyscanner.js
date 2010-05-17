@@ -741,7 +741,7 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
                         });
                         return checkedIndex;
                     };
-                    if (getIndexOfCheckedDropdownItem() == 0) {
+                    if (getIndexOfCheckedDropdownItem() === 0) {
                         debug("section: ", sectionName, " is unsafe (showing Everyone)");
                         hasSectionsThatAreOpenToEveryone = true;
                     }
@@ -978,7 +978,7 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
             $(controller).bind('transientStatus', function(event, data){
                 debug("transientStatus: ", data.message);
                 c.updateStatusArea(data.message);
-                setTimeout(function(){c.hideStatusArea();}, TRANSIENT_STATUS_DELTA_IN_MILLISECONDS)
+                setTimeout(function(){c.hideStatusArea();}, TRANSIENT_STATUS_DELTA_IN_MILLISECONDS);
             });
         };
 
