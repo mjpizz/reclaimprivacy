@@ -166,12 +166,12 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
  */
 
     // constants
-    var BOOKMARKLET_JS_URL = 'http://static.reclaimprivacy.org/javascripts/privacyscanner.js'; // TODO: point at server
+    var BOOKMARKLET_JS_URL = 'http://static.reclaimprivacy.org/javascripts/privacyscanner.js';
     var REQUEST_COMPLETION_DELTA_IN_MILLISECONDS = 2000;
     var TRANSIENT_STATUS_DELTA_IN_MILLISECONDS = 4000;
     var FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS = 1000;
     var BAR_HEIGHT_IN_PX = 200;
-    var PARTNER_APPS = {
+    var BLOCKABLE_APPS = {
         "Microsoft Docs": '119178388096593',
         "Pandora": '2409304917',
         "Yelp": '97534753161'
@@ -890,7 +890,7 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
                 debug("blocked apps: ", apps);
                 // FIXME: this test is broken
                 var neededApps = {};
-                $.extend(true, neededApps, PARTNER_APPS);
+                $.extend(true, neededApps, BLOCKABLE_APPS);
                 $(apps).each(function(){
                     var app = this;
                     neededApps[app.name] = null;
@@ -1035,7 +1035,7 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
         });
         $('#action-blockdocs').click(function(){
             var appName = "Microsoft Docs";
-            var appid = PARTNER_APPS[appName];
+            var appid = BLOCKABLE_APPS[appName];
             indicatorController.showFixingBlockedApps();
             fixingController.blockApp({name: appName, appid: appid}, function(success){
                 if (success) {
@@ -1046,7 +1046,7 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
         });
         $('#action-blockyelp').click(function(){
             var appName = "Yelp";
-            var appid = PARTNER_APPS[appName];
+            var appid = BLOCKABLE_APPS[appName];
             indicatorController.showFixingBlockedApps();
             fixingController.blockApp({name: appName, appid: appid}, function(success){
                 if (success) {
@@ -1057,7 +1057,7 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
         });
         $('#action-blockpandora').click(function(){
             var appName = "Pandora";
-            var appid = PARTNER_APPS[appName];
+            var appid = BLOCKABLE_APPS[appName];
             indicatorController.showFixingBlockedApps();
             fixingController.blockApp({name: appName, appid: appid}, function(success){
                 if (success) {
