@@ -4,7 +4,7 @@ from google.appengine.api import memcache
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 
-VERSION = '3'
+VERSION = '4'
 
 
 class Facebook(webapp.RequestHandler):
@@ -33,11 +33,9 @@ class Facebook(webapp.RequestHandler):
 
             # we need to serve a different bookmarklet Javascript for MSIE
             if is_iebrowser:
-                optional_warning_message = "<div class='msie-warning-message'>The privacy scanner does not work with Internet Explorer right now - we're working on it!<br/><br/>In the meantime, please use Firefox, Safari, or Chrome instead.</div>"
                 step_one_instructions = "Right-click this link and 'Add to Favorites'"
                 step_two_instructions = "Log in to <a href='http://www.facebook.com'>facebook.com</a>, open your Favorites, and click the link called 'Scan for Privacy'"
             else:
-                optional_warning_message = ""
                 step_one_instructions = "Drag this link to your web browser bookmarks bar"
                 step_two_instructions = "Log in to <a href='http://www.facebook.com'>facebook.com</a> and then click that bookmark"
 
@@ -85,7 +83,6 @@ class Facebook(webapp.RequestHandler):
 
         <h1>Get Protected</h1>
         <p>
-            %(optional_warning_message)s
             This website provides an <strong>independent</strong> and <strong>open</strong> tool for scanning
             your Facebook privacy settings.  <em>The <a href='http://github.com/mjpizz/reclaimprivacy'>source code</a> and its development will always remain open and transparent.</em>
             <ol>
