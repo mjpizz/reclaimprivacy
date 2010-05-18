@@ -251,19 +251,19 @@ class Help(webapp.RequestHandler):
             <ul class='browser-walkthrough'>
                 <li class='enabled for-windows'>
                     <a href='http://www.youtube.com/watch?v=lVQga-m4aRk' title='Google Chrome Privacy Walkthrough Video' target='_blank'>
-                        <img src='/images/safari-logo.png' width='90' height='90' /><span class='label'>Chrome (Windows)</span>
+                        <img src='/images/google-chrome-logo.png' width='90' height='87' /><span class='label'>Chrome (Windows)</span>
                         <span class='volunteers-needed'>volunteers needed!</span>
                     </a>
                 </li>
                 <li class='enabled for-mac'>
                     <a href='http://www.youtube.com/watch?v=lVQga-m4aRk' title='Google Chrome Privacy Walkthrough Video' target='_blank'>
-                        <img src='/images/safari-logo.png' width='90' height='90' /><span class='label'>Chrome (Mac)</span>
+                        <img src='/images/google-chrome-logo.png' width='90' height='87' /><span class='label'>Chrome (Mac)</span>
                         <span class='volunteers-needed'>volunteers needed!</span>
                     </a>
                 </li>
-                <li class='disabled for-mac'>
-                    <a href='#' title='Safari Privacy Walkthrough Video' onclick='return false;'>
-                        <img src='/images/ie-logo.png' width='90' height='90' /><span class='label'>Safari</span>
+                <li class='enabled for-mac'>
+                    <a href='http://www.youtube.com/watch?v=BsTF8vbi3ns' title='Safari Privacy Walkthrough Video' target='_blank'>
+                        <img src='/images/safari-logo.png' width='90' height='90' /><span class='label'>Safari</span>
                         <span class='volunteers-needed'>volunteers needed!</span>
                     </a>
                 </li>
