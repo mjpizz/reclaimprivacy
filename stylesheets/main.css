@@ -13,7 +13,6 @@ h1 {
 }
 
 h3 {
-    color: #999;
     margin: 0px 0px 0px 0px;
     font-size: 1.1em;
     text-decoration: italic;
@@ -55,7 +54,7 @@ a img {
 }
 
 ol li {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.7em;
 }
 
 .msie-warning-message {
@@ -166,3 +165,14 @@ ol li {
     display: block;
     clear: both;
 }
+
+.answer {
+    margin-left: 15px;
+}
+
+.go-to-discussions {
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    margin: 50px 0px 80px 0px;
+}
+

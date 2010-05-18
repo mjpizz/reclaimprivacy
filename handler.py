@@ -60,10 +60,10 @@ class Facebook(webapp.RequestHandler):
             # we need to serve a different bookmarklet Javascript for MSIE
             if is_iebrowser:
                 step_one_instructions = "Right-click this link and 'Add to Favorites'"
-                step_two_instructions = "Log in to the <a href='http://www.facebook.com/settings/?tab=privacy&ref=mb'>facebook.com</a> privacy settings, open your Favorites, and click the link called 'Scan for Privacy'"
+                step_two_instructions = "<a href='http://www.facebook.com/settings/?tab=privacy&ref=mb'>Go to your Facebook privacy settings</a>, open your Favorites, and click the link called 'Scan for Privacy' once you are on Facebook"
             else:
                 step_one_instructions = "Drag this link to your web browser bookmarks bar"
-                step_two_instructions = "Log in to <a href='http://www.facebook.com'>facebook.com</a> and then click that bookmark"
+                step_two_instructions = "<a href='http://www.facebook.com/settings/?tab=privacy&ref=mb'>Go to your Facebook privacy settings</a> and then click that bookmark once you are on Facebook."
 
             # build the page HTML
             bookmarklet_host = bookmarklet_host.replace('www.reclaimprivacy.org', 'static.reclaimprivacy.org')
@@ -117,7 +117,7 @@ class Facebook(webapp.RequestHandler):
         <p>
             This website provides an <strong>independent</strong> and <strong>open</strong> tool for scanning
             your Facebook privacy settings.  <em>The <a href='http://github.com/mjpizz/reclaimprivacy'>source code</a> and its development will always remain open and transparent.</em>
-            <ol>
+            <ol class='instructions'>
                 <li>
                     %(step_one_instructions)s:
                     <strong>
@@ -221,6 +221,15 @@ class Help(webapp.RequestHandler):
         page_content = memcache.get(memcache_key)
         if not page_content:
 
+            # figure out the host name of this server (for serving the proper
+            # javascript bookmarklet)
+            parts = urlparse.urlparse(self.request.url)
+            if parts.port:
+                bookmarklet_host = parts.hostname + ':' + str(parts.port)
+            else:
+                bookmarklet_host = parts.hostname
+
+            # render the page
             page_content = '''
 <html>
 <head>
@@ -290,18 +299,34 @@ class Help(webapp.RequestHandler):
         <div class='clearfix'></div>
         <h1>Frequently Asked Questions</h1>
         <p>
-            Here are some of the questions that many people like you have asked:
+            <em>Here are some of the questions that many people like you have asked...</em>
         </p>
         <p>
             <h3>How do I add the "Scan for Privacy" bookmark?</h3>
             <p class='answer'>
                 You can either <strong>drag</strong> it to your bookmarks bar or <strong>right click it</strong> and
                 add it to your bookmarks/favorites.
-                <br/>
-                <br/>
-                Then just <a href='http://www.facebook.com/settings/?tab=privacy&ref=mb'>go to Facebook.com</a> privacy settings, and click that bookmark.
+            <p class='answer'>
+                <em class='soft'>this grey box is the bookmark:</em>
+                <strong>
+                    <a class='bookmarklet' title="Scan for Privacy" href="javascript:(function(){var%%20script=document.createElement('script');script.src='http://%(bookmarklet_host)s/javascripts/privacyscanner.js';document.getElementsByTagName('head')[0].appendChild(script);})()">Scan for Privacy</a>
+                </strong>
+            </p>
+            <p class='answer'>
+                <strong>After you have added that grey box bookmark</strong> you need to
+                <a href='http://www.facebook.com/settings/?tab=privacy&ref=mb'>go to your Facebook privacy settings</a>.
+                <strong>Once you are on Facebook</strong>, you should click that bookmark.
             </p>
         </p>
+        <div class='go-to-discussions'>
+            <em>
+                If you still have trouble, you should
+                <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447?v=app_2373072738'>
+                    check out the discussion forums
+                </a> on our Facebook Fan page, there are lots of
+                other people there trying to help each other out.
+            </em>
+        </div>
     </div>
 
 <!-- begin olark code -->
@@ -326,7 +351,6 @@ olark.extend(function(api){
             ''' % locals()
 
             # cache the page in memcache (only on the production servers)
-            parts = urlparse.urlparse(self.request.url)
             if 'reclaimprivacy.org' in parts.hostname:
                 memcache.set(memcache_key, page_content)
 

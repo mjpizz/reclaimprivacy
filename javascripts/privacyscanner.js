@@ -6303,7 +6303,7 @@ window.jQuery = window.$ = jQuery;
             "</div>",
 
             "<div class='wrongdomain-splash'>",
-            "   You must be logged in to <a href='http://www.facebook.com'>Facebook.com</a> in order to run the privacy scanner.",
+            "   After adding the bookmark, you must <a href='http://www.facebook.com/settings/?tab=privacy&ref=mb'>go to your Facebook privacy settings</a>, and <strong>once you are on Facebook</strong> run this privacy scanner again.",
             "   <a class='close' href='#'>x</a>",
             "</div>",
 
@@ -6492,7 +6492,7 @@ window.jQuery = window.$ = jQuery;
 
             // when not running this on facebook, we style the #wrongdomain-splash div
             "#privacy-scanner .wrongdomain-splash {",
-            "    padding: 50px 0px 0px 0px;",
+            "    padding: 50px 50px 0px 50px;",
             "    display: none;",
             "    font-size: 1.6em;",
             "    text-align: center;",
