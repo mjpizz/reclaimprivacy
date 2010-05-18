@@ -6314,7 +6314,7 @@ window.jQuery = window.$ = jQuery;
             "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;fixing&nbsp;&nbsp;</span>",
             "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scanning&nbsp;</span>",
             "           <span class='indicator insecure indicator-insecure'>&nbsp;insecure&nbsp;</span>",
-            "           <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;good&nbsp;&nbsp;&nbsp;</span>",
+            "           <span class='indicator good indicator-good'>&nbsp;&nbsp;secure&nbsp;&nbsp;</span>",
             "           <span class='indicator caution indicator-caution'>&nbsp;caution&nbsp;&nbsp;</span>",
 
             "           <span class='content inprogress'><span class='soft'>scanning Instant Personalization settings...</span></span>",
@@ -6329,7 +6329,7 @@ window.jQuery = window.$ = jQuery;
             "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;fixing&nbsp;&nbsp;</span>",
             "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scanning&nbsp;</span>",
             "           <span class='indicator insecure indicator-insecure'>&nbsp;insecure&nbsp;</span>",
-            "           <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;good&nbsp;&nbsp;&nbsp;</span>",
+            "           <span class='indicator good indicator-good'>&nbsp;&nbsp;secure&nbsp;&nbsp;</span>",
             "           <span class='indicator caution indicator-caution'>&nbsp;caution&nbsp;&nbsp;</span>",
 
             "           <span class='content inprogress'><span class='soft'>scanning personal information...</span></span>",
@@ -6344,7 +6344,7 @@ window.jQuery = window.$ = jQuery;
             "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;fixing&nbsp;&nbsp;</span>",
             "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scanning&nbsp;</span>",
             "           <span class='indicator insecure indicator-insecure'>&nbsp;insecure&nbsp;</span>",
-            "           <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;good&nbsp;&nbsp;&nbsp;</span>",
+            "           <span class='indicator good indicator-good'>&nbsp;&nbsp;secure&nbsp;&nbsp;</span>",
             "           <span class='indicator caution indicator-caution'>&nbsp;caution&nbsp;&nbsp;</span>",
 
             "           <span class='content inprogress'><span class='soft'>scanning contact information...</span></span>",
@@ -6359,7 +6359,7 @@ window.jQuery = window.$ = jQuery;
             "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;fixing&nbsp;&nbsp;</span>",
             "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scanning&nbsp;</span>",
             "           <span class='indicator insecure indicator-insecure'>&nbsp;insecure&nbsp;</span>",
-            "           <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;good&nbsp;&nbsp;&nbsp;</span>",
+            "           <span class='indicator good indicator-good'>&nbsp;&nbsp;secure&nbsp;&nbsp;</span>",
             "           <span class='indicator caution indicator-caution'>&nbsp;caution&nbsp;&nbsp;</span>",
 
             "           <span class='content inprogress'><span class='soft'>scanning friends, tags, and connections information...</span></span>",
@@ -6374,7 +6374,7 @@ window.jQuery = window.$ = jQuery;
             "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;fixing&nbsp;&nbsp;</span>",
             "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scanning&nbsp;</span>",
             "           <span class='indicator insecure indicator-insecure'>&nbsp;insecure&nbsp;</span>",
-            "           <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;good&nbsp;&nbsp;&nbsp;</span>",
+            "           <span class='indicator good indicator-good'>&nbsp;&nbsp;secure&nbsp;&nbsp;</span>",
             "           <span class='indicator caution indicator-caution'>&nbsp;caution&nbsp;&nbsp;</span>",
 
             "           <span class='content inprogress'><span class='soft'>scanning friendship sharing settings...</span></span>",
@@ -6389,7 +6389,7 @@ window.jQuery = window.$ = jQuery;
             "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;fixing&nbsp;&nbsp;</span>",
             "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scanning&nbsp;</span>",
             "           <span class='indicator insecure indicator-insecure'>&nbsp;insecure&nbsp;</span>",
-            "           <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;good&nbsp;&nbsp;&nbsp;</span>",
+            "           <span class='indicator good indicator-good'>&nbsp;&nbsp;secure&nbsp;&nbsp;</span>",
             "           <span class='indicator caution indicator-caution'>&nbsp;caution&nbsp;&nbsp;</span>",
 
             "           <span class='content inprogress'><span class='soft'>scanning blocked applications...</span></span>",
