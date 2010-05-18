@@ -12,6 +12,13 @@ h1 {
     border-bottom: 1px solid #ccc;
 }
 
+h3 {
+    color: #999;
+    margin: 0px 0px 0px 0px;
+    font-size: 1.1em;
+    text-decoration: italic;
+}
+
 #logo {
     position: absolute;
     left: 0px;
@@ -96,4 +103,66 @@ ol li {
 
 .newsletter .message {
     margin-bottom: 10px;
+}
+
+.need-help {
+    font-size: 0.8em;
+    text-align: right;
+}
+
+.browser-walkthrough {
+    display: block;
+    list-style-type: none;
+}
+
+.browser-walkthrough li {
+    display: block;
+    float: left;
+    width: 100px;
+    height: 110px;
+    text-align: center;
+    border: 1px solid #999;
+    padding: 10px;
+    margin: 10px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -webkit-box-shadow: 1px 1px 4px #444;
+}
+
+.browser-walkthrough li.disabled {
+    border: 1px solid #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -webkit-box-shadow: 1px 1px 4px #ccc;
+}
+
+.browser-walkthrough .disabled img {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.browser-walkthrough .enabled .volunteers-needed {
+    display: none;
+}
+
+.browser-walkthrough .disabled .volunteers-needed {
+    display: block;
+    color: #999;
+    font-size: 9px;
+}
+
+
+.browser-walkthrough li a {
+    display: block;
+    text-decoration: none;
+}
+
+.browser-walkthrough li a .label {
+    display: block;
+    font-size: 10px;
+}
+
+.clearfix {
+    display: block;
+    clear: both;
 }

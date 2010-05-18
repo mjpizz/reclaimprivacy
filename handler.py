@@ -6,7 +6,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '10'
+VERSION = '11'
 
 
 class NewsletterEntry(db.Model):
@@ -43,7 +43,7 @@ class Facebook(webapp.RequestHandler):
 
         # build the memcache key we will use
         version = VERSION
-        memcache_key = 'page_content:%(version)s:%(is_iebrowser)s' % locals()
+        memcache_key = 'page_content:facebook:%(version)s:%(is_iebrowser)s' % locals()
 
         # try to get a cached page, and otherwise build the page
         page_content = memcache.get(memcache_key)
@@ -136,6 +136,11 @@ class Facebook(webapp.RequestHandler):
                     to hear about the latest updates.
                 </li>
             </ol>
+            <p class='need-help'>
+                <em>
+                    Having trouble? <a href='/help'>Check our help page</a> for tips and video walkthroughs.</a>
+                </em>
+            </p
         </p>
 
         <h1>Get Involved</h1>
@@ -186,10 +191,117 @@ class Facebook(webapp.RequestHandler):
         <div class='about-section'>
             <h2>about the author</h2>
             <p>
-                I am an an avid Javascript developer and co-founder at <a href='http://www.olark.com/'>Olark</a> (check it out!).  You
+                I am an avid Javascript developer and co-founder at <a href='http://www.olark.com/'>Olark</a> (check it out!).  You
                 can chat with me about ReclaimPrivacy.org on my <a href='http://www.mjpizz.com'>website</a>. 
             </p>
         </div>
+    </div>
+
+</body>
+</html>
+            ''' % locals()
+
+            # cache the page in memcache (only on the production servers)
+            if 'reclaimprivacy.org' in parts.hostname:
+                memcache.set(memcache_key, page_content)
+
+        # write the response
+        self.response.headers['Content-Type'] = 'text/html'
+        self.response.out.write(page_content)
+
+
+class Help(webapp.RequestHandler):
+    def get(self):
+
+        # build the memcache key we will use
+        version = VERSION
+        memcache_key = 'page_content:help:%(version)s' % locals()
+
+        # try to get a cached page, and otherwise build the page
+        page_content = memcache.get(memcache_key)
+        if not page_content:
+
+            page_content = '''
+<html>
+<head>
+    <title>ReclaimPrivacy.org | Facebook Privacy Scanner</title>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+</head>
+<body>
+
+    <div id='logo'>
+        <a href="http://www.reclaimprivacy.org"><img src='/images/logo.png' /></a>
+        <div>
+            <strong>ReclaimPrivacy</strong><span class='soft'>.org</span>
+        </div>
+        <div class='donation-box'>
+            <a href='http://www.pledgie.com/campaigns/10721'><img alt='Click here to lend your support to: reclaimprivacy and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/10721.png?skin_name=chrome' border='0' /></a>
+            <br/>
+            donations help us cover bandwidth costs,
+            <br/>even $5 or $10 helps
+        </div>
+    </div>
+
+    <div id='content'>
+        <h1>Video Walkthroughs</h1>
+        <p>
+            If you are having trouble setting up the privacy scanner, watch the video
+            walkthrough for your browser.
+            <ul class='browser-walkthrough'>
+                <li class='enabled for-windows'>
+                    <a href='http://www.youtube.com/watch?v=lVQga-m4aRk' title='Google Chrome Privacy Walkthrough Video' target='_blank'>
+                        <img src='/images/safari-logo.png' width='90' height='90' /><span class='label'>Chrome (Windows)</span>
+                        <span class='volunteers-needed'>volunteers needed!</span>
+                    </a>
+                </li>
+                <li class='enabled for-mac'>
+                    <a href='http://www.youtube.com/watch?v=lVQga-m4aRk' title='Google Chrome Privacy Walkthrough Video' target='_blank'>
+                        <img src='/images/safari-logo.png' width='90' height='90' /><span class='label'>Chrome (Mac)</span>
+                        <span class='volunteers-needed'>volunteers needed!</span>
+                    </a>
+                </li>
+                <li class='disabled for-mac'>
+                    <a href='#' title='Safari Privacy Walkthrough Video' onclick='return false;'>
+                        <img src='/images/ie-logo.png' width='90' height='90' /><span class='label'>Safari</span>
+                        <span class='volunteers-needed'>volunteers needed!</span>
+                    </a>
+                </li>
+                <li class='disabled for-windows'>
+                    <a href='#' title='Internet Explorer Privacy Walkthrough Video' onclick='return false;'>
+                        <img src='/images/ie-logo.png' width='90' height='90' /><span class='label'>Internet Explorer</span>
+                        <span class='volunteers-needed'>volunteers needed!</span>
+                    </a>
+                </li>
+                <li class='disabled for-mac'>
+                    <a href='#' title='Firefox (Mac) Explorer Privacy Walkthrough Video' onclick='return false;'>
+                        <img src='/images/ff-logo.png' width='90' height='89' /><span class='label'>Firefox (Mac)</span>
+                        <span class='volunteers-needed'>volunteers needed!</span>
+                    </a>
+                </li>
+                <li class='disabled for-windows'>
+                    <a href='#' title='Firefox (Windows) Explorer Privacy Walkthrough Video' onclick='return false;'>
+                        <img src='/images/ff-logo.png' width='90' height='89' /><span class='label'>Firefox (Windows)</span>
+                        <span class='volunteers-needed'>volunteers needed!</span>
+                    </a>
+                </li>
+            </ul>
+        </p>
+        <div class='clearfix'></div>
+        <h1>Frequently Asked Questions</h1>
+        <p>
+            Here are some of the questions that many people like you have asked:
+        </p>
+        <p>
+            <h3>How do I add the "Scan for Privacy" bookmark?</h3>
+            <p class='answer'>
+                You can either <strong>drag</strong> it to your bookmarks bar or <strong>right click it</strong> and
+                add it to your bookmarks/favorites.
+                <br/>
+                <br/>
+                Then just <a href='http://www.facebook.com/settings/?tab=privacy&ref=mb'>go to Facebook.com</a> privacy settings, and click that bookmark.
+            </p>
+        </p>
     </div>
 
 <!-- begin olark code -->
@@ -213,8 +325,10 @@ olark.extend(function(api){
 </html>
             ''' % locals()
 
-            # cache the page in memcache
-            memcache.set(memcache_key, page_content)
+            # cache the page in memcache (only on the production servers)
+            parts = urlparse.urlparse(self.request.url)
+            if 'reclaimprivacy.org' in parts.hostname:
+                memcache.set(memcache_key, page_content)
 
         # write the response
         self.response.headers['Content-Type'] = 'text/html'
@@ -224,6 +338,7 @@ olark.extend(function(api){
 application = webapp.WSGIApplication([
     ('/newsletter', Newsletter),
     ('/facebook', Facebook),
+    ('/help', Help),
     ('/', Facebook),
 ], debug=True)
 
