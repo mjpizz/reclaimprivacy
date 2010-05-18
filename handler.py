@@ -306,6 +306,7 @@ class Help(webapp.RequestHandler):
             <p class='answer'>
                 You can either <strong>drag</strong> it to your bookmarks bar or <strong>right click it</strong> and
                 add it to your bookmarks/favorites.
+            </p>
             <p class='answer'>
                 <em class='soft'>this grey box is the bookmark:</em>
                 <strong>
@@ -318,6 +319,47 @@ class Help(webapp.RequestHandler):
                 <strong>Once you are on Facebook</strong>, you should click that bookmark.
             </p>
         </p>
+        <p>
+            <h3>I can't drag the "Scan for Privacy" bookmark, what can I do?</h3>
+            <p class='answer'>
+                <strong>If you are using Safari or Chrome</strong>: click "View...Show Bookmarks Bar", and then you will be able to drag the link into it.
+            </p>
+            <p class='answer'>
+                <strong>If you are using Internet Explorer</strong>: right-click the grey bookmark button, and click "Add to Favorites".
+            </p>
+        </p>
+        <p>
+            <h3>Why does the bookmark take me back to ReclaimPrivacy.org?</h3>
+            <p class='answer'>
+                You probably bookmarked the homepage, instead of bookmarking the
+                grey "Scan for Privacy" button. Make sure that you bookmark (or favorite) the grey button,
+                instead of the page.
+            </p>
+            <p class='answer'>
+                <em class='soft'>this grey box is the bookmark:</em>
+                <strong>
+                    <a class='bookmarklet' title="Scan for Privacy" href="javascript:(function(){var%%20script=document.createElement('script');script.src='http://%(bookmarklet_host)s/javascripts/privacyscanner.js';document.getElementsByTagName('head')[0].appendChild(script);})()">Scan for Privacy</a>
+                </strong>
+            </p>
+        </p>
+        <p>
+            <h3>Some of the settings never get fixed, what can I do?</h3>
+            <p class='answer'>
+                Sometimes the automatic fixes have trouble working, but the scan
+                will <strong>always have a link</strong> to the right page in your privacy settings.  That
+                way you can always go and fix that privacy setting yourself, even
+                when the scanner cannot automatically fix it.
+            </p>
+        </p>
+        <p>
+            <h3>Why is the scanner stuck on the 2nd and 4th lines?</h3>
+            <p class='answer'>
+                We are currently working on fixing <a href='http://github.com/mjpizz/reclaimprivacy/issues#issue/2'>this bug</a> (if you are a programmer
+                and can help, let me know).  The easiest thing to do in the
+                meantime is to use Chrome, Internet Explorer, or Safari (those browsers work a bit better).
+            </p>
+        </p>
+
         <div class='go-to-discussions'>
             <em>
                 If you still have trouble, you should
