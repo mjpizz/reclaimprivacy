@@ -1,6 +1,6 @@
 body {
     position: relative;
-    font-family: "Lucida Sans", Helvetica, Arial, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     margin: 30px auto 0px auto;
     width: 820px;
 }
@@ -182,3 +182,78 @@ ol li {
     color: #A71914;
     font-style: italic;
 }
+
+.press-links {
+    margin-top: 55px;
+    text-align: center;
+}
+
+.press-links .message {
+    color: #999;
+    display: block;
+    font-size: 9pt;
+    margin-bottom: 5px;
+    font-style: italic;
+}
+
+.press-links a {
+    display: block;
+    width: 110px;
+    margin: 0px auto 10px auto;
+    padding: 0px;
+}
+
+.press-links a span {
+    display: none;
+}
+
+#press-lifehacker {
+    height: 35px;
+    background-image: url('../images/lifehacker-logo.png');
+    background-position: 111 0;
+}
+
+#press-lifehacker:hover {
+    background-position: 0 0;
+}
+
+#press-wired {
+    height: 22px;
+    background-image: url('../images/wired-logo.png');
+    background-position: 110 0;
+}
+
+#press-wired:hover {
+    background-position: 0 0;
+}
+
+#press-wsj {
+    height: 18px;
+    background-image: url('../images/wsj-logo.png');
+    background-position: 110 0;
+}
+
+#press-wsj:hover {
+    background-position: 0 0;
+}
+
+#press-forbes {
+    height: 42px;
+    background-image: url('../images/forbes-logo.png');
+    background-position: 110 0;
+}
+
+#press-forbes:hover {
+    background-position: 0 0;
+}
+
+#press-venturebeat {
+    height: 19px;
+    background-image: url('../images/venturebeat-logo.png');
+    background-position: 110 0;
+}
+
+#press-venturebeat:hover {
+    background-position: 0 0;
+}
+

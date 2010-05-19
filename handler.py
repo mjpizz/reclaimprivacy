@@ -6,7 +6,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '21'
+VERSION = '22'
 
 
 class NewsletterEntry(db.Model):
@@ -95,6 +95,7 @@ class Facebook(webapp.RequestHandler):
                 step_two_instructions = "<a href='http://www.facebook.com/settings/?tab=privacy&ref=mb'>Go to your Facebook privacy settings</a> and then click that bookmark once you are on Facebook."
 
             # build the page HTML
+            leftbar_content = _get_leftbar_content()
             bookmarklet_host = bookmarklet_host.replace('www.reclaimprivacy.org', 'static.reclaimprivacy.org')
             page_content = '''
 <html>
@@ -106,16 +107,7 @@ class Facebook(webapp.RequestHandler):
 <body>
 
     <div id='logo'>
-        <a href="http://www.reclaimprivacy.org"><img src='/images/logo.png' /></a>
-        <div>
-            <strong>ReclaimPrivacy</strong><span class='soft'>.org</span>
-        </div>
-        <div class='donation-box'>
-            <a href='http://www.pledgie.com/campaigns/10721'><img alt='Click here to lend your support to: reclaimprivacy and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/10721.png?skin_name=chrome' border='0' /></a>
-            <br/>
-            donations help us cover bandwidth costs,
-            <br/>even $5 or $10 helps
-        </div>
+        %(leftbar_content)s
     </div>
 
     <div id='content'>
@@ -279,6 +271,7 @@ class Help(webapp.RequestHandler):
                 bookmarklet_host = parts.hostname
 
             # render the page
+            leftbar_content = _get_leftbar_content()
             page_content = '''
 <html>
 <head>
@@ -289,16 +282,7 @@ class Help(webapp.RequestHandler):
 <body>
 
     <div id='logo'>
-        <a href="http://www.reclaimprivacy.org"><img src='/images/logo.png' /></a>
-        <div>
-            <strong>ReclaimPrivacy</strong><span class='soft'>.org</span>
-        </div>
-        <div class='donation-box'>
-            <a href='http://www.pledgie.com/campaigns/10721'><img alt='Click here to lend your support to: reclaimprivacy and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/10721.png?skin_name=chrome' border='0' /></a>
-            <br/>
-            donations help us cover bandwidth costs,
-            <br/>even $5 or $10 helps
-        </div>
+        %(leftbar_content)s
     </div>
 
     <div id='content'>
@@ -453,6 +437,27 @@ class Help(webapp.RequestHandler):
         self.response.headers['Content-Type'] = 'text/html'
         self.response.out.write(page_content)
 
+def _get_leftbar_content():
+    return '''
+        <a href="http://www.reclaimprivacy.org"><img src='/images/logo.png' /></a>
+        <div>
+            <strong>ReclaimPrivacy</strong><span class='soft'>.org</span>
+        </div>
+        <div class='donation-box'>
+            <a href='http://www.pledgie.com/campaigns/10721'><img alt='Click here to lend your support to: reclaimprivacy and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/10721.png?skin_name=chrome' border='0' /></a>
+            <br/>
+            donations help us cover bandwidth costs,
+            <br/>even $5 or $10 helps
+        </div>
+        <div class='press-links'>
+            <span class='message'>mentioned in...</span>
+            <a href='http://lifehacker.com/5540495/reclaimprivacy-bookmarklet-rates-your-facebook-exposure-levels' id='press-lifehacker' title='Lifehacker'><span>Lifehacker</span></a>
+            <a href='http://www.wired.com/epicenter/2010/05/facebook-transparency-tool/' id='press-wired' title='Wired Magazine'><span>Wired Magazine</span></a>
+            <a href='http://blogs.forbes.com/firewall/2010/05/17/facebook-scanner-helps-you-reclaim-your-privacy/' id='press-forbes' title='Forbes Firewall Blog'><span>Forbes Firewall Blog</span></a>
+            <a href='http://social.venturebeat.com/2010/05/17/reclaim-privacy/' id='press-venturebeat' title='Venturebeat'><span>Venturebeat</span></a>
+            <a href='http://blogs.wsj.com/digits/2010/05/19/facebook-privacy-concerns-prompt-new-sites/?mod=rss_WSJBlog' id='press-wsj' title='Wall Street Journal Blog'><span>Wall Street Journal Blog</span></a>
+        </div>
+'''
 
 application = webapp.WSGIApplication([
     ('/newsletter', Newsletter),
