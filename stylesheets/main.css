@@ -177,32 +177,3 @@ ol li {
     padding: 10px;
     margin: 50px 0px 80px 0px;
 }
-
-.app-mvp {
-    padding: 10px;
-    border: 1px solid #9C7018;
-    background-color: #FCF0BA;
-    margin-bottom: 15px;
-}
-
-.app-mvp h1 {
-    color: #9C7018;
-    border: none;
-}
-
-.app-mvp p {
-    color: #6A4C11;
-}
-
-.desktop-app {
-    background-color: #CDB25B;
-    padding: 10px;
-}
-
-.desktop-app label {
-    color: #7E5B15;
-}
-
-.desktop-app .message {
-    margin-bottom: 5px;
-}
