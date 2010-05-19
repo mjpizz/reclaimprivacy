@@ -240,7 +240,8 @@ class Facebook(webapp.RequestHandler):
             <h2>about the author</h2>
             <p>
                 I am an avid Javascript developer and co-founder at <a href='http://www.olark.com/'>Olark</a> (check it out!).  You
-                can chat with me about ReclaimPrivacy.org on the <a href='/help'>help page</a>.
+                can chat with me about ReclaimPrivacy.org on the <a href='/help'>help page</a>.  If you're with the press, please use
+                press@reclaimprivacy.org to reach me.
             </p>
         </div>
     </div>
