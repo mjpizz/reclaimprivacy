@@ -391,9 +391,9 @@ class Help(webapp.RequestHandler):
             <h1>Don't feel like dealing with browser complications?</h1>
             <p>
                 <strong>We are considering building a separate Desktop App</strong> that can
-                do the privacy scans automatically for you.  Since this service is beyond
-                the free bookmarklet service and will require
-                longer-term support, <strong>if there is enough interest, we would probably charge a small fee ($25 lifetime)</strong>
+                do the privacy scans automatically for you.  We would probably use this app as a way
+                to fund development and maintenance of the free bookmarklet version.
+                <strong>If there is enough interest, we would hopefully charge just a small fee ($25 lifetime)</strong>
                 for the Desktop App.
             </p>
             <p>
