@@ -341,28 +341,6 @@ class Help(webapp.RequestHandler):
             </p>
         </p>
 
-        <div class='app-mvp'>
-            <h1>Don't feel like dealing with browser complications?</h1>
-            <p>
-                <strong>We are considering building a separate Desktop App</strong> that can
-                do the privacy scans automatically for you.  Since this service is beyond
-                the free bookmarklet service and will require
-                longer-term support, <strong>if there is enough interest, we would probably charge a small fee ($25 lifetime)</strong>
-                for the Desktop App.
-            </p>
-            <p>
-                <form class='desktop-app' action='/desktop-app'>
-                    <div class='message'>
-                        <strong>If you are interested in a Desktop App for $25</strong>, leave us your email address and we will get
-                        back to you if there was enough interest.
-                    </div>
-                    <label for='email'>email:</label>
-                    <input type='text' name='email' />
-                    <input type='submit' value='tell me when the Desktop App is ready' />
-                </form>
-            </p>
-        </div>
-
         <h1>Video Walkthroughs</h1>
         <p>
             If you are having trouble setting up the privacy scanner, watch the video
@@ -408,6 +386,28 @@ class Help(webapp.RequestHandler):
         </p>
 
         <div class='clearfix'></div>
+
+        <div class='app-mvp'>
+            <h1>Don't feel like dealing with browser complications?</h1>
+            <p>
+                <strong>We are considering building a separate Desktop App</strong> that can
+                do the privacy scans automatically for you.  Since this service is beyond
+                the free bookmarklet service and will require
+                longer-term support, <strong>if there is enough interest, we would probably charge a small fee ($25 lifetime)</strong>
+                for the Desktop App.
+            </p>
+            <p>
+                <form class='desktop-app' action='/desktop-app'>
+                    <div class='message'>
+                        <strong>If you are interested in a Desktop App for $25</strong>, leave us your email address and we will get
+                        back to you if there was enough interest.
+                    </div>
+                    <label for='email'>email:</label>
+                    <input type='text' name='email' />
+                    <input type='submit' value='tell me when the Desktop App is ready' />
+                </form>
+            </p>
+        </div>
 
         <div class='go-to-discussions'>
             <em>
