@@ -428,24 +428,18 @@ class Help(webapp.RequestHandler):
     </div>
 
 <!-- begin olark code -->
-<script type='text/javascript'>
-(function(d,u){var h=d.location.protocol=='https:'?'https://':'http://';d.write(
-unescape("%%3Cscript src='"+h+u+"' type='text/javascript'%%3E%%3C/script%%3E"));
-})(document,'static.olark.com/javascript/olark.js');
+<script type="text/javascript">
+(function(){document.write(unescape('%%3Cscript src=\\'' + (document.location.protocol == 'https:' ? "https:" : "http:") + '//static.olark.com/js/wc.js\\' type=\\'text/javascript\\'%%3E%%3C/script%%3E'));})();
+</script><div id="olark-data"><a class="olark-key" id="olark-9122-608-10-8698" title="Powered by Olark" href="http://olark.com/about" rel="nofollow">Powered by Olark</a></div>
+<script type="text/javascript">
+(function(){
+    var conf = wc_config();
+    conf.vars.start_passive = 1;
+    conf.vars.force_nickname = 'reclaimprivacy #' + Math.floor(Math.random()*1000);
+    wc_init(null, conf);
+})();
 </script>
-<a href='http://olark.com/about' id='olark-key' class='site-9122-608-10-8698' style='display:none' rel='nofollow'>
-Powered by Olark
-</a>
 <!-- end olark code-->
-
-<script type='text/javascript'>
-olark.configure(function(conf){
-    conf.system.start_passive = true;
-});
-olark.extend(function(api){
-    api.chat.updateVisitorNickname({snippet: 'reclaimprivacy'})
-});
-</script>
 
 </body>
 </html>
