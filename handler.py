@@ -6,10 +6,15 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '13'
+VERSION = '14'
 
 
 class NewsletterEntry(db.Model):
+    email_address = db.StringProperty()
+    date = db.DateTimeProperty(auto_now_add=True)
+
+
+class DesktopAppEntry(db.Model):
     email_address = db.StringProperty()
     date = db.DateTimeProperty(auto_now_add=True)
 
@@ -21,7 +26,7 @@ class Newsletter(webapp.RequestHandler):
             try:
                 num_previous_entries = NewsletterEntry.gql('WHERE email_address = :1 LIMIT 1', email).count()
                 if num_previous_entries != 0:
-                    logging.error("already have email addres: %(email)s" % locals())
+                    logging.error("already have email address: %(email)s" % locals())
                 else:
                     entry = NewsletterEntry()
                     entry.email_address = email
@@ -31,6 +36,25 @@ class Newsletter(webapp.RequestHandler):
         else:
             logging.error('email not given')
         self.redirect('/')
+
+
+class DesktopApp(webapp.RequestHandler):
+    def get(self):
+        email = self.request.get('email')
+        if email:
+            try:
+                num_previous_entries = DesktopAppEntry.gql('WHERE email_address = :1 LIMIT 1', email).count()
+                if num_previous_entries != 0:
+                    logging.error("already have email address: %(email)s" % locals())
+                else:
+                    entry = DesktopAppEntry()
+                    entry.email_address = email
+                    entry.put()
+            except Exception, e:
+                logging.error('error adding email: ', e)
+        else:
+            logging.error('email not given')
+        self.redirect('/help')
 
 
 class Facebook(webapp.RequestHandler):
@@ -253,50 +277,7 @@ class Help(webapp.RequestHandler):
     </div>
 
     <div id='content'>
-        <h1>Video Walkthroughs</h1>
-        <p>
-            If you are having trouble setting up the privacy scanner, watch the video
-            walkthrough for your browser.
-            <ul class='browser-walkthrough'>
-                <li class='enabled for-windows'>
-                    <a href='http://www.youtube.com/watch?v=lVQga-m4aRk' title='Google Chrome Privacy Walkthrough Video' target='_blank'>
-                        <img src='/images/google-chrome-logo.png' width='90' height='87' /><span class='label'>Chrome (Windows)</span>
-                        <span class='volunteers-needed'>volunteers needed!</span>
-                    </a>
-                </li>
-                <li class='enabled for-mac'>
-                    <a href='http://www.youtube.com/watch?v=lVQga-m4aRk' title='Google Chrome Privacy Walkthrough Video' target='_blank'>
-                        <img src='/images/google-chrome-logo.png' width='90' height='87' /><span class='label'>Chrome (Mac)</span>
-                        <span class='volunteers-needed'>volunteers needed!</span>
-                    </a>
-                </li>
-                <li class='enabled for-mac'>
-                    <a href='http://www.youtube.com/watch?v=BsTF8vbi3ns' title='Safari Privacy Walkthrough Video' target='_blank'>
-                        <img src='/images/safari-logo.png' width='90' height='90' /><span class='label'>Safari</span>
-                        <span class='volunteers-needed'>volunteers needed!</span>
-                    </a>
-                </li>
-                <li class='disabled for-windows'>
-                    <a href='#' title='Internet Explorer Privacy Walkthrough Video' onclick='return false;'>
-                        <img src='/images/ie-logo.png' width='90' height='90' /><span class='label'>Internet Explorer</span>
-                        <span class='volunteers-needed'>volunteers needed!</span>
-                    </a>
-                </li>
-                <li class='disabled for-mac'>
-                    <a href='#' title='Firefox (Mac) Explorer Privacy Walkthrough Video' onclick='return false;'>
-                        <img src='/images/ff-logo.png' width='90' height='89' /><span class='label'>Firefox (Mac)</span>
-                        <span class='volunteers-needed'>volunteers needed!</span>
-                    </a>
-                </li>
-                <li class='disabled for-windows'>
-                    <a href='#' title='Firefox (Windows) Explorer Privacy Walkthrough Video' onclick='return false;'>
-                        <img src='/images/ff-logo.png' width='90' height='89' /><span class='label'>Firefox (Windows)</span>
-                        <span class='volunteers-needed'>volunteers needed!</span>
-                    </a>
-                </li>
-            </ul>
-        </p>
-        <div class='clearfix'></div>
+
         <h1>Frequently Asked Questions</h1>
         <p>
             <em>Here are some of the questions that many people like you have asked...</em>
@@ -360,6 +341,74 @@ class Help(webapp.RequestHandler):
             </p>
         </p>
 
+        <div class='app-mvp'>
+            <h1>Don't feel like dealing with browser complications?</h1>
+            <p>
+                <strong>We are considering building a separate Desktop App</strong> that can
+                do the privacy scans automatically for you.  Since this service is beyond
+                the free bookmarklet service and will require
+                longer-term support, <strong>if there is enough interest, we would probably charge a small fee ($25 lifetime)</strong>
+                for the Desktop App.
+            </p>
+            <p>
+                <form class='desktop-app' action='/desktop-app'>
+                    <div class='message'>
+                        <strong>If you are interested in a Desktop App for $25</strong>, leave us your email address and we will get
+                        back to you if there was enough interest.
+                    </div>
+                    <label for='email'>email:</label>
+                    <input type='text' name='email' />
+                    <input type='submit' value='tell me when the Desktop App is ready' />
+                </form>
+            </p>
+        </div>
+
+        <h1>Video Walkthroughs</h1>
+        <p>
+            If you are having trouble setting up the privacy scanner, watch the video
+            walkthrough for your browser.
+            <ul class='browser-walkthrough'>
+                <li class='enabled for-windows'>
+                    <a href='http://www.youtube.com/watch?v=lVQga-m4aRk' title='Google Chrome Privacy Walkthrough Video' target='_blank'>
+                        <img src='/images/google-chrome-logo.png' width='90' height='87' /><span class='label'>Chrome (Windows)</span>
+                        <span class='volunteers-needed'>volunteers needed!</span>
+                    </a>
+                </li>
+                <li class='enabled for-mac'>
+                    <a href='http://www.youtube.com/watch?v=lVQga-m4aRk' title='Google Chrome Privacy Walkthrough Video' target='_blank'>
+                        <img src='/images/google-chrome-logo.png' width='90' height='87' /><span class='label'>Chrome (Mac)</span>
+                        <span class='volunteers-needed'>volunteers needed!</span>
+                    </a>
+                </li>
+                <li class='enabled for-mac'>
+                    <a href='http://www.youtube.com/watch?v=BsTF8vbi3ns' title='Safari Privacy Walkthrough Video' target='_blank'>
+                        <img src='/images/safari-logo.png' width='90' height='90' /><span class='label'>Safari</span>
+                        <span class='volunteers-needed'>volunteers needed!</span>
+                    </a>
+                </li>
+                <li class='disabled for-windows'>
+                    <a href='#' title='Internet Explorer Privacy Walkthrough Video' onclick='return false;'>
+                        <img src='/images/ie-logo.png' width='90' height='90' /><span class='label'>Internet Explorer</span>
+                        <span class='volunteers-needed'>volunteers needed!</span>
+                    </a>
+                </li>
+                <li class='disabled for-mac'>
+                    <a href='#' title='Firefox (Mac) Explorer Privacy Walkthrough Video' onclick='return false;'>
+                        <img src='/images/ff-logo.png' width='90' height='89' /><span class='label'>Firefox (Mac)</span>
+                        <span class='volunteers-needed'>volunteers needed!</span>
+                    </a>
+                </li>
+                <li class='disabled for-windows'>
+                    <a href='#' title='Firefox (Windows) Explorer Privacy Walkthrough Video' onclick='return false;'>
+                        <img src='/images/ff-logo.png' width='90' height='89' /><span class='label'>Firefox (Windows)</span>
+                        <span class='volunteers-needed'>volunteers needed!</span>
+                    </a>
+                </li>
+            </ul>
+        </p>
+
+        <div class='clearfix'></div>
+
         <div class='go-to-discussions'>
             <em>
                 If you still have trouble, you should
@@ -369,6 +418,7 @@ class Help(webapp.RequestHandler):
                 other people there trying to help each other out.
             </em>
         </div>
+
     </div>
 
 <!-- begin olark code -->
@@ -383,6 +433,9 @@ Powered by Olark
 <!-- end olark code-->
 
 <script type='text/javascript'>
+olark.configure(function(conf){
+    conf.system.start_passive = true;
+});
 olark.extend(function(api){
     api.chat.updateVisitorNickname({snippet: 'reclaimprivacy'})
 });
@@ -403,6 +456,7 @@ olark.extend(function(api){
 
 application = webapp.WSGIApplication([
     ('/newsletter', Newsletter),
+    ('/desktop-app', DesktopApp),
     ('/facebook', Facebook),
     ('/help', Help),
     ('/', Facebook),
