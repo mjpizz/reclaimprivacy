@@ -198,7 +198,8 @@ class Facebook(webapp.RequestHandler):
             </p>
             <p>
                     <em>Are you a coder?</em> <a href='http://github.com/mjpizz/reclaimprivacy'>Contribute to the source code</a> and help to
-                    keep the privacy scanner up-to-date.
+                    keep the privacy scanner up-to-date.  You should <a href='http://www.nytimes.com/interactive/2010/05/12/business/facebook-privacy.html'>look at the settings</a>
+                    that we need to cover with this tool (provided by the NYTimes).
             </p>
         </p>
 
