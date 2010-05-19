@@ -197,7 +197,7 @@ class Facebook(webapp.RequestHandler):
                 </form>
             </p>
             <p>
-                    <em>Are you a coder?</em> Contribute to the <a href='http://github.com/mjpizz/reclaimprivacy'>source code</a> and help to
+                    <em>Are you a coder?</em> <a href='http://github.com/mjpizz/reclaimprivacy'>Contribute to the source code</a> and help to
                     keep the privacy scanner up-to-date.
             </p>
         </p>
@@ -210,6 +210,20 @@ class Facebook(webapp.RequestHandler):
                 <li>we <strong>never share</strong> your personal information</li>
             </ul>
             Simple.  The scanner operates entirely within your own browser.
+        </p>
+
+        <h1>Be Security Conscious</h1>
+        <p>
+            Please <strong>be safe</strong>.  Make sure you know that a link (like this)
+            or application (like those on Facebook) is <strong>trustworthy</strong> before
+            you install it.  We try to ensure a <strong>measure of accountability</strong> for our own link
+            by releasing all of our code (including this website itself) as open-source, and maintaining
+            good communication about important updates.
+        </p>
+        <p>
+            You should <strong>never</strong> use this link on a secure
+            website like your bank or any other financial institution.  Keep
+            in mind that those websites often have far more sensitive information than Facebook.
         </p>
         <p>
             <em>Statement of limitation of liability:</em>
