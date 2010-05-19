@@ -27,3 +27,4 @@ Known Issues (or, a Todo List)
 - the scanner for the dropdown settings is wonky sometimes in Firefox
 - "Re-scan" buttons don't work (need to click the bookmarklet instead)
 - Internet Explorer and Opera are not tested (only Safari 4 and FF3 have been tested)
+- need to ensure that this entire list of settings is covered: http://www.nytimes.com/interactive/2010/05/12/business/facebook-privacy.html
