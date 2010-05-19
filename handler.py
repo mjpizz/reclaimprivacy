@@ -6,7 +6,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '17'
+VERSION = '18'
 
 
 class NewsletterEntry(db.Model):
@@ -61,13 +61,15 @@ class Facebook(webapp.RequestHandler):
     def get(self):
         # detect MSIE
         if 'MSIE' in os.environ['HTTP_USER_AGENT']:
-            is_iebrowser = 1
+            browser = 'msie'
+        elif 'Opera' in os.environ['HTTP_USER_AGENT']:
+            browser = 'opera'
         else:
-            is_iebrowser = 0
+            browser = 'other'
 
         # build the memcache key we will use
         version = VERSION
-        memcache_key = 'page_content:facebook:%(version)s:%(is_iebrowser)s' % locals()
+        memcache_key = 'page_content:facebook:%(version)s:%(browser)s' % locals()
 
         # try to get a cached page, and otherwise build the page
         page_content = memcache.get(memcache_key)
@@ -82,8 +84,11 @@ class Facebook(webapp.RequestHandler):
                 bookmarklet_host = parts.hostname
 
             # we need to serve a different bookmarklet Javascript for MSIE
-            if is_iebrowser:
+            if browser == 'ie':
                 step_one_instructions = "Right-click this link and 'Add to Favorites'"
+                step_two_instructions = "<a href='http://www.facebook.com/settings/?tab=privacy&ref=mb'>Go to your Facebook privacy settings</a>, open your Favorites, and click the link called 'Scan for Privacy' once you are on Facebook"
+            elif browser == 'opera':
+                step_one_instructions = "Hold down the Shift key, then <strong>drag</strong> this link to your web browser bookmarks"
                 step_two_instructions = "<a href='http://www.facebook.com/settings/?tab=privacy&ref=mb'>Go to your Facebook privacy settings</a>, open your Favorites, and click the link called 'Scan for Privacy' once you are on Facebook"
             else:
                 step_one_instructions = "Drag this link to your web browser bookmarks bar"
@@ -307,6 +312,9 @@ class Help(webapp.RequestHandler):
             </p>
             <p class='answer'>
                 <strong>If you are using Internet Explorer</strong>: right-click the grey bookmark button, and click "Add to Favorites".
+            </p>
+            <p class='answer'>
+                <strong>If you are using Opera</strong>: make sure you hold down the Shift key before you start dragging.
             </p>
         </p>
         <p>
