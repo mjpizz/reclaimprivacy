@@ -6,7 +6,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '18'
+VERSION = '19'
 
 
 class NewsletterEntry(db.Model):
@@ -146,6 +146,10 @@ class Facebook(webapp.RequestHandler):
         <p>
             This website provides an <strong>independent</strong> and <strong>open</strong> tool for scanning
             your Facebook privacy settings.  <em>The <a href='http://github.com/mjpizz/reclaimprivacy'>source code</a> and its development will always remain open and transparent.</em>
+            <p class='alert'>
+                <strong>Note:</strong> we are still working on privacy scans for your photos and status updates.  The tool does <strong>not</strong> check these yet,
+                so stay tuned for updates!
+            </p>
             <ol class='instructions'>
                 <li>
                     %(step_one_instructions)s:
