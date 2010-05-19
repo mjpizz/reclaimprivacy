@@ -52,8 +52,10 @@ a img {
     font-size: 0.8em;
     background: #555;
     color: #eee;
+    border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
+    box-shadow: 1px 1px 4px #444;
     -webkit-box-shadow: 1px 1px 4px #444;
 }
 
@@ -127,15 +129,19 @@ ol li {
     border: 1px solid #999;
     padding: 10px;
     margin: 10px;
+    border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
+    box-shadow: 1px 1px 4px #444;
     -webkit-box-shadow: 1px 1px 4px #444;
 }
 
 .browser-walkthrough li.disabled {
     border: 1px solid #ccc;
+    border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
+    box-shadow: 1px 1px 4px #444;
     -webkit-box-shadow: 1px 1px 4px #ccc;
 }
 
