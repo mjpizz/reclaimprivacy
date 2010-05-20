@@ -193,6 +193,11 @@ ol li {
     font-style: italic;
 }
 
+.alert a {
+    color: #7D120F;
+    font-weight: bold;
+}
+
 .press-links {
     margin-top: 20px;
     text-align: center;
