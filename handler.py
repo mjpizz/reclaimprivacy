@@ -6,7 +6,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '26'
+VERSION = '28'
 
 
 class NewsletterEntry(db.Model):
@@ -441,6 +441,115 @@ class Help(webapp.RequestHandler):
         self.response.headers['Content-Type'] = 'text/html'
         self.response.out.write(page_content)
 
+
+class Donations(webapp.RequestHandler):
+    def get(self):
+
+        # build the memcache key we will use
+        version = VERSION
+        memcache_key = 'page_content:help:%(version)s' % locals()
+
+        # try to get a cached page, and otherwise build the page
+        page_content = memcache.get(memcache_key)
+        if not page_content:
+
+            # figure out the host name of this server (for serving the proper
+            # javascript bookmarklet)
+            parts = urlparse.urlparse(self.request.url)
+            if parts.port:
+                bookmarklet_host = parts.hostname + ':' + str(parts.port)
+            else:
+                bookmarklet_host = parts.hostname
+
+            # render the page
+            leftbar_content = _get_leftbar_content()
+            page_content = '''
+<html>
+<head>
+    <title>ReclaimPrivacy.org | Facebook Privacy Scanner</title>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+</head>
+<body>
+
+    <div id='logo'>
+        %(leftbar_content)s
+    </div>
+
+    <div id='content'>
+
+        <h1>How will donations be used?</h1>
+        <p>
+            In the spirit of transparency, all donation amounts will be made public,
+            and their allocation details will appear here.  These donations will be
+            used to fund the operations of ReclaimPrivacy.org, <strong>not for profit</strong>.
+        </p>
+        <p>
+            Current allocations for donations:
+            <ul>
+                <li>server costs (currently between $2 and $6 per day)</li>
+                <li>advertising costs (strictly to spread privacy awareness)</li>
+                <li>bounties to encourage creation of additional privacy scans</li>
+            </ul>
+            If you disagree with this policy, please email me at donations@reclaimprivacy.org
+        </p>
+
+        <h1>What has been raised so far?</h1>
+        <p>
+            As of Thursday, May 20th, the amount is about
+            <span class='donation-amount'>$2563</span>, donated by <span class='donation-people'>258 people</span>.
+        </p>
+        <p>
+            <em class='soft'>
+                Right now, Pledgie is not listing donors because the Paypal account
+                is delayed pending verification (donations don't clear until that happens, hopefully in 2 days).
+            </em>
+        </p>
+
+        <h1>How can I donate?</h1>
+        <p>
+            You can donate via this Pledgie link (Paypal is one of the options):
+            <br/>
+            <br/>
+            <a href='http://www.pledgie.com/campaigns/10721'><img alt='Click here to lend your support to: reclaimprivacy and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/10721.png?skin_name=chrome' border='0' width='149' height='37' /></a>
+        </p>
+
+        <h1>Can I donate to buy you a beer instead?</h1>
+        <p>
+            Yea...could really use one about now in fact.  I don't have a separate
+            donation button, but if you leave
+            a note on your donation marking it for personal use, I am happy to accept.
+        </p>
+
+    </div>
+
+<!-- begin olark code -->
+<script type="text/javascript">
+(function(){document.write(unescape('%%3Cscript src=\\'' + (document.location.protocol == 'https:' ? "https:" : "http:") + '//static.olark.com/js/wc.js\\' type=\\'text/javascript\\'%%3E%%3C/script%%3E'));})();
+</script><div id="olark-data"><a class="olark-key" id="olark-9122-608-10-8698" title="Powered by Olark" href="http://olark.com/about" rel="nofollow">Powered by Olark</a></div>
+<script type="text/javascript">
+(function(){
+    var conf = wc_config();
+    conf.vars.start_passive = 1;
+    conf.vars.force_nickname = 'reclaimprivacy #' + Math.floor(Math.random()*1000);
+    wc_init(null, conf);
+})();
+</script>
+<!-- end olark code-->
+
+</body>
+</html>
+            ''' % locals()
+
+            # cache the page in memcache (only on the production servers)
+            if 'reclaimprivacy.org' in parts.hostname:
+                memcache.set(memcache_key, page_content)
+
+        # write the response
+        self.response.headers['Content-Type'] = 'text/html'
+        self.response.out.write(page_content)
+
+
 def _get_leftbar_content():
     return '''
         <a href="http://www.reclaimprivacy.org"><img src='/images/logo.png' width='200' height='200' /></a>
@@ -448,10 +557,11 @@ def _get_leftbar_content():
             <strong>ReclaimPrivacy</strong><span class='soft'>.org</span>
         </div>
         <div class='donation-box'>
-            <a href='http://www.pledgie.com/campaigns/10721'><img alt='Click here to lend your support to: reclaimprivacy and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/10721.png?skin_name=chrome' border='0' /></a>
+            <a href='http://www.pledgie.com/campaigns/10721'><img alt='Click here to lend your support to: reclaimprivacy and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/10721.png?skin_name=chrome' border='0' width='149' height='37' /></a>
             <br/>
             donations help cover costs
-            <br/>even $5 or $10 helps
+            <br/>
+            <a class='soft' href='/donations'>how will donations be used?</a>
         </div>
         <div class='press-links'>
             <a href='http://lifehacker.com/5540495/reclaimprivacy-bookmarklet-rates-your-facebook-exposure-levels' id='press-lifehacker' title='Lifehacker'><span>Lifehacker</span></a>
@@ -468,6 +578,7 @@ application = webapp.WSGIApplication([
     ('/desktop-app', DesktopApp),
     ('/facebook', Facebook),
     ('/help', Help),
+    ('/donations', Donations),
     ('/', Facebook),
 ], debug=True)
 

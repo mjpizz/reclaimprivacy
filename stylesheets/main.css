@@ -34,6 +34,10 @@ h3 {
     color: #aaa;
 }
 
+a.soft:hover {
+    color: #777;
+}
+
 a {
     color: #3D528B;
 }
@@ -267,3 +271,14 @@ ol li {
     background-position: 0 0;
 }
 
+.donation-amount {
+    padding: 4px;
+    color: #66FF26;
+    background-color: #338013;
+}
+
+.donation-people {
+    padding: 4px;
+    color: #eee;
+    background: #777;
+}
