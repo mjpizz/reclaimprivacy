@@ -6,7 +6,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '24'
+VERSION = '26'
 
 
 class NewsletterEntry(db.Model):
@@ -388,8 +388,8 @@ class Help(webapp.RequestHandler):
                         <span class='volunteers-needed'>volunteers needed!</span>
                     </a>
                 </li>
-                <li class='disabled for-windows'>
-                    <a href='#' title='Firefox (Windows) Privacy Walkthrough Video' onclick='return false;'>
+                <li class='enabled for-windows'>
+                    <a href='http://www.youtube.com/watch?v=0_ICQbDwLs8' title='Firefox (Windows) Privacy Walkthrough Video' target='_blank'>
                         <img src='/images/ff-logo.png' width='90' height='89' /><span class='label'>Firefox (Windows)</span>
                         <span class='volunteers-needed'>volunteers needed!</span>
                     </a>
