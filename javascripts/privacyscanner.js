@@ -6284,7 +6284,7 @@ window.jQuery = window.$ = jQuery;
         "   <span class='soft'>from <a href='http://www.reclaimprivacy.org/facebook'>reclaimprivacy.org</a></span>",
         "   <span class='source'>",
         "       <span class='soft'>&nbsp;&nbsp;&nbsp;&nbsp;languages: </span>",
-        "       <span><a href='#' id='privacy-translation-english'>English</a> &middot; <a href='#' id='privacy-translation-german'>Deutsch</a></span>",
+        "       <span><a href='#' class='privacy-translation-english'>English</a> &middot; <a href='#' class='privacy-translation-german'>Deutsch</a></span>",
         "   </span>",
         "</div>",
 
@@ -6296,7 +6296,7 @@ window.jQuery = window.$ = jQuery;
         "<div class='scanners'>",
 
         // Instant Personalization scanner UI
-        "       <div id='scanner-instantpersonalization' class='state-inprogress'>",
+        "       <div class='state-inprogress scanner-instantpersonalization'>",
         "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;fixing&nbsp;&nbsp;</span>",
         "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scanning&nbsp;</span>",
         "           <span class='indicator insecure indicator-insecure'>&nbsp;insecure&nbsp;</span>",
@@ -6305,13 +6305,13 @@ window.jQuery = window.$ = jQuery;
 
         "           <span class='content inprogress'><span class='soft'>scanning Instant Personalization settings...</span></span>",
         "           <span class='content fixing'><span class='soft'>fixing Instant Personalization settings...</span></span>",
-        "           <span class='content insecure'><a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=instant_personalization'>Instant Personalization</a> is currently sharing personal information with non-Facebook websites. <a id='action-optoutinstantpersonalization' class='uiButton uiButtonConfirm' href='#'>Opt-out of Instant Personalization</a></span>",
-        "           <span class='content caution'><a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=instant_personalization'>Instant Personalization</a> is currently sharing personal information with non-Facebook websites. <a id='action-optoutinstantpersonalization' class='uiButton uiButtonConfirm' href='#'>Opt-out of Instant Personalization</a></span>",
+        "           <span class='content insecure'><a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=instant_personalization'>Instant Personalization</a> is currently sharing personal information with non-Facebook websites. <a class='action-optoutinstantpersonalization uiButton uiButtonConfirm' href='#'>Opt-out of Instant Personalization</a></span>",
+        "           <span class='content caution'><a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=instant_personalization'>Instant Personalization</a> is currently sharing personal information with non-Facebook websites. <a class='action-optoutinstantpersonalization uiButton uiButtonConfirm' href='#'>Opt-out of Instant Personalization</a></span>",
         "           <span class='content good'><span class='soft'>you are opted-out of the Instant Personalization feature</span></span>",
         "       </div>",
 
         // Personal Information scanner UI
-        "       <div id='scanner-personalinfo' class='state-inprogress'>",
+        "       <div class='scanner-personalinfo state-inprogress'>",
         "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;fixing&nbsp;&nbsp;</span>",
         "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scanning&nbsp;</span>",
         "           <span class='indicator insecure indicator-insecure'>&nbsp;insecure&nbsp;</span>",
@@ -6320,13 +6320,13 @@ window.jQuery = window.$ = jQuery;
 
         "           <span class='content inprogress'><span class='soft'>scanning personal information...</span></span>",
         "           <span class='content fixing'><span class='soft'>locking personal information to friends-only...</span></span>",
-        "           <span class='content insecure'>some of your personal information is exposed to the entire Internet, you should tweak <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>personal settings</a> and then <a id='privacy-rescan-personalinfo' class='uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
-        "           <span class='content caution'>some of your personal information is exposed to the entire Internet, you should tweak <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>personal settings</a> and then <a id='privacy-rescan-personalinfo' class='uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
+        "           <span class='content insecure'>some of your personal information is exposed to the entire Internet, you should tweak <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>personal settings</a> and then <a class='privacy-rescan-personalinfo uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
+        "           <span class='content caution'>some of your personal information is exposed to the entire Internet, you should tweak <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>personal settings</a> and then <a class='privacy-rescan-personalinfo uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
         "           <span class='content good'><span class='soft'>all of your personal information is at restricted to your friends or closer</span></span>",
         "       </div>",
 
         // Contact Information scanner UI
-        "       <div id='scanner-contactinfo' class='state-inprogress'>",
+        "       <div class='scanner-contactinfo state-inprogress'>",
         "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;fixing&nbsp;&nbsp;</span>",
         "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scanning&nbsp;</span>",
         "           <span class='indicator insecure indicator-insecure'>&nbsp;insecure&nbsp;</span>",
@@ -6335,13 +6335,13 @@ window.jQuery = window.$ = jQuery;
 
         "           <span class='content inprogress'><span class='soft'>scanning contact information...</span></span>",
         "           <span class='content fixing'><span class='soft'>locking contact information to friends-only...</span></span>",
-        "           <span class='content insecure'>some of your contact information is exposed to the entire Internet, you should tweak your <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>contact settings</a> and then <a id='privacy-rescan-contactinfo' class='uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
-        "           <span class='content caution'>some of your contact information is exposed to the entire Internet, you should tweak <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>contact settings</a> and then <a id='privacy-rescan-contactinfo' class='uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
+        "           <span class='content insecure'>some of your contact information is exposed to the entire Internet, you should tweak your <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>contact settings</a> and then <a class='privacy-rescan-contactinfo uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
+        "           <span class='content caution'>some of your contact information is exposed to the entire Internet, you should tweak <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>contact settings</a> and then <a class='privacy-rescan-contactinfo uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
         "           <span class='content good'><span class='soft'>all of your contact information is at restricted to your friends or closer</span></span>",
         "       </div>",
 
         // Friends/Tags/Connections Information scanner UI
-        "       <div id='scanner-friendstagsconnections' class='state-inprogress'>",
+        "       <div class='scanner-friendstagsconnections state-inprogress'>",
         "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;fixing&nbsp;&nbsp;</span>",
         "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scanning&nbsp;</span>",
         "           <span class='indicator insecure indicator-insecure'>&nbsp;insecure&nbsp;</span>",
@@ -6350,13 +6350,13 @@ window.jQuery = window.$ = jQuery;
 
         "           <span class='content inprogress'><span class='soft'>scanning friends, tags, and connections information...</span></span>",
         "           <span class='content fixing'><span class='soft'>locking friends, tags, and connections information to friends-only...</span></span>",
-        "           <span class='content insecure'>some of your friends, tags, and connections information is exposed to the entire Internet, you should tweak your <a href='http://www.facebook.com/settings/?tab=privacy&section=profile_display' target='_blank'>friends, tags, and connections settings</a> and then <a id='privacy-rescan-friendstagsconnections' class='uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
-        "           <span class='content caution'>some of your friends, tags, and connections information is exposed to the entire Internet, you should tweak <a href='http://www.facebook.com/settings/?tab=privacy&section=profile_display' target='_blank'>friends, tags, and connections settings</a> and then <a id='privacy-rescan-friendstagsconnections' class='uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
+        "           <span class='content insecure'>some of your friends, tags, and connections information is exposed to the entire Internet, you should tweak your <a href='http://www.facebook.com/settings/?tab=privacy&section=profile_display' target='_blank'>friends, tags, and connections settings</a> and then <a class='privacy-rescan-friendstagsconnections uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
+        "           <span class='content caution'>some of your friends, tags, and connections information is exposed to the entire Internet, you should tweak <a href='http://www.facebook.com/settings/?tab=privacy&section=profile_display' target='_blank'>friends, tags, and connections settings</a> and then <a class='privacy-rescan-friendstagsconnections uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
         "           <span class='content good'><span class='soft'>all of your friends, tags, and connections information is at restricted to your friends or closer</span></span>",
         "       </div>",
 
         // Friend Sharing scanner UI
-        "       <div id='scanner-friendsharing' class='state-inprogress'>",
+        "       <div class='scanner-friendsharing state-inprogress'>",
         "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;fixing&nbsp;&nbsp;</span>",
         "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scanning&nbsp;</span>",
         "           <span class='indicator insecure indicator-insecure'>&nbsp;insecure&nbsp;</span>",
@@ -6365,13 +6365,13 @@ window.jQuery = window.$ = jQuery;
 
         "           <span class='content inprogress'><span class='soft'>scanning friendship sharing settings...</span></span>",
         "           <span class='content fixing'><span class='soft'>fixing friendship sharing settings...</span></span>",
-        "           <span class='content insecure'>your friends can <a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=friends_share'>accidentally share</a> your personal information. <a id='action-disablefriendsharing' class='uiButton uiButtonConfirm' href='#'>Prevent friends from sharing your data</a></span>",
-        "           <span class='content caution'>your friends can <a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=friends_share'>accidentally share</a> your personal information. <a id='action-disablefriendsharing' class='uiButton uiButtonConfirm' href='#'>Prevent friends from sharing your data</a></span>",
+        "           <span class='content insecure'>your friends can <a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=friends_share'>accidentally share</a> your personal information. <a class='action-disablefriendsharing uiButton uiButtonConfirm' href='#'>Prevent friends from sharing your data</a></span>",
+        "           <span class='content caution'>your friends can <a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=friends_share'>accidentally share</a> your personal information. <a class='action-disablefriendsharing uiButton uiButtonConfirm' href='#'>Prevent friends from sharing your data</a></span>",
         "           <span class='content good'><span class='soft'>your friends are protected from accidentally sharing your personal information</span></span>",
         "       </div>",
 
         // Blocked Apps scanner UI
-        "       <div id='scanner-blockedapps' class='state-inprogress'>",
+        "       <div class='scanner-blockedapps state-inprogress'>",
         "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;fixing&nbsp;&nbsp;</span>",
         "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scanning&nbsp;</span>",
         "           <span class='indicator insecure indicator-insecure'>&nbsp;insecure&nbsp;</span>",
@@ -6380,8 +6380,8 @@ window.jQuery = window.$ = jQuery;
 
         "           <span class='content inprogress'><span class='soft'>scanning blocked applications...</span></span>",
         "           <span class='content fixing'><span class='soft'>blocking applications...</span></span>",
-        "           <span class='content insecure'>certain websites can automatically access personal information. <a id='action-blockdocs' class='uiButton uiButtonConfirm' href='#'>Block Microsoft Docs</a>, <a id='action-blockpandora' class='uiButton uiButtonConfirm' href='#'>Block Pandora</a>, and<a id='action-blockyelp' class='uiButton uiButtonConfirm' href='#'>Block Yelp</a>.</span>",
-        "           <span class='content caution'>certain websites can automatically access personal information. <a id='action-blockdocs' class='uiButton uiButtonConfirm' href='#'>Block Microsoft Docs</a>, <a id='action-blockpandora' class='uiButton uiButtonConfirm' href='#'>Block Pandora</a>, and<a id='action-blockyelp' class='uiButton uiButtonConfirm' href='#'>Block Yelp</a>.</span>",
+        "           <span class='content insecure'>certain websites can automatically access personal information. <a class='action-blockdocs uiButton uiButtonConfirm' href='#'>Block Microsoft Docs</a>, <a class='action-blockpandora uiButton uiButtonConfirm' href='#'>Block Pandora</a>, and<a class='action-blockyelp uiButton uiButtonConfirm' href='#'>Block Yelp</a>.</span>",
+        "           <span class='content caution'>certain websites can automatically access personal information. <a class='action-blockdocs uiButton uiButtonConfirm' href='#'>Block Microsoft Docs</a>, <a class='action-blockpandora uiButton uiButtonConfirm' href='#'>Block Pandora</a>, and<a class='action-blockyelp uiButton uiButtonConfirm' href='#'>Block Yelp</a>.</span>",
         "           <span class='content good'><span class='soft'>you have blocked all known applications that could leak your personal information</span></span>",
         "       </div>",
 
@@ -6390,10 +6390,10 @@ window.jQuery = window.$ = jQuery;
         "<div class='privacy-scanner-footer'>",
         "   tell your friends to protect their privacy too",
         '   <a name="fb_share" type="button_count" share_url="http://www.reclaimprivacy.org/facebook" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>',
-        "   <a id='close-privacy-scanner' class='uiButton uiButtonConfirm' href='#'>done</a>",
+        "   <a class='close-privacy-scanner uiButton uiButtonConfirm' href='#'>done</a>",
         "</div>",
 
-        "<div id='privacy-scanner-status'>working...</div>",
+        "<div class='privacy-scanner-status'>working...</div>",
 
         ""
     ].join('');
@@ -6412,19 +6412,19 @@ window.jQuery = window.$ = jQuery;
         " <span class='soft'>von <a href='http://www.reclaimprivacy.org/facebook'>reclaimprivacy.org</a></span>",
         " <span class='source'>",
         " <span class='soft'>&nbsp;&nbsp;&nbsp;&nbsp;&Uuml;bersetzungen: </span>",
-        " <span><a href='#' id='privacy-translation-english'>English</a> &middot; <a href='#' id='privacy-translation-german'>Deutsch</a></span>",
+        " <span><a href='#' class='privacy-translation-english'>English</a> &middot; <a href='#' class='privacy-translation-german'>Deutsch</a></span>",
         " </span>",
         "</div>",
 
         "<div class='wrongdomain-splash'>",
-        " Um den Datenschutz-Scanner zu nutzen, musst du auf <a href='http://www.facebook.com'>Facebook</a> angemeldet sein.",
+        " Um den Datenschutz-Scanner zu nutzen, musst du auf <a href='http://www.facebook.com/settings/?tab=privacy&ref=mb'>Facebook</a> angemeldet sein.",
         " <a class='close' href='#'>x</a>",
         "</div>",
 
         "<div class='scanners'>",
 
         // Instant Personalization scanner UI
-        " <div id='scanner-instantpersonalization' class='state-inprogress'>",
+        " <div class='scanner-instantpersonalization state-inprogress'>",
         " <span class='indicator fixing indicator-fixing'>&nbsp;repariert&nbsp;</span>",
         " <span class='indicator inprogress indicator-inprogress'>&nbsp;&nbsp;&nbsp;pr&uuml;ft&nbsp;&nbsp;&nbsp;</span>",
         " <span class='indicator insecure indicator-insecure'>&nbsp;unsicher&nbsp;&nbsp;</span>",
@@ -6433,13 +6433,13 @@ window.jQuery = window.$ = jQuery;
 
         " <span class='content inprogress'><span class='soft'>pr&uuml;ft die Umgehende Personalisierung Einstellungen...</span></span>",
         " <span class='content fixing'><span class='soft'>repariert die Umgehende Personalisierung Einstellungen...</span></span>",
-        " <span class='content insecure'><a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=instant_personalization'>Umgehende Personalisierung</a> teilt momentan pers&ouml;nliche Informationen mit fremden Webseiten. <a id='action-optoutinstantpersonalization' class='uiButton uiButtonConfirm' href='#'>Umgehende Personalisierung ausschalten</a></span>",
-        " <span class='content caution'><a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=instant_personalization'>Umgehende Personalisierung</a> teilt momentan pers&ouml;nliche Informationen mit fremden Webseiten. <a id='action-optoutinstantpersonalization' class='uiButton uiButtonConfirm' href='#'>Umgehende Personalisierung ausschalten</a></span>",
+        " <span class='content insecure'><a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=instant_personalization'>Umgehende Personalisierung</a> teilt momentan pers&ouml;nliche Informationen mit fremden Webseiten. <a class='action-optoutinstantpersonalization uiButton uiButtonConfirm' href='#'>Umgehende Personalisierung ausschalten</a></span>",
+        " <span class='content caution'><a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=instant_personalization'>Umgehende Personalisierung</a> teilt momentan pers&ouml;nliche Informationen mit fremden Webseiten. <a class='action-optoutinstantpersonalization uiButton uiButtonConfirm' href='#'>Umgehende Personalisierung ausschalten</a></span>",
         " <span class='content good'><span class='soft'>Umgehende Personalisierung ist ausgeschaltet</span></span>",
         " </div>",
 
         // Personal Information scanner UI
-        " <div id='scanner-personalinfo' class='state-inprogress'>",
+        " <div class='scanner-personalinfo state-inprogress'>",
         " <span class='indicator fixing indicator-fixing'>&nbsp;repariert&nbsp;</span>",
         " <span class='indicator inprogress indicator-inprogress'>&nbsp;&nbsp;&nbsp;pr&uuml;ft&nbsp;&nbsp;&nbsp;</span>",
         " <span class='indicator insecure indicator-insecure'>&nbsp;unsicher&nbsp;&nbsp;</span>",
@@ -6448,13 +6448,13 @@ window.jQuery = window.$ = jQuery;
 
         " <span class='content inprogress'><span class='soft'>pr&uuml;ft die pers&ouml;nlichen Informationen</span></span>",
         " <span class='content fixing'><span class='soft'>macht die pers&ouml;nlichen Informationen nur f&uuml;r Freunde sichtbar...</span></span>",
-        " <span class='content insecure'>einige deiner pers&ouml;nlichen Informationen sind f&uuml;r das ganze Internet sichtbar, du solltest die <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>pers&ouml;nlichen Einstellungen</a> optimieren und dann <a id='privacy-rescan-personalinfo' class='uiButton uiButtonConfirm' href='#'>neu scannen</a></span>",
-        " <span class='content caution'>einige deiner pers&ouml;nlichen Informationen sind f&uuml;r das ganze Internet sichtbar, du solltest die <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>pers&ouml;nlichen Einstellungen</a> optimieren und dann <a id='privacy-rescan-personalinfo' class='uiButton uiButtonConfirm' href='#'>neu scannen</a></span>",
+        " <span class='content insecure'>einige deiner pers&ouml;nlichen Informationen sind f&uuml;r das ganze Internet sichtbar, du solltest die <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>pers&ouml;nlichen Einstellungen</a> optimieren und dann <a class='privacy-rescan-personalinfo uiButton uiButtonConfirm' href='#'>neu scannen</a></span>",
+        " <span class='content caution'>einige deiner pers&ouml;nlichen Informationen sind f&uuml;r das ganze Internet sichtbar, du solltest die <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>pers&ouml;nlichen Einstellungen</a> optimieren und dann <a class='privacy-rescan-personalinfo uiButton uiButtonConfirm' href='#'>neu scannen</a></span>",
         " <span class='content good'><span class='soft'>alle deine pers&ouml;nlichen Informationen sind h&ouml;chstens f&uuml;r Freunde sichtbar</span></span>",
         " </div>",
 
         // Contact Information scanner UI
-        " <div id='scanner-contactinfo' class='state-inprogress'>",
+        " <div class='scanner-contactinfo state-inprogress'>",
         " <span class='indicator fixing indicator-fixing'>&nbsp;repariert&nbsp;</span>",
         " <span class='indicator inprogress indicator-inprogress'>&nbsp;&nbsp;&nbsp;pr&uuml;ft&nbsp;&nbsp;&nbsp;</span>",
         " <span class='indicator insecure indicator-insecure'>&nbsp;unsicher&nbsp;&nbsp;</span>",
@@ -6463,13 +6463,13 @@ window.jQuery = window.$ = jQuery;
 
         " <span class='content inprogress'><span class='soft'>pr&uuml;ft die Kontaktinformationen...</span></span>",
         " <span class='content fixing'><span class='soft'>macht die Kontaktinformationen nur f&uuml;r Freunde sichtbar...</span></span>",
-        " <span class='content insecure'>einige deiner Kontaktinformationen sind f&uuml;r das ganze Internet sichtbar, du solltest die <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>Kontaktinformationen</a> optimieren und dann <a id='privacy-rescan-contactinfo' class='uiButton uiButtonConfirm' href='#'>neu scannen</a></span>",
-        " <span class='content caution'>einige deiner Kontaktinformationen sind f&uuml;r das ganze Internet sichtbar, du solltest die <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>Kontaktinformationen</a> optimieren und dann <a id='privacy-rescan-contactinfo' class='uiButton uiButtonConfirm' href='#'>neu scannen</a></span>",
+        " <span class='content insecure'>einige deiner Kontaktinformationen sind f&uuml;r das ganze Internet sichtbar, du solltest die <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>Kontaktinformationen</a> optimieren und dann <a class='privacy-rescan-contactinfo uiButton uiButtonConfirm' href='#'>neu scannen</a></span>",
+        " <span class='content caution'>einige deiner Kontaktinformationen sind f&uuml;r das ganze Internet sichtbar, du solltest die <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>Kontaktinformationen</a> optimieren und dann <a class='privacy-rescan-contactinfo uiButton uiButtonConfirm' href='#'>neu scannen</a></span>",
         " <span class='content good'><span class='soft'>alle deine Kontaktinformationen sind h&ouml;chstens f&uuml;r Freunde sichtbar</span></span>",
         " </div>",
 
         // Friends/Tags/Connections Information scanner UI
-        " <div id='scanner-friendstagsconnections' class='state-inprogress'>",
+        " <div class='scanner-friendstagsconnections state-inprogress'>",
         " <span class='indicator fixing indicator-fixing'>&nbsp;repariert&nbsp;</span>",
         " <span class='indicator inprogress indicator-inprogress'>&nbsp;&nbsp;&nbsp;pr&uuml;ft&nbsp;&nbsp;&nbsp;</span>",
         " <span class='indicator insecure indicator-insecure'>&nbsp;unsicher&nbsp;&nbsp;</span>",
@@ -6478,13 +6478,13 @@ window.jQuery = window.$ = jQuery;
 
         " <span class='content inprogress'><span class='soft'>pr&uuml;ft Freunde, Markierungen und Verbindungen...</span></span>",
         " <span class='content fixing'><span class='soft'>macht Freunde, Markierungen und Verbindungen nur f&uuml;r Freunde sichtbar...</span></span>",
-        " <span class='content insecure'>einige deiner Freunde, Markierungen und Verbindungen sind f&uuml;r das ganze Internet sichtbar, du solltest die <a href='http://www.facebook.com/settings/?tab=privacy&section=profile_display' target='_blank'>Freunde, Markierungen und Verbindungen Einstellungen</a> optimieren und dann <a id='privacy-rescan-friendstagsconnections' class='uiButton uiButtonConfirm' href='#'>neu scannen</a></span>",
-        " <span class='content caution'>einige deiner Freunde, Markierungen und Verbindungen sind f&uuml;r das ganze Internet sichtbar, du solltest die <a href='http://www.facebook.com/settings/?tab=privacy&section=profile_display' target='_blank'>Freunde, Markierungen und Verbindungen Einstellungen</a> optimieren und dann <a id='privacy-rescan-friendstagsconnections' class='uiButton uiButtonConfirm' href='#'>neu scannen</a></span>",
+        " <span class='content insecure'>einige deiner Freunde, Markierungen und Verbindungen sind f&uuml;r das ganze Internet sichtbar, du solltest die <a href='http://www.facebook.com/settings/?tab=privacy&section=profile_display' target='_blank'>Freunde, Markierungen und Verbindungen Einstellungen</a> optimieren und dann <a class='privacy-rescan-friendstagsconnections uiButton uiButtonConfirm' href='#'>neu scannen</a></span>",
+        " <span class='content caution'>einige deiner Freunde, Markierungen und Verbindungen sind f&uuml;r das ganze Internet sichtbar, du solltest die <a href='http://www.facebook.com/settings/?tab=privacy&section=profile_display' target='_blank'>Freunde, Markierungen und Verbindungen Einstellungen</a> optimieren und dann <a class='privacy-rescan-friendstagsconnections uiButton uiButtonConfirm' href='#'>neu scannen</a></span>",
         " <span class='content good'><span class='soft'>alle deine Freunde, Markierungen und Verbindungen sind h&ouml;chstens f&uuml;r Freunde sichtbar</span></span>",
         " </div>",
 
         // Friend Sharing scanner UI
-        " <div id='scanner-friendsharing' class='state-inprogress'>",
+        " <div class='scanner-friendsharing state-inprogress'>",
         " <span class='indicator fixing indicator-fixing'>&nbsp;repariert&nbsp;</span>",
         " <span class='indicator inprogress indicator-inprogress'>&nbsp;&nbsp;&nbsp;pr&uuml;ft&nbsp;&nbsp;&nbsp;</span>",
         " <span class='indicator insecure indicator-insecure'>&nbsp;unsicher&nbsp;&nbsp;</span>",
@@ -6493,13 +6493,13 @@ window.jQuery = window.$ = jQuery;
 
         " <span class='content inprogress'><span class='soft'>pr&uuml;ft, ob Freunde deine Daten weitergeben k&ouml;nnen...</span></span>",
         " <span class='content fixing'><span class='soft'>&auml;ndert die Einstellungen...</span></span>",
-        " <span class='content insecure'>Freunde k&ouml;nnten <a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=friends_share'>versehentlich</a> pers&ouml;nliche Informationen weitergeben. <a id='action-disablefriendsharing' class='uiButton uiButtonConfirm' href='#'>Hindere sie daran</a></span>",
-        " <span class='content caution'>Freunde k&ouml;nnten <a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=friends_share'>versehentlich</a> pers&ouml;nliche Informationen weitergeben. <a id='action-disablefriendsharing' class='uiButton uiButtonConfirm' href='#'>Hindere sie daran</a></span>",
+        " <span class='content insecure'>Freunde k&ouml;nnten <a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=friends_share'>versehentlich</a> pers&ouml;nliche Informationen weitergeben. <a class='action-disablefriendsharing uiButton uiButtonConfirm' href='#'>Hindere sie daran</a></span>",
+        " <span class='content caution'>Freunde k&ouml;nnten <a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=friends_share'>versehentlich</a> pers&ouml;nliche Informationen weitergeben. <a class='action-disablefriendsharing uiButton uiButtonConfirm' href='#'>Hindere sie daran</a></span>",
         " <span class='content good'><span class='soft'>deine Freunde sind davor gesch&uuml;tzt, versehentlich deine pers&ouml;nlichen Daten weiterzugeben</span></span>",
         " </div>",
 
         // Blocked Apps scanner UI
-        " <div id='scanner-blockedapps' class='state-inprogress'>",
+        " <div class='scanner-blockedapps state-inprogress'>",
         " <span class='indicator fixing indicator-fixing'>&nbsp;repariert&nbsp;</span>",
         " <span class='indicator inprogress indicator-inprogress'>&nbsp;&nbsp;&nbsp;pr&uuml;ft&nbsp;&nbsp;&nbsp;</span>",
         " <span class='indicator insecure indicator-insecure'>&nbsp;unsicher&nbsp;&nbsp;</span>",
@@ -6508,8 +6508,8 @@ window.jQuery = window.$ = jQuery;
 
         " <span class='content inprogress'><span class='soft'>pr&uuml;ft die blockierten Anwendungen...</span></span>",
         " <span class='content fixing'><span class='soft'>blockiert Anwendungen...</span></span>",
-        " <span class='content insecure'>bestimmte Webseiten k&ouml;nnen automatisch auf pers&ouml;nliche Informationen zugreifen. <a id='action-blockdocs' class='uiButton uiButtonConfirm' href='#'>blockiere Microsoft Docs</a>, <a id='action-blockpandora' class='uiButton uiButtonConfirm' href='#'>blockiere Pandora</a>, und<a id='action-blockyelp' class='uiButton uiButtonConfirm' href='#'>blockiere Yelp</a>.</span>",
-        " <span class='content caution'>bestimmte Webseiten k&ouml;nnen automatisch auf pers&ouml;nliche Informationen zugreifen. <a id='action-blockdocs' class='uiButton uiButtonConfirm' href='#'>blockiere Microsoft Docs</a>, <a id='action-blockpandora' class='uiButton uiButtonConfirm' href='#'>blockiere Pandora</a>, und<a id='action-blockyelp' class='uiButton uiButtonConfirm' href='#'>blockiere Yelp</a>.</span>",
+        " <span class='content insecure'>bestimmte Webseiten k&ouml;nnen automatisch auf pers&ouml;nliche Informationen zugreifen. <a class='action-blockdocs uiButton uiButtonConfirm' href='#'>blockiere Microsoft Docs</a>, <a class='action-blockpandora uiButton uiButtonConfirm' href='#'>blockiere Pandora</a>, und<a class='action-blockyelp uiButton uiButtonConfirm' href='#'>blockiere Yelp</a>.</span>",
+        " <span class='content caution'>bestimmte Webseiten k&ouml;nnen automatisch auf pers&ouml;nliche Informationen zugreifen. <a class='action-blockdocs uiButton uiButtonConfirm' href='#'>blockiere Microsoft Docs</a>, <a class='action-blockpandora uiButton uiButtonConfirm' href='#'>blockiere Pandora</a>, und<a class='action-blockyelp uiButton uiButtonConfirm' href='#'>blockiere Yelp</a>.</span>",
         " <span class='content good'><span class='soft'>du hast alle bekannten Anwendungen blockiert, die deine pers&ouml;nlichen Daten weitergeben k&ouml;nnten</span></span>",
         " </div>",
 
@@ -6518,10 +6518,10 @@ window.jQuery = window.$ = jQuery;
         "<div class='privacy-scanner-footer'>",
         " Deine Freunde sollten auch auf ihre Privatsph&auml;re achten: ",
         ' <a name="fb_share" type="button_count" share_url="http://www.reclaimprivacy.org/facebook" href="http://www.facebook.com/sharer.php">Teilen</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>',
-        " <a id='close-privacy-scanner' class='uiButton uiButtonConfirm' href='#'>schlie&szlig;en</a>",
+        " <a class='close-privacy-scanner uiButton uiButtonConfirm' href='#'>schlie&szlig;en</a>",
         "</div>",
 
-        "<div id='privacy-scanner-status'>arbeitet...</div>",
+        "<div class='privacy-scanner-status'>arbeitet...</div>",
 
         ""
     ].join('');
@@ -6554,11 +6554,11 @@ window.jQuery = window.$ = jQuery;
     // display/hide the interface
     var showPrivacyScannerInterface = function(){
         $('#globalContainer').addClass('globalContainer-shifted');
-        $('#privacy-scanner').addClass('privacy-scanner-shown');
+        $('.privacy-scanner').addClass('privacy-scanner-shown');
     };
     var hidePrivacyScannerInterface = function(){
         $('#globalContainer').removeClass('globalContainer-shifted');
-        $('#privacy-scanner').removeClass('privacy-scanner-shown');
+        $('.privacy-scanner').removeClass('privacy-scanner-shown');
     };
 
     // helper that builds the user interface
@@ -6568,7 +6568,7 @@ window.jQuery = window.$ = jQuery;
         stylingContent = [
 
             // position the privacy scanner bar at the top
-            "#privacy-scanner {",
+            ".privacy-scanner {",
             "   z-index: 99999 !important;",
             "   display: none;",
             "   position: fixed !important;",
@@ -6584,7 +6584,7 @@ window.jQuery = window.$ = jQuery;
             "}",
 
             // make the Facebook-blue titlebar (above the scanners) look nice
-            "#privacy-scanner .privacy-scanner-titlebar {",
+            ".privacy-scanner .privacy-scanner-titlebar {",
             "   background-color: #3B5998 !important;",
             "   color: white;",
             // "   border-bottom: 1px solid #081623 !important;",
@@ -6592,28 +6592,28 @@ window.jQuery = window.$ = jQuery;
             "   padding: 5px 5px 10px 5px !important;",
             "}",
 
-            "#privacy-scanner .privacy-scanner-titlebar h1 {",
+            ".privacy-scanner .privacy-scanner-titlebar h1 {",
             "   display: inline !important;",
             "   color: white !important;",
             "}",
 
-            "#privacy-scanner .privacy-scanner-titlebar .source {",
+            ".privacy-scanner .privacy-scanner-titlebar .source {",
             "   position: absolute !important;",
             "   top: 0px !important;",
             "   right: 0px !important;",
             "   padding: 8px !important;",
             "}",
 
-            "#privacy-scanner .privacy-scanner-titlebar .soft {",
+            ".privacy-scanner .privacy-scanner-titlebar .soft {",
             "   color: #748BD3 !important;",
             "}",
 
-            "#privacy-scanner .privacy-scanner-titlebar a {",
+            ".privacy-scanner .privacy-scanner-titlebar a {",
             "   color: #B4BFFF !important;",
             "}",
 
             // make the footer look small and unassuming
-            "#privacy-scanner .privacy-scanner-footer {",
+            ".privacy-scanner .privacy-scanner-footer {",
             "   position: absolute !important;",
             "   bottom: 0px !important;",
             "   right: 0px !important;",
@@ -6622,17 +6622,17 @@ window.jQuery = window.$ = jQuery;
             "}",
 
             // have a "softer" coloring for nonimportant text
-            "#privacy-scanner .soft {",
+            ".privacy-scanner .soft {",
             "   color: #aaa !important;",
             "}",
 
             // vertically center the "done" button
-            "#close-privacy-scanner {",
+            ".close-privacy-scanner {",
             "   margin-bottom: 2px;",
             "}",
 
             // style the "status" bar (the black bar that fades in/out)
-            "#privacy-scanner-status {",
+            ".privacy-scanner-status {",
             "   display: none !important;", // used !important to disable display of the status bar for now
             "   position: absolute !important;",
             "   left: 0px !important;",
@@ -6647,15 +6647,15 @@ window.jQuery = window.$ = jQuery;
             "   opacity: 0.85;",
             "}",
 
-            // when not running this on facebook, we style the #wrongdomain-splash div
-            "#privacy-scanner .wrongdomain-splash {",
+            // when not running this on facebook, we style the .wrongdomain-splash div
+            ".privacy-scanner .wrongdomain-splash {",
             "    padding: 50px 50px 0px 50px;",
             "    display: none;",
             "    font-size: 1.6em;",
             "    text-align: center;",
             "}",
 
-            "#privacy-scanner .wrongdomain-splash .close {",
+            ".privacy-scanner .wrongdomain-splash .close {",
             "   display: block;",
             "   position: absolute;",
             "   top: 5px;",
@@ -6669,13 +6669,13 @@ window.jQuery = window.$ = jQuery;
             "}",
 
             // the scanners container has some padding
-            "#privacy-scanner .scanners {",
+            ".privacy-scanner .scanners {",
             "   padding: 10px !important;",
             "}",
 
             // indicators are little boxes that read (on the left):
             // "good", "caution", "insecure", "scanning", "fixing"
-            "#privacy-scanner .indicator {",
+            ".privacy-scanner .indicator {",
             "   font-family: monospace !important;",
             "   font-style: italic !important;",
             "   padding: 1px 0px 1px 0px !important;",
@@ -6686,41 +6686,41 @@ window.jQuery = window.$ = jQuery;
 
             // tweak the Facebook uiButton a bit to look nicer on the lines
             // with the scanner details
-            "#privacy-scanner .scanners .uiButton {",
+            ".privacy-scanner .scanners .uiButton {",
             // "   margin-bottom: 0.5em !important;",
             "}",
 
-            "#privacy-scanner .source .uiButton {",
+            ".privacy-scanner .source .uiButton {",
             "   margin-bottom: 0.2em !important;",
             "}",
 
             // give distinct colors to each scanner indicator
             // ("good", "caution", "insecure", "scanning", "fixing")
-            "#privacy-scanner .indicator-good {",
+            ".privacy-scanner .indicator-good {",
             "   border: 1px solid #194109 !important;",
             "   background-color: #338013 !important;",
             "   color: #62FF25 !important;",
             "}",
 
-            "#privacy-scanner .indicator-caution {",
+            ".privacy-scanner .indicator-caution {",
             "   border: 1px solid #634A11 !important;",
             "   background-color: #9C7018 !important;",
             "   color: #FFB528 !important;",
             "}",
 
-            "#privacy-scanner .indicator-insecure {",
+            ".privacy-scanner .indicator-insecure {",
             "   border: 1px solid #69100D !important;",
             "   background-color: #AD1A14 !important;",
             "   color: #FF281F !important;",
             "}",
 
-            "#privacy-scanner .indicator-inprogress {",
+            ".privacy-scanner .indicator-inprogress {",
             "   border: 1px solid #0B1C2E !important;",
             "   background-color: #0F2439 !important;",
             "   color: #409FFF !important;",
             "}",
 
-            "#privacy-scanner .indicator-fixing {",
+            ".privacy-scanner .indicator-fixing {",
             "   border: 1px solid black !important;",
             "   background-color: #444 !important;",
             "   color: #ccc !important;",
@@ -6728,38 +6728,38 @@ window.jQuery = window.$ = jQuery;
 
             // make sure our scanner states only show the ACTIVE state, and
             // hide the INACTIVE state
-            "#privacy-scanner .state-inprogress .fixing,",
-            "#privacy-scanner .state-inprogress .insecure,",
-            "#privacy-scanner .state-inprogress .caution,",
-            "#privacy-scanner .state-inprogress .good {",
+            ".privacy-scanner .state-inprogress .fixing,",
+            ".privacy-scanner .state-inprogress .insecure,",
+            ".privacy-scanner .state-inprogress .caution,",
+            ".privacy-scanner .state-inprogress .good {",
             "   display: none !important",
             "}",
 
-            "#privacy-scanner .state-insecure .fixing,",
-            "#privacy-scanner .state-insecure .inprogress,",
-            "#privacy-scanner .state-insecure .caution,",
-            "#privacy-scanner .state-insecure .good {",
+            ".privacy-scanner .state-insecure .fixing,",
+            ".privacy-scanner .state-insecure .inprogress,",
+            ".privacy-scanner .state-insecure .caution,",
+            ".privacy-scanner .state-insecure .good {",
             "   display: none !important",
             "}",
 
-            "#privacy-scanner .state-caution .fixing,",
-            "#privacy-scanner .state-caution .inprogress,",
-            "#privacy-scanner .state-caution .insecure,",
-            "#privacy-scanner .state-caution .good {",
+            ".privacy-scanner .state-caution .fixing,",
+            ".privacy-scanner .state-caution .inprogress,",
+            ".privacy-scanner .state-caution .insecure,",
+            ".privacy-scanner .state-caution .good {",
             "   display: none !important",
             "}",
 
-            "#privacy-scanner .state-good .fixing,",
-            "#privacy-scanner .state-good .inprogress,",
-            "#privacy-scanner .state-good .insecure,",
-            "#privacy-scanner .state-good .caution {",
+            ".privacy-scanner .state-good .fixing,",
+            ".privacy-scanner .state-good .inprogress,",
+            ".privacy-scanner .state-good .insecure,",
+            ".privacy-scanner .state-good .caution {",
             "   display: none !important",
             "}",
 
-            "#privacy-scanner .state-fixing .inprogress,",
-            "#privacy-scanner .state-fixing .insecure,",
-            "#privacy-scanner .state-fixing .good,",
-            "#privacy-scanner .state-fixing .caution {",
+            ".privacy-scanner .state-fixing .inprogress,",
+            ".privacy-scanner .state-fixing .insecure,",
+            ".privacy-scanner .state-fixing .good,",
+            ".privacy-scanner .state-fixing .caution {",
             "   display: none !important",
             "}",
 
@@ -6786,10 +6786,10 @@ window.jQuery = window.$ = jQuery;
 
         // kill the scanners section when not being displayed on facebook
         if (!isOnFacebook()) {
-            stylingContent += "#privacy-scanner .wrongdomain-splash {display: block;}";
-            stylingContent += "#privacy-scanner .scanners {display: none;}";
-            stylingContent += "#privacy-scanner .privacy-scanner-titlebar {display: none;}";
-            stylingContent += "#privacy-scanner .privacy-scanner-footer {display: none;}";
+            stylingContent += ".privacy-scanner .wrongdomain-splash {display: block;}";
+            stylingContent += ".privacy-scanner .scanners {display: none;}";
+            stylingContent += ".privacy-scanner .privacy-scanner-titlebar {display: none;}";
+            stylingContent += ".privacy-scanner .privacy-scanner-footer {display: none;}";
         }
 
         // append our styling information into the <head> tag
@@ -6801,24 +6801,26 @@ window.jQuery = window.$ = jQuery;
             $(style).text(stylingContent);
         }
         $('head').append(style);
-        $('body').append($('<div id="privacy-scanner-padding"></div>'));
-        $('body').append($('<div id="privacy-scanner"></div>'));
+        $('body').append($('<div class="privacy-scanner-padding"></div>'));
+        $('body').append($('<div class="privacy-scanner"></div>'));
 
         // set the translation we will use (before we add in the DOM, avoiding interface "popping")
-        setInterfaceTranslation('english');
+        setInterfaceTranslation('german');
 
         // now we can set the translation DOM
         var translationsHtml = '';
         translationsHtml += '<div class="language-english">' + HTMLCONTENT['english'] + '</div>';
         translationsHtml += '<div class="language-german">' + HTMLCONTENT['german'] + '</div>';
-        $('#privacy-scanner').html(translationsHtml);
+        $('.privacy-scanner').html(translationsHtml);
     };
 
     // helper to set a translation
-    var previousLanguage = 'english';
+    var previousLanguage = null;
     var setInterfaceTranslation = function(newLanguage){
-        $('#privacy-scanner').removeClass('language-' + previousLanguage);
-        $('#privacy-scanner').addClass('language-' + newLanguage);
+        if (previousLanguage) {
+            $('.privacy-scanner').removeClass('language-' + previousLanguage);
+        }
+        $('.privacy-scanner').addClass('language-' + newLanguage);
         previousLanguage = newLanguage;
     };
 
@@ -7052,61 +7054,56 @@ window.jQuery = window.$ = jQuery;
 
         // helpers for changing scanner state
         var showScannerDomAsScanning = function(dom){
-            dom = $(dom[0]);
-            dom.removeClass('state-insecure');
-            dom.removeClass('state-good');
-            dom.addClass('state-inprogress');
-            dom.removeClass('state-caution');
-            dom.removeClass('state-fixing');
+            dom.each(function(){$(this).removeClass('state-insecure');});
+            dom.each(function(){$(this).removeClass('state-good');});
+            dom.each(function(){$(this).addClass('state-inprogress');});
+            dom.each(function(){$(this).removeClass('state-caution');});
+            dom.each(function(){$(this).removeClass('state-fixing');});
         };
         var showScannerDomAsGood = function(dom){
-            dom = $(dom[0]);
-            dom.removeClass('state-insecure');
-            dom.addClass('state-good');
-            dom.removeClass('state-inprogress');
-            dom.removeClass('state-caution');
-            dom.removeClass('state-fixing');
+            dom.each(function(){$(this).removeClass('state-insecure');});
+            dom.each(function(){$(this).addClass('state-good');});
+            dom.each(function(){$(this).removeClass('state-inprogress');});
+            dom.each(function(){$(this).removeClass('state-caution');});
+            dom.each(function(){$(this).removeClass('state-fixing');});
         };
         var showScannerDomAsInsecure = function(dom){
-            dom = $(dom[0]);
-            dom.addClass('state-insecure');
-            dom.removeClass('state-good');
-            dom.removeClass('state-inprogress');
-            dom.removeClass('state-caution');
-            dom.removeClass('state-fixing');
+            dom.each(function(){$(this).addClass('state-insecure');});
+            dom.each(function(){$(this).removeClass('state-good');});
+            dom.each(function(){$(this).removeClass('state-inprogress');});
+            dom.each(function(){$(this).removeClass('state-caution');});
+            dom.each(function(){$(this).removeClass('state-fixing');});
         };
         var showScannerDomAsCaution = function(dom){
-            dom = $(dom[0]);
-            dom.removeClass('state-insecure');
-            dom.removeClass('state-good');
-            dom.removeClass('state-inprogress');
-            dom.addClass('state-caution');
-            dom.removeClass('state-fixing');
+            dom.each(function(){$(this).removeClass('state-insecure');});
+            dom.each(function(){$(this).removeClass('state-good');});
+            dom.each(function(){$(this).removeClass('state-inprogress');});
+            dom.each(function(){$(this).addClass('state-caution');});
+            dom.each(function(){$(this).removeClass('state-fixing');});
         };
         var showScannerDomAsFixing = function(dom){
-            dom = $(dom[0]);
-            dom.removeClass('state-insecure');
-            dom.removeClass('state-good');
-            dom.removeClass('state-inprogress');
-            dom.removeClass('state-caution');
-            dom.addClass('state-fixing');
+            dom.each(function(){$(this).removeClass('state-insecure');});
+            dom.each(function(){$(this).removeClass('state-good');});
+            dom.each(function(){$(this).removeClass('state-inprogress');});
+            dom.each(function(){$(this).removeClass('state-caution');});
+            dom.each(function(){$(this).addClass('state-fixing');});
         };
 
         // shows we are fixing Instant Personalization
         c.showFixingInstantPersonalization = function(){
-            var scannerDom = $('#scanner-instantpersonalization');
+            var scannerDom = $('.scanner-instantpersonalization');
             showScannerDomAsFixing(scannerDom);
         };
 
         // shows we are fixing friendship leaks
         c.showFixingFriendSharing = function(){
-            var scannerDom = $('#scanner-friendsharing');
+            var scannerDom = $('.scanner-friendsharing');
             showScannerDomAsFixing(scannerDom);
         };
 
         // shows we are fixing Blocked Apps
         c.showFixingBlockedApps = function(){
-            var scannerDom = $('#scanner-blockedapps');
+            var scannerDom = $('.scanner-blockedapps');
             showScannerDomAsFixing(scannerDom);
         };
 
@@ -7122,7 +7119,7 @@ window.jQuery = window.$ = jQuery;
 
         // scans for Instant Personalization
         c.refreshInstantPersonalization = function(){
-            var scannerDom = $('#scanner-instantpersonalization');
+            var scannerDom = $('.scanner-instantpersonalization');
             showScannerDomAsScanning(scannerDom);
             scanningController.isInstantPersonalizationEnabled(function(yes){
                 if (yes) {
@@ -7135,7 +7132,7 @@ window.jQuery = window.$ = jQuery;
 
         // scans for friendship leaks
         c.refreshFriendSharing = function(){
-            var scannerDom = $('#scanner-friendsharing');
+            var scannerDom = $('.scanner-friendsharing');
             showScannerDomAsScanning(scannerDom);
             scanningController.isFriendSharingLoose(function(yes){
                 if (yes) {
@@ -7148,7 +7145,7 @@ window.jQuery = window.$ = jQuery;
 
         // scans for blocked applications
         c.refreshBlockedApps = function(){
-            var scannerDom = $('#scanner-blockedapps');
+            var scannerDom = $('.scanner-blockedapps');
             showScannerDomAsScanning(scannerDom);
             scanningController.getListOfBlockedApps(function(apps){
                 debug("blocked apps: ", apps);
@@ -7178,7 +7175,7 @@ window.jQuery = window.$ = jQuery;
 
         // scans for personal info privacy
         c.refreshPersonalInfoPrivacy = function(){
-            var scannerDom = $('#scanner-personalinfo');
+            var scannerDom = $('.scanner-personalinfo');
             showScannerDomAsScanning(scannerDom);
             scanningController.getPersonalInformationSettings(function(isSafe){
                 if (isSafe) {
@@ -7191,7 +7188,7 @@ window.jQuery = window.$ = jQuery;
 
         // scans for contact info privacy
         c.refreshContactInfoPrivacy = function(){
-            var scannerDom = $('#scanner-contactinfo');
+            var scannerDom = $('.scanner-contactinfo');
             showScannerDomAsScanning(scannerDom);
             scanningController.getContactInformationSettings(function(isSafe){
                 if (isSafe) {
@@ -7204,7 +7201,7 @@ window.jQuery = window.$ = jQuery;
 
         // scans for personal info + connections privacy
         c.refreshFriendsTagsConnectionsPrivacy = function(){
-            var scannerDom = $('#scanner-friendstagsconnections');
+            var scannerDom = $('.scanner-friendstagsconnections');
             showScannerDomAsScanning(scannerDom);
             scanningController.getFriendsTagsConnectionsSettings(function(isSafe){
                 if (isSafe) {
@@ -7224,7 +7221,7 @@ window.jQuery = window.$ = jQuery;
         var statusAreaIsDisplayed = false;
 
         c.updateStatusArea = function(message) {
-            var statusArea = $('#privacy-scanner-status');
+            var statusArea = $('.privacy-scanner-status');
             if (statusAreaIsDisplayed) {
                 statusArea.fadeOut(function(){
                     statusArea.text(message);
@@ -7239,7 +7236,7 @@ window.jQuery = window.$ = jQuery;
         };
 
         c.hideStatusArea = function(){
-            var statusArea = $('#privacy-scanner-status');
+            var statusArea = $('.privacy-scanner-status');
             if (statusAreaIsDisplayed) {
                 statusArea.fadeOut(function(){
                     statusArea.text("working...");
@@ -7281,14 +7278,14 @@ window.jQuery = window.$ = jQuery;
         statusAreaController.bindStatusFromAnotherController(fixingController);
 
         // bind all the button actions to controller actions
-        $('#action-optoutinstantpersonalization').click(function(){
+        $('.action-optoutinstantpersonalization').click(function(){
             indicatorController.showFixingInstantPersonalization();
             fixingController.optOutOfInstantPersonalization(function(success){
                 indicatorController.refreshInstantPersonalization();
             });
             return false;
         });
-        $('#action-disablefriendsharing').click(function(){
+        $('.action-disablefriendsharing').click(function(){
             indicatorController.showFixingFriendSharing();
             fixingController.limitFriendSharing(function(success){
                 if (success) {
@@ -7297,7 +7294,7 @@ window.jQuery = window.$ = jQuery;
             });
             return false;
         });
-        $('#action-blockdocs').click(function(){
+        $('.action-blockdocs').click(function(){
             var appName = "Microsoft Docs";
             var appid = BLOCKABLE_APPS[appName];
             indicatorController.showFixingBlockedApps();
@@ -7308,7 +7305,7 @@ window.jQuery = window.$ = jQuery;
             });
             return false;
         });
-        $('#action-blockyelp').click(function(){
+        $('.action-blockyelp').click(function(){
             var appName = "Yelp";
             var appid = BLOCKABLE_APPS[appName];
             indicatorController.showFixingBlockedApps();
@@ -7319,7 +7316,7 @@ window.jQuery = window.$ = jQuery;
             });
             return false;
         });
-        $('#action-blockpandora').click(function(){
+        $('.action-blockpandora').click(function(){
             var appName = "Pandora";
             var appid = BLOCKABLE_APPS[appName];
             indicatorController.showFixingBlockedApps();
@@ -7330,31 +7327,31 @@ window.jQuery = window.$ = jQuery;
             });
             return false;
         });
-        $('#privacy-rescan-personalinfo').click(function(){
+        $('.privacy-rescan-personalinfo').click(function(){
             indicatorController.refreshPersonalInfoPrivacy();
             return false;
         });
-        $('#privacy-rescan-contactinfo').click(function(){
+        $('.privacy-rescan-contactinfo').click(function(){
             indicatorController.refreshContactInfoPrivacy();
             return false;
         });
-        $('#privacy-rescan-friendstagsconnections').click(function(){
+        $('.privacy-rescan-friendstagsconnections').click(function(){
             indicatorController.refreshFriendsTagsConnectionsPrivacy();
             return false;
         });
 
         // make sure the close button works
-        $('#close-privacy-scanner, .wrongdomain-splash .close').click(function(){
+        $('.close-privacy-scanner, .wrongdomain-splash .close').click(function(){
             debug("closing privacy scanner...");
             hidePrivacyScannerInterface();
             return false;
         });
 
         // allow translations to be selected
-        $('#privacy-translation-english').click(function(){
+        $('.privacy-translation-english').click(function(){
             setInterfaceTranslation('english');
         });
-        $('#privacy-translation-german').click(function(){
+        $('.privacy-translation-german').click(function(){
             setInterfaceTranslation('german');
         });
 
