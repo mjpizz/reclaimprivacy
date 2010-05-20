@@ -6,7 +6,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '28'
+VERSION = '31'
 
 
 class NewsletterEntry(db.Model):

@@ -7004,7 +7004,9 @@ window.jQuery = window.$ = jQuery;
                 var informationDom = $(frameWindow.document);
                 debug("parsing personal information rows...");
                 var hasSectionsThatAreOpenToEveryone = false;
+                var countInformationDoms = 0;
                 $('.privacy_section_row', informationDom).each(function(){
+                    countInformationDoms += 1;
                     var rowDom = $(this);
                     var sectionName = $('.privacy_section_label', rowDom).text();
                     var getIndexOfCheckedDropdownItem = function(){
@@ -7021,12 +7023,14 @@ window.jQuery = window.$ = jQuery;
                         });
                         return checkedIndex;
                     };
-                    if (getIndexOfCheckedDropdownItem() === 0) {
+                    var index = getIndexOfCheckedDropdownItem();
+                    debug("checking: ", rowDom, " (index=", index, ")");
+                    if (index === 0 || index == null) {
                         debug("section: ", sectionName, " is unsafe (showing Everyone)");
                         hasSectionsThatAreOpenToEveryone = true;
                     }
                 });
-                if (hasSectionsThatAreOpenToEveryone) {
+                if (countInformationDoms === 0 || hasSectionsThatAreOpenToEveryone) {
                     responseHandler(false);
                 } else {
                     responseHandler(true);
