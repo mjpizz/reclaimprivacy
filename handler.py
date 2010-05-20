@@ -6,7 +6,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '31'
+VERSION = '32'
 
 
 class NewsletterEntry(db.Model):
@@ -447,7 +447,7 @@ class Donations(webapp.RequestHandler):
 
         # build the memcache key we will use
         version = VERSION
-        memcache_key = 'page_content:help:%(version)s' % locals()
+        memcache_key = 'page_content:donations:%(version)s' % locals()
 
         # try to get a cached page, and otherwise build the page
         page_content = memcache.get(memcache_key)
