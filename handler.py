@@ -6,7 +6,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '33'
+VERSION = '34'
 
 
 class NewsletterEntry(db.Model):
@@ -231,7 +231,7 @@ class Facebook(webapp.RequestHandler):
         <div class='about-section'>
             <h2>about the community contributors</h2>
             <p>
-                Frieder contributed the German translation of the tool.
+                Frieder contributed the German translation of the tool.  <a href='http://www.bitwig.com'>Pablo</a> contributed the snazzy new logo.
             </p>
             <h2>about the original author</h2>
             <p>
