@@ -6,7 +6,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '22'
+VERSION = '24'
 
 
 class NewsletterEntry(db.Model):
@@ -450,11 +450,12 @@ def _get_leftbar_content():
             <br/>even $5 or $10 helps
         </div>
         <div class='press-links'>
-            <span class='message'>mentioned in...</span>
+            <span class='message'>mentioned by...</span>
             <a href='http://lifehacker.com/5540495/reclaimprivacy-bookmarklet-rates-your-facebook-exposure-levels' id='press-lifehacker' title='Lifehacker'><span>Lifehacker</span></a>
             <a href='http://www.wired.com/epicenter/2010/05/facebook-transparency-tool/' id='press-wired' title='Wired Magazine'><span>Wired Magazine</span></a>
             <a href='http://blogs.forbes.com/firewall/2010/05/17/facebook-scanner-helps-you-reclaim-your-privacy/' id='press-forbes' title='Forbes Firewall Blog'><span>Forbes Firewall Blog</span></a>
             <a href='http://social.venturebeat.com/2010/05/17/reclaim-privacy/' id='press-venturebeat' title='Venturebeat'><span>Venturebeat</span></a>
+            <a href='http://www.pcworld.com/article/196464/test_your_facebook_privacy_settings_heres_how.html' id='press-pcworld' title='PCWorld Magazine'><span>PCWorld Magazine</span></a>
             <a href='http://blogs.wsj.com/digits/2010/05/19/facebook-privacy-concerns-prompt-new-sites/?mod=rss_WSJBlog' id='press-wsj' title='Wall Street Journal Blog'><span>Wall Street Journal Blog</span></a>
         </div>
 '''

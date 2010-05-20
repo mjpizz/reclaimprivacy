@@ -184,7 +184,7 @@ ol li {
 }
 
 .press-links {
-    margin-top: 55px;
+    margin-top: 35px;
     text-align: center;
 }
 
@@ -254,6 +254,16 @@ ol li {
 }
 
 #press-venturebeat:hover {
+    background-position: 0 0;
+}
+
+#press-pcworld {
+    height: 32px;
+    background-image: url('../images/pcworld-logo.png');
+    background-position: 110 0;
+}
+
+#press-pcworld:hover {
     background-position: 0 0;
 }
 
