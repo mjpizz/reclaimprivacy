@@ -229,7 +229,11 @@ class Facebook(webapp.RequestHandler):
         </p>
 
         <div class='about-section'>
-            <h2>about the author</h2>
+            <h2>about the community contributors</h2>
+            <p>
+                Frieder contributed the German translation of the tool.
+            </p>
+            <h2>about the original author</h2>
             <p>
                 I am an avid Javascript developer and co-founder at <a href='http://www.olark.com/'>Olark</a> (check it out!).  You
                 can chat with me about ReclaimPrivacy.org on the <a href='/help'>help page</a>.  If you're with the press, please use
