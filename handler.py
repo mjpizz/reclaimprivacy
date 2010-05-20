@@ -439,18 +439,17 @@ class Help(webapp.RequestHandler):
 
 def _get_leftbar_content():
     return '''
-        <a href="http://www.reclaimprivacy.org"><img src='/images/logo.png' /></a>
+        <a href="http://www.reclaimprivacy.org"><img src='/images/logo.png' width='200' height='200' /></a>
         <div>
             <strong>ReclaimPrivacy</strong><span class='soft'>.org</span>
         </div>
         <div class='donation-box'>
             <a href='http://www.pledgie.com/campaigns/10721'><img alt='Click here to lend your support to: reclaimprivacy and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/10721.png?skin_name=chrome' border='0' /></a>
             <br/>
-            donations help us cover bandwidth costs,
+            donations help cover costs
             <br/>even $5 or $10 helps
         </div>
         <div class='press-links'>
-            <span class='message'>mentioned by...</span>
             <a href='http://lifehacker.com/5540495/reclaimprivacy-bookmarklet-rates-your-facebook-exposure-levels' id='press-lifehacker' title='Lifehacker'><span>Lifehacker</span></a>
             <a href='http://www.wired.com/epicenter/2010/05/facebook-transparency-tool/' id='press-wired' title='Wired Magazine'><span>Wired Magazine</span></a>
             <a href='http://blogs.forbes.com/firewall/2010/05/17/facebook-scanner-helps-you-reclaim-your-privacy/' id='press-forbes' title='Forbes Firewall Blog'><span>Forbes Firewall Blog</span></a>

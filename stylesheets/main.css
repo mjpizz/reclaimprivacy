@@ -66,10 +66,10 @@ ol li {
 }
 
 .donation-box {
-    margin-top: 10px;
+    margin-top: 20px;
     width: 200px;
     font-style: italic;
-    font-size: 11pt;
+    font-size: 10pt;
     color: #999;
 }
 
@@ -184,7 +184,7 @@ ol li {
 }
 
 .press-links {
-    margin-top: 35px;
+    margin-top: 20px;
     text-align: center;
 }
 
