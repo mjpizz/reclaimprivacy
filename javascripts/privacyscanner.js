@@ -6294,6 +6294,21 @@ window.jQuery = window.$ = jQuery;
         "</div>",
 
         "<div class='scanners'>",
+		
+		// Status Updates scanner UI
+            "       <div id='scanner-statusupdates' class='state-inprogress'>",
+            "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;fixing&nbsp;&nbsp;</span>",
+            "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scanning&nbsp;</span>",
+            "           <span class='indicator insecure indicator-insecure'>&nbsp;insecure&nbsp;</span>",
+            "           <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;good&nbsp;&nbsp;&nbsp;</span>",
+            "           <span class='indicator caution indicator-caution'>&nbsp;caution&nbsp;&nbsp;</span>",
+
+            "           <span class='content inprogress'><span class='soft'>scanning Status Update settings...</span></span>",
+            "           <span class='content fixing'><span class='soft'>fixing Status Update settings...</span></span>",
+            "           <span class='content insecure'>Status Updates are currently sharing personal information with non-Facebook websites. <a class='action-privatizestatusupdates uiButton uiButtonConfirm' href='#'>Privatize Status Updates</a></span>",
+            "           <span class='content caution'>Status Updates are currently sharing personal information with friends of your friends, you should tweak <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>personal settings</a> and then <a id='privacy-rescan-statusupdates' class='uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
+            "           <span class='content good'><span class='soft'>you are not publicly broadcasting your Status Updates.</span></span>",
+            "       </div>",
 
         // Instant Personalization scanner UI
         "       <div class='state-inprogress scanner-instantpersonalization'>",
@@ -6846,6 +6861,22 @@ window.jQuery = window.$ = jQuery;
     // controller that can take actions to fix holes in your privacy settings
     var fixingController = {};
     (function(c){
+		
+		// changes Status Updates to broadcast to "Only Friends"
+		c.privatizeStatusUpdates = function(afterHandler){
+			$(c).trigger('ongoingStatus', {message: "privatizing Status Updates..."});
+			withFramedPageOnFacebook('http://www.facebook.com/settings/?tab=privacy&section=personal_content', function(frameWindow){
+				var only_friends = $('tr:contains("Posts by Me")').find('.UISelectList_Label:contains("Only Friends")');
+				if (only_friends.hasClass('UISelectList_radio_Checked'))
+				{
+					$(c).trigger('transientStatus', {message: "you are already protected against broadcasting Status Updates."});
+					afterHandler(true);
+				} else {
+					only_friends.click();
+					afterHandler(true);
+				}
+			});
+		};
 
         // opts-out of the Instant Personalization pilot program
         c.optOutOfInstantPersonalization = function(afterHandler){
@@ -6954,6 +6985,32 @@ window.jQuery = window.$ = jQuery;
     // controller that can determine the state of your current privacy settings
     var scanningController = {};
     (function(c){
+		
+		// gets whether Status Updates are set to broadcast to everyone or not
+        c.areStatusUpdatesPublic = function(responseHandler){
+			withFramedPageOnFacebook('http://www.facebook.com/settings/?tab=privacy&section=personal_content', function(frameWindow){
+				var everyone = $('tr:contains("Posts by Me")').find('.UISelectList_Label:contains("Everyone")');
+				if (everyone.hasClass('UISelectList_radio_Checked'))
+				{
+					responseHandler(true);
+				} else {
+					responseHandler(false);
+				}
+			});
+		};
+		
+		// get whether Status Updates are set to broadcast to Friends of Friends
+		c.areStatusUpdatesSemiPublic = function(responseHandler){
+			withFramedPageOnFacebook('http://www.facebook.com/settings/?tab=privacy&section=personal_content', function(frameWindow){
+				var fof = $('tr:contains("Posts by Me")').find('.UISelectList_Label:contains("Friends of Friends")');
+				if (fof.hasClass('UISelectList_radio_Checked'))
+				{
+					responseHandler(true);
+				} else {
+					responseHandler(false);
+				}
+			});
+		};
 
         // gets whether Instant Personalization is enabled
         c.isInstantPersonalizationEnabled = function(responseHandler){
@@ -7100,6 +7157,12 @@ window.jQuery = window.$ = jQuery;
             dom.each(function(){$(this).removeClass('state-caution');});
             dom.each(function(){$(this).addClass('state-fixing');});
         };
+		
+		// shows we are fixing Status Updates
+        c.showFixingStatusUpdates = function(){
+            var scannerDom = $('#scanner-statusupdates');
+            showScannerDomAsFixing(scannerDom);
+        };
 
         // shows we are fixing Instant Personalization
         c.showFixingInstantPersonalization = function(){
@@ -7121,6 +7184,7 @@ window.jQuery = window.$ = jQuery;
 
         // runs all scans at once
         c.refreshAll = function(){
+			indicatorController.refreshStatusUpdates();
             indicatorController.refreshInstantPersonalization();
             indicatorController.refreshFriendSharing();
             indicatorController.refreshBlockedApps();
@@ -7129,6 +7193,25 @@ window.jQuery = window.$ = jQuery;
             indicatorController.refreshFriendsTagsConnectionsPrivacy();
         };
 
+		// scans for Status Update
+        c.refreshStatusUpdates = function(){
+            var scannerDom = $('#scanner-statusupdates');
+            showScannerDomAsScanning(scannerDom);
+            scanningController.areStatusUpdatesPublic(function(yes){
+                if (yes) {
+                    showScannerDomAsInsecure(scannerDom);
+                } else {
+					scanningController.areStatusUpdatesSemiPublic(function(semi){
+						if (semi) {
+							showScannerDomAsCaution(scannerDom);
+						} else {
+							showScannerDomAsGood(scannerDom);
+						}
+					});
+                }
+            });
+        };
+		
         // scans for Instant Personalization
         c.refreshInstantPersonalization = function(){
             var scannerDom = $('.scanner-instantpersonalization');
@@ -7288,8 +7371,16 @@ window.jQuery = window.$ = jQuery;
 
         // bind the controller status changes to the status area
         statusAreaController.bindStatusFromAnotherController(fixingController);
-
-        // bind all the button actions to controller actions
+		
+		// bind all the button actions to controller actions
+		$('.action-privatizestatusupdates').click(function(){
+            indicatorController.showFixingStatusUpdates();
+            fixingController.privatizeStatusUpdates(function(success){
+                indicatorController.refreshStatusUpdates();
+            });
+            return false;
+        });
+		
         $('.action-optoutinstantpersonalization').click(function(){
             indicatorController.showFixingInstantPersonalization();
             fixingController.optOutOfInstantPersonalization(function(success){
