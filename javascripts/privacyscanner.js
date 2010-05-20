@@ -6805,7 +6805,7 @@ window.jQuery = window.$ = jQuery;
         $('body').append($('<div class="privacy-scanner"></div>'));
 
         // set the translation we will use (before we add in the DOM, avoiding interface "popping")
-        setInterfaceTranslation('german');
+        setInterfaceTranslation('english');
 
         // now we can set the translation DOM
         var translationsHtml = '';
