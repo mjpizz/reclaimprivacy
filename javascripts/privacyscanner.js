@@ -6251,9 +6251,9 @@ window.jQuery = window.$ = jQuery;
 
     // constants
     var BOOKMARKLET_JS_URL = 'http://static.reclaimprivacy.org/javascripts/privacyscanner.js';
-    var REQUEST_COMPLETION_DELTA_IN_MILLISECONDS = 2000;
+    var REQUEST_COMPLETION_DELTA_IN_MILLISECONDS = 3000;
     var TRANSIENT_STATUS_DELTA_IN_MILLISECONDS = 4000;
-    var FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS = 1000;
+    var FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS = 2000;
     var BAR_HEIGHT_IN_PX = 200;
     var BLOCKABLE_APPS = {
         "Microsoft Docs": '119178388096593',
@@ -7005,36 +7005,44 @@ window.jQuery = window.$ = jQuery;
                 debug("parsing personal information rows...");
                 var hasSectionsThatAreOpenToEveryone = false;
                 var countInformationDoms = 0;
-                $('.privacy_section_row', informationDom).each(function(){
-                    countInformationDoms += 1;
-                    var rowDom = $(this);
-                    var sectionName = $('.privacy_section_label', rowDom).text();
-                    var getIndexOfCheckedDropdownItem = function(){
-                        var dropdownLabels = $('.UISelectList_Item .UISelectList_Label', rowDom);
-                        var checkedDropdownLabelText = $('.UISelectList_radio_Checked', rowDom).text();
-                        var i = 0;
-                        var checkedIndex = null;
-                        dropdownLabels.each(function(){
-                            var thisLabelText = $(this).text();
-                            if (thisLabelText == checkedDropdownLabelText) {
-                                checkedIndex = i;
+                waitForMostRecentRequestToComplete(function(){
+                    $('.privacy_section_row', informationDom).each(function(){
+                        countInformationDoms += 1;
+                        var rowDom = $(this);
+                        var sectionName = $('.privacy_section_label', rowDom).text();
+                        var isDropdown = $('.UISelectList_Item .UISelectList_Label', rowDom).size() > 0 ? true : false;
+                        var getIndexOfCheckedDropdownItem = function(){
+                            var dropdownLabels = $('.UISelectList_Item .UISelectList_Label', rowDom);
+                            var checkedDropdownLabelText = $('.UISelectList_radio_Checked', rowDom).text();
+                            var i = 0;
+                            var checkedIndex = null;
+                            dropdownLabels.each(function(){
+                                var thisLabelText = $(this).text();
+                                if (thisLabelText == checkedDropdownLabelText) {
+                                    checkedIndex = i;
+                                }
+                                i++;
+                            });
+                            return checkedIndex;
+                        };
+                        if (isDropdown) {
+                            var index = getIndexOfCheckedDropdownItem();
+                            debug("checking: ", rowDom, " (index=", index, ")");
+                            if (index === 0) {
+                                debug("section: ", sectionName, " is unsafe (showing Everyone)");
+                                hasSectionsThatAreOpenToEveryone = true;
+                            } else if (index == null) {
+                                debug("section: ", sectionName, " might be unsafe (unknown setting)");
+                                hasSectionsThatAreOpenToEveryone = true;
                             }
-                            i++;
-                        });
-                        return checkedIndex;
-                    };
-                    var index = getIndexOfCheckedDropdownItem();
-                    debug("checking: ", rowDom, " (index=", index, ")");
-                    if (index === 0 || index == null) {
-                        debug("section: ", sectionName, " is unsafe (showing Everyone)");
-                        hasSectionsThatAreOpenToEveryone = true;
+                        }
+                    });
+                    if (countInformationDoms === 0 || hasSectionsThatAreOpenToEveryone) {
+                        responseHandler(false);
+                    } else {
+                        responseHandler(true);
                     }
                 });
-                if (countInformationDoms === 0 || hasSectionsThatAreOpenToEveryone) {
-                    responseHandler(false);
-                } else {
-                    responseHandler(true);
-                }
             });
         };
 
