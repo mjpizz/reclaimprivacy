@@ -309,7 +309,7 @@ a:hover .helper-arrow {
     display: block;
 }
 
-a:hover .arrow-on-other {
+a:hover .arrow-on-msie {
     position: absolute;
     top: -205px;
     left: -25px;
