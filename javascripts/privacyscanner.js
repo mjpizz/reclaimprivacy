@@ -6280,8 +6280,8 @@ window.jQuery = window.$ = jQuery;
     HTMLCONTENT['english'] = [
         "<div class='privacy-scanner-titlebar'>",
         "   <h1>privacy scanner</h1>",
-        "   &nbsp;&nbsp;<span class='soft'>don't forget to</span> <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447'>follow us on Facebook</a> <span class='soft'>to hear about the latest updates</span>",
-        "   <span class='soft'>from <a href='http://www.reclaimprivacy.org/facebook'>reclaimprivacy.org</a></span>",
+        "   &nbsp;&nbsp;<span class='soft'>don't forget to</span> <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>follow us on Facebook</a> <span class='soft'>to hear about the latest updates</span>",
+        "   <span class='soft'>from <a href='http://www.reclaimprivacy.org/facebook' target='_blank'>reclaimprivacy.org</a></span>",
         "   <span class='source'>",
         "       <span class='soft'>&nbsp;&nbsp;&nbsp;&nbsp;languages: </span>",
         "       <span><a href='#' class='privacy-translation-english'>English</a> &middot; <a href='#' class='privacy-translation-german'>Deutsch</a></span>",
@@ -6408,8 +6408,8 @@ window.jQuery = window.$ = jQuery;
     HTMLCONTENT['german'] = [
         "<div class='privacy-scanner-titlebar'>",
         " <h1>Datenschutz-Scanner</h1>",
-        " &nbsp;&nbsp;<span class='soft'>Vergiss nicht, uns auf Facebook zu </span> <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447'>abonnieren</a> <span class='soft'> um immer auf dem neusten Stand zu sein!</span>",
-        " <span class='soft'>von <a href='http://www.reclaimprivacy.org/facebook'>reclaimprivacy.org</a></span>",
+        " &nbsp;&nbsp;<span class='soft'>Vergiss nicht, uns auf Facebook zu </span> <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>abonnieren</a> <span class='soft'> um immer auf dem neusten Stand zu sein!</span>",
+        " <span class='soft'>von <a href='http://www.reclaimprivacy.org/facebook' target='_blank'>reclaimprivacy.org</a></span>",
         " <span class='source'>",
         " <span class='soft'>&nbsp;&nbsp;&nbsp;&nbsp;&Uuml;bersetzungen: </span>",
         " <span><a href='#' class='privacy-translation-english'>English</a> &middot; <a href='#' class='privacy-translation-german'>Deutsch</a></span>",
