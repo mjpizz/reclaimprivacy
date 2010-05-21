@@ -6254,7 +6254,7 @@ window.jQuery = window.$ = jQuery;
     var REQUEST_COMPLETION_DELTA_IN_MILLISECONDS = 3000;
     var TRANSIENT_STATUS_DELTA_IN_MILLISECONDS = 4000;
     var FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS = 2000;
-    var BAR_HEIGHT_IN_PX = 200;
+    var BAR_HEIGHT_IN_PX = 220;
     var BLOCKABLE_APPS = {
         "Microsoft Docs": '119178388096593',
         "Pandora": '2409304917',
@@ -6294,21 +6294,21 @@ window.jQuery = window.$ = jQuery;
         "</div>",
 
         "<div class='scanners'>",
-		
-		// Status Updates scanner UI
-            "       <div id='scanner-statusupdates' class='state-inprogress'>",
-            "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;fixing&nbsp;&nbsp;</span>",
-            "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scanning&nbsp;</span>",
-            "           <span class='indicator insecure indicator-insecure'>&nbsp;insecure&nbsp;</span>",
-            "           <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;good&nbsp;&nbsp;&nbsp;</span>",
-            "           <span class='indicator caution indicator-caution'>&nbsp;caution&nbsp;&nbsp;</span>",
 
-            "           <span class='content inprogress'><span class='soft'>scanning Status Update settings...</span></span>",
-            "           <span class='content fixing'><span class='soft'>fixing Status Update settings...</span></span>",
-            "           <span class='content insecure'>Status Updates are currently sharing personal information with non-Facebook websites. <a class='action-privatizestatusupdates uiButton uiButtonConfirm' href='#'>Privatize Status Updates</a></span>",
-            "           <span class='content caution'>Status Updates are currently sharing personal information with friends of your friends, you should tweak <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>personal settings</a> and then <a id='privacy-rescan-statusupdates' class='uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
-            "           <span class='content good'><span class='soft'>you are not publicly broadcasting your Status Updates.</span></span>",
-            "       </div>",
+        // Status Updates scanner UI
+        "       <div id='scanner-statusupdates' class='state-inprogress'>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;fixing&nbsp;&nbsp;</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scanning&nbsp;</span>",
+        "           <span class='indicator insecure indicator-insecure'>&nbsp;insecure&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;secure&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;caution&nbsp;&nbsp;</span>",
+
+        "           <span class='content inprogress'><span class='soft'>scanning Status Update settings...</span></span>",
+        "           <span class='content fixing'><span class='soft'>fixing Status Update settings...</span></span>",
+        "           <span class='content insecure'>Status Updates are currently sharing personal information with non-Facebook websites. <a class='action-privatizestatusupdates uiButton uiButtonConfirm' href='#'>Privatize Status Updates</a></span>",
+        "           <span class='content caution'>Status Updates are currently sharing personal information with friends of your friends, you should tweak <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>personal settings</a> and then <a id='privacy-rescan-statusupdates' class='uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
+        "           <span class='content good'><span class='soft'>you are not publicly broadcasting your Status Updates.</span></span>",
+        "       </div>",
 
         // Instant Personalization scanner UI
         "       <div class='state-inprogress scanner-instantpersonalization'>",
@@ -6437,6 +6437,22 @@ window.jQuery = window.$ = jQuery;
         "</div>",
 
         "<div class='scanners'>",
+
+        // Status Updates scanner UI
+        // FIXME: translate this to German
+        "       <div class='state-inprogress'>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;repariert&nbsp;</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;&nbsp;&nbsp;pr&uuml;ft&nbsp;&nbsp;&nbsp;</span>",
+        "           <span class='indicator insecure indicator-insecure'>&nbsp;unsicher&nbsp;&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;&nbsp;gut&nbsp;&nbsp;&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;&nbsp;Achtung&nbsp;&nbsp;</span>",
+
+        "           <span class='content inprogress'><span class='soft'>scanning Status Update settings...</span></span>",
+        "           <span class='content fixing'><span class='soft'>fixing Status Update settings...</span></span>",
+        "           <span class='content insecure'>Status Updates are currently sharing personal information with non-Facebook websites. <a class='action-privatizestatusupdates uiButton uiButtonConfirm' href='#'>Privatize Status Updates</a></span>",
+        "           <span class='content caution'>Status Updates are currently sharing personal information with friends of your friends, you should tweak <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>personal settings</a> and then <a id='privacy-rescan-statusupdates' class='uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
+        "           <span class='content good'><span class='soft'>you are not publicly broadcasting your Status Updates.</span></span>",
+        "       </div>",
 
         // Instant Personalization scanner UI
         " <div class='scanner-instantpersonalization state-inprogress'>",
@@ -6861,7 +6877,7 @@ window.jQuery = window.$ = jQuery;
     // controller that can take actions to fix holes in your privacy settings
     var fixingController = {};
     (function(c){
-		
+
 		// changes Status Updates to broadcast to "Only Friends"
 		c.privatizeStatusUpdates = function(afterHandler){
 			$(c).trigger('ongoingStatus', {message: "privatizing Status Updates..."});
