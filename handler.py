@@ -88,7 +88,7 @@ class Facebook(webapp.RequestHandler):
                 step_one_instructions = "Right-click this link and 'Add to Favorites'"
                 step_two_instructions = "<a href='http://www.facebook.com/settings/?tab=privacy&ref=mb'>Go to your Facebook privacy settings</a>, open your Favorites, and click the link called 'Scan for Privacy' once you are on Facebook"
             elif browser == 'opera':
-                step_one_instructions = "Hold down the Shift key, then <strong>drag</strong> this link to your web browser bookmarks"
+                step_one_instructions = "Hold down the Shift key, then <strong>drag</strong> this link to your web browser toolbar"
                 step_two_instructions = "<a href='http://www.facebook.com/settings/?tab=privacy&ref=mb'>Go to your Facebook privacy settings</a>, open your Favorites, and click the link called 'Scan for Privacy' once you are on Facebook"
             else:
                 step_one_instructions = "Drag this link to your web browser bookmarks bar"
