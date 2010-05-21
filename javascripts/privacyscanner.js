@@ -7001,7 +7001,7 @@ window.jQuery = window.$ = jQuery;
     // controller that can determine the state of your current privacy settings
     var scanningController = {};
     (function(c){
-		
+
 		// gets whether Status Updates are set to broadcast to everyone or not
         c.areStatusUpdatesPublic = function(responseHandler){
 			withFramedPageOnFacebook('http://www.facebook.com/settings/?tab=privacy&section=personal_content', function(frameWindow){
@@ -7173,7 +7173,7 @@ window.jQuery = window.$ = jQuery;
             dom.each(function(){$(this).removeClass('state-caution');});
             dom.each(function(){$(this).addClass('state-fixing');});
         };
-		
+
 		// shows we are fixing Status Updates
         c.showFixingStatusUpdates = function(){
             var scannerDom = $('.scanner-statusupdates');
