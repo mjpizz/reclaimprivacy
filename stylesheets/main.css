@@ -293,3 +293,21 @@ ol li {
     color: #eee;
     background: #777;
 }
+
+.helper-arrow {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 0px;
+    background-image: url(../images/arrow.png);
+    width: 200px;
+    height: 200px;
+}
+
+a:hover .helper-arrow {
+    display: block;
+}
+
+a:hover .arrow-on-msie {
+    display: none;
+}

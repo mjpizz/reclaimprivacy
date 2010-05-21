@@ -146,7 +146,7 @@ class Facebook(webapp.RequestHandler):
                 <li>
                     %(step_one_instructions)s:
                     <strong>
-                        <a class='bookmarklet' title="Scan for Privacy" href="javascript:(function(){var%%20script=document.createElement('script');script.src='http://%(bookmarklet_host)s/javascripts/privacyscanner.js';document.getElementsByTagName('head')[0].appendChild(script);})()">Scan for Privacy</a>
+                        <a class='bookmarklet' title="Scan for Privacy" href="javascript:(function(){var%%20script=document.createElement('script');script.src='http://%(bookmarklet_host)s/javascripts/privacyscanner.js';document.getElementsByTagName('head')[0].appendChild(script);})()">Scan for Privacy<span class='helper-arrow arrow-on-%(browser)s'></span></a>
                     </strong>
                 </li>
                 <li>
@@ -258,6 +258,13 @@ class Facebook(webapp.RequestHandler):
 
 class Help(webapp.RequestHandler):
     def get(self):
+        # detect MSIE
+        if 'MSIE' in os.environ['HTTP_USER_AGENT']:
+            browser = 'msie'
+        elif 'Opera' in os.environ['HTTP_USER_AGENT']:
+            browser = 'opera'
+        else:
+            browser = 'other'
 
         # build the memcache key we will use
         version = VERSION
@@ -305,7 +312,7 @@ class Help(webapp.RequestHandler):
             <p class='answer'>
                 <em class='soft'>this grey box is the bookmark:</em>
                 <strong>
-                    <a class='bookmarklet' title="Scan for Privacy" href="javascript:(function(){var%%20script=document.createElement('script');script.src='http://%(bookmarklet_host)s/javascripts/privacyscanner.js';document.getElementsByTagName('head')[0].appendChild(script);})()">Scan for Privacy</a>
+                    <a class='bookmarklet' title="Scan for Privacy" href="javascript:(function(){var%%20script=document.createElement('script');script.src='http://%(bookmarklet_host)s/javascripts/privacyscanner.js';document.getElementsByTagName('head')[0].appendChild(script);})()">Scan for Privacy<span class='helper-arrow arrow-on-%(browser)s'></span></a>
                 </strong>
             </p>
             <p class='answer'>
@@ -336,7 +343,7 @@ class Help(webapp.RequestHandler):
             <p class='answer'>
                 <em class='soft'>this grey box is the bookmark:</em>
                 <strong>
-                    <a class='bookmarklet' title="Scan for Privacy" href="javascript:(function(){var%%20script=document.createElement('script');script.src='http://%(bookmarklet_host)s/javascripts/privacyscanner.js';document.getElementsByTagName('head')[0].appendChild(script);})()">Scan for Privacy</a>
+                    <a class='bookmarklet' title="Scan for Privacy" href="javascript:(function(){var%%20script=document.createElement('script');script.src='http://%(bookmarklet_host)s/javascripts/privacyscanner.js';document.getElementsByTagName('head')[0].appendChild(script);})()">Scan for Privacy<span class='helper-arrow arrow-on-%(browser)s'></span></a>
                 </strong>
             </p>
         </p>
