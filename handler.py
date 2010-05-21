@@ -60,7 +60,7 @@ class DesktopApp(webapp.RequestHandler):
 class Facebook(webapp.RequestHandler):
     def get(self):
         # detect MSIE
-        if 'MSIE' in os.environ['HTTP_USER_AGENT']:
+        if 'MSIE' in os.environ['HTTP_USER_AGENT'] and 'irefox' not in os.environ['HTTP_USER_AGENT']:
             browser = 'msie'
         elif 'Opera' in os.environ['HTTP_USER_AGENT']:
             browser = 'opera'
@@ -260,7 +260,7 @@ class Facebook(webapp.RequestHandler):
 class Help(webapp.RequestHandler):
     def get(self):
         # detect MSIE
-        if 'MSIE' in os.environ['HTTP_USER_AGENT']:
+        if 'MSIE' in os.environ['HTTP_USER_AGENT'] and 'irefox' not in os.environ['HTTP_USER_AGENT']:
             browser = 'msie'
         elif 'Opera' in os.environ['HTTP_USER_AGENT']:
             browser = 'opera'
