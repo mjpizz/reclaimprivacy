@@ -15,7 +15,7 @@ h1 {
 h3 {
     margin: 40px 0px 0px 0px;
     font-size: 1.1em;
-    text-decoration: italic;
+    font-style: italic;
 }
 
 #logo {
@@ -47,6 +47,7 @@ a img {
 }
 
 .bookmarklet {
+    position: relative;
     background: #ccc;
     padding: 0.5em;
     font-size: 0.8em;
@@ -292,4 +293,25 @@ ol li {
     padding: 4px;
     color: #eee;
     background: #777;
+}
+
+.helper-arrow {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 0px;
+    background-image: url(../images/arrow.png);
+    width: 200px;
+    height: 200px;
+}
+
+a:hover .helper-arrow {
+    display: block;
+}
+
+a:hover .arrow-on-msie {
+    position: absolute;
+    top: -205px;
+    left: -25px;
+    background-image: url(../images/arrow-rightclick.png);
 }

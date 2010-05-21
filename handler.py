@@ -6,7 +6,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '34'
+VERSION = '39'
 
 
 class NewsletterEntry(db.Model):
@@ -60,7 +60,7 @@ class DesktopApp(webapp.RequestHandler):
 class Facebook(webapp.RequestHandler):
     def get(self):
         # detect MSIE
-        if 'MSIE' in os.environ['HTTP_USER_AGENT']:
+        if 'MSIE' in os.environ['HTTP_USER_AGENT'] and 'irefox' not in os.environ['HTTP_USER_AGENT']:
             browser = 'msie'
         elif 'Opera' in os.environ['HTTP_USER_AGENT']:
             browser = 'opera'
@@ -88,7 +88,7 @@ class Facebook(webapp.RequestHandler):
                 step_one_instructions = "Right-click this link and 'Add to Favorites'"
                 step_two_instructions = "<a href='http://www.facebook.com/settings/?tab=privacy&ref=mb'>Go to your Facebook privacy settings</a>, open your Favorites, and click the link called 'Scan for Privacy' once you are on Facebook"
             elif browser == 'opera':
-                step_one_instructions = "Hold down the Shift key, then <strong>drag</strong> this link to your web browser bookmarks"
+                step_one_instructions = "Hold down the Shift key, then <strong>drag</strong> this link to your web browser toolbar"
                 step_two_instructions = "<a href='http://www.facebook.com/settings/?tab=privacy&ref=mb'>Go to your Facebook privacy settings</a>, open your Favorites, and click the link called 'Scan for Privacy' once you are on Facebook"
             else:
                 step_one_instructions = "Drag this link to your web browser bookmarks bar"
@@ -146,7 +146,7 @@ class Facebook(webapp.RequestHandler):
                 <li>
                     %(step_one_instructions)s:
                     <strong>
-                        <a class='bookmarklet' title="Scan for Privacy" href="javascript:(function(){var%%20script=document.createElement('script');script.src='http://%(bookmarklet_host)s/javascripts/privacyscanner.js';document.getElementsByTagName('head')[0].appendChild(script);})()">Scan for Privacy</a>
+                        <a class='bookmarklet' title="Scan for Privacy" href="javascript:(function(){var%%20script=document.createElement('script');script.src='http://%(bookmarklet_host)s/javascripts/privacyscanner.js';document.getElementsByTagName('head')[0].appendChild(script);})()">Scan for Privacy<span class='helper-arrow arrow-on-%(browser)s'></span></a>
                     </strong>
                 </li>
                 <li>
@@ -202,7 +202,8 @@ class Facebook(webapp.RequestHandler):
                 <li>we <strong>never see</strong> your Facebook data</li>
                 <li>we <strong>never share</strong> your personal information</li>
             </ul>
-            Simple.  The scanner operates entirely within your own browser.
+            Simple.  After the scanner is downloaded from reclaimprivacy.org, it operates entirely
+            between your own browser and Facebook.
         </p>
 
         <h1>Be Security Conscious</h1>
@@ -232,6 +233,7 @@ class Facebook(webapp.RequestHandler):
             <h2>about the community contributors</h2>
             <p>
                 Frieder contributed the German translation of the tool.  <a href='http://www.bitwig.com'>Pablo</a> contributed the snazzy new logo.
+                <a href='http://github.com/leighman'>@leighman</a> contributed usability improvements to the website.
             </p>
             <h2>about the original author</h2>
             <p>
@@ -257,6 +259,13 @@ class Facebook(webapp.RequestHandler):
 
 class Help(webapp.RequestHandler):
     def get(self):
+        # detect MSIE
+        if 'MSIE' in os.environ['HTTP_USER_AGENT'] and 'irefox' not in os.environ['HTTP_USER_AGENT']:
+            browser = 'msie'
+        elif 'Opera' in os.environ['HTTP_USER_AGENT']:
+            browser = 'opera'
+        else:
+            browser = 'other'
 
         # build the memcache key we will use
         version = VERSION
@@ -304,7 +313,7 @@ class Help(webapp.RequestHandler):
             <p class='answer'>
                 <em class='soft'>this grey box is the bookmark:</em>
                 <strong>
-                    <a class='bookmarklet' title="Scan for Privacy" href="javascript:(function(){var%%20script=document.createElement('script');script.src='http://%(bookmarklet_host)s/javascripts/privacyscanner.js';document.getElementsByTagName('head')[0].appendChild(script);})()">Scan for Privacy</a>
+                    <a class='bookmarklet' title="Scan for Privacy" href="javascript:(function(){var%%20script=document.createElement('script');script.src='http://%(bookmarklet_host)s/javascripts/privacyscanner.js';document.getElementsByTagName('head')[0].appendChild(script);})()">Scan for Privacy<span class='helper-arrow arrow-on-%(browser)s'></span></a>
                 </strong>
             </p>
             <p class='answer'>
@@ -335,7 +344,7 @@ class Help(webapp.RequestHandler):
             <p class='answer'>
                 <em class='soft'>this grey box is the bookmark:</em>
                 <strong>
-                    <a class='bookmarklet' title="Scan for Privacy" href="javascript:(function(){var%%20script=document.createElement('script');script.src='http://%(bookmarklet_host)s/javascripts/privacyscanner.js';document.getElementsByTagName('head')[0].appendChild(script);})()">Scan for Privacy</a>
+                    <a class='bookmarklet' title="Scan for Privacy" href="javascript:(function(){var%%20script=document.createElement('script');script.src='http://%(bookmarklet_host)s/javascripts/privacyscanner.js';document.getElementsByTagName('head')[0].appendChild(script);})()">Scan for Privacy<span class='helper-arrow arrow-on-%(browser)s'></span></a>
                 </strong>
             </p>
         </p>
@@ -497,7 +506,7 @@ class Donations(webapp.RequestHandler):
         <h1>What has been raised so far?</h1>
         <p>
             As of Thursday, May 20th, the amount is about
-            <span class='donation-amount'>$2563</span>, donated by <span class='donation-people'>258 people</span>.
+            <span class='donation-amount'>$2658</span>, donated by <span class='donation-people'>269 people</span>.
         </p>
         <p>
             <em class='soft'>
