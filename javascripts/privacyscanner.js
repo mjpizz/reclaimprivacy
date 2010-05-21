@@ -6296,7 +6296,7 @@ window.jQuery = window.$ = jQuery;
         "<div class='scanners'>",
 
         // Status Updates scanner UI
-        "       <div id='scanner-statusupdates' class='state-inprogress'>",
+        "       <div class='scanner-statusupdates state-inprogress'>",
         "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;fixing&nbsp;&nbsp;</span>",
         "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scanning&nbsp;</span>",
         "           <span class='indicator insecure indicator-insecure'>&nbsp;insecure&nbsp;</span>",
@@ -6440,7 +6440,7 @@ window.jQuery = window.$ = jQuery;
 
         // Status Updates scanner UI
         // FIXME: translate this to German
-        "       <div class='state-inprogress'>",
+        "       <div class='scanner-statusupdates state-inprogress'>",
         "           <span class='indicator fixing indicator-fixing'>&nbsp;repariert&nbsp;</span>",
         "           <span class='indicator inprogress indicator-inprogress'>&nbsp;&nbsp;&nbsp;pr&uuml;ft&nbsp;&nbsp;&nbsp;</span>",
         "           <span class='indicator insecure indicator-insecure'>&nbsp;unsicher&nbsp;&nbsp;</span>",
@@ -7176,7 +7176,7 @@ window.jQuery = window.$ = jQuery;
 		
 		// shows we are fixing Status Updates
         c.showFixingStatusUpdates = function(){
-            var scannerDom = $('#scanner-statusupdates');
+            var scannerDom = $('.scanner-statusupdates');
             showScannerDomAsFixing(scannerDom);
         };
 
@@ -7211,7 +7211,7 @@ window.jQuery = window.$ = jQuery;
 
 		// scans for Status Update
         c.refreshStatusUpdates = function(){
-            var scannerDom = $('#scanner-statusupdates');
+            var scannerDom = $('.scanner-statusupdates');
             showScannerDomAsScanning(scannerDom);
             scanningController.areStatusUpdatesPublic(function(yes){
                 if (yes) {
