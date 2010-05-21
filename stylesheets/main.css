@@ -309,9 +309,9 @@ a:hover .helper-arrow {
     display: block;
 }
 
-a:hover .arrow-on-msie {
+a:hover .arrow-on-other {
     position: absolute;
-    top: -185px;
+    top: -205px;
     left: -25px;
     background-image: url(../images/arrow-rightclick.png);
 }
