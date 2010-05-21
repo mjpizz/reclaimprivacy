@@ -47,6 +47,7 @@ a img {
 }
 
 .bookmarklet {
+    position: relative;
     background: #ccc;
     padding: 0.5em;
     font-size: 0.8em;
@@ -309,5 +310,8 @@ a:hover .helper-arrow {
 }
 
 a:hover .arrow-on-msie {
-    display: none;
+    position: absolute;
+    top: -185px;
+    left: -25px;
+    background-image: url(../images/arrow-rightclick.png);
 }
