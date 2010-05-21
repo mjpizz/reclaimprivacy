@@ -6,7 +6,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '38'
+VERSION = '39'
 
 
 class NewsletterEntry(db.Model):
@@ -202,7 +202,8 @@ class Facebook(webapp.RequestHandler):
                 <li>we <strong>never see</strong> your Facebook data</li>
                 <li>we <strong>never share</strong> your personal information</li>
             </ul>
-            Simple.  The scanner operates entirely within your own browser.
+            Simple.  After the scanner is downloaded from reclaimprivacy.org, it operates entirely
+            between your own browser and Facebook.
         </p>
 
         <h1>Be Security Conscious</h1>
