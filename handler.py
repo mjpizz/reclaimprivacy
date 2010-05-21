@@ -6,7 +6,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '34'
+VERSION = '35'
 
 
 class NewsletterEntry(db.Model):
@@ -232,6 +232,7 @@ class Facebook(webapp.RequestHandler):
             <h2>about the community contributors</h2>
             <p>
                 Frieder contributed the German translation of the tool.  <a href='http://www.bitwig.com'>Pablo</a> contributed the snazzy new logo.
+                <a href='http://github.com/leighman'>@leighman</a> contributed usability improvements to the website.
             </p>
             <h2>about the original author</h2>
             <p>
@@ -497,7 +498,7 @@ class Donations(webapp.RequestHandler):
         <h1>What has been raised so far?</h1>
         <p>
             As of Thursday, May 20th, the amount is about
-            <span class='donation-amount'>$2563</span>, donated by <span class='donation-people'>258 people</span>.
+            <span class='donation-amount'>$2658</span>, donated by <span class='donation-people'>269 people</span>.
         </p>
         <p>
             <em class='soft'>
