@@ -138,10 +138,6 @@ class Facebook(webapp.RequestHandler):
         <p>
             This website provides an <strong>independent</strong> and <strong>open</strong> tool for scanning
             your Facebook privacy settings.  <em>The <a href='http://github.com/mjpizz/reclaimprivacy'>source code</a> and its development will always remain open and transparent.</em>
-            <p class='alert'>
-                <strong>Note:</strong> we are still working on adding privacy scans for your photos and status updates.  The tool does not check these yet,
-                so <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447'>stay tuned for updates</a>!
-            </p>
             <ol class='instructions'>
                 <li>
                     %(step_one_instructions)s:
@@ -161,6 +157,16 @@ class Facebook(webapp.RequestHandler):
                     to hear about the latest updates.
                 </li>
             </ol>
+
+            <p class='announcement'>
+                <strong>Update!</strong> we now scan your wall posts / status updates too!
+            </p>
+            <p class='alert'>
+                <strong>Note:</strong> we are still working on adding privacy scans for your photos, the scanner does not check these yet.
+                Also, please note that Firefox currently has some issues that we are looking into, so please use Internet Explorer, Safari,
+                or Chrome for the time being.
+                <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447'>Stay tuned for updates</a>!
+            </p>
             <p class='need-help'>
                 <em>
                     Having trouble? <a href='/help'>Check our help page</a> for tips and video walkthroughs.</a>
@@ -234,6 +240,7 @@ class Facebook(webapp.RequestHandler):
             <p>
                 Frieder contributed the German translation of the tool.  <a href='http://www.bitwig.com'>Pablo</a> contributed the snazzy new logo.
                 <a href='http://github.com/leighman'>@leighman</a> contributed usability improvements to the website.
+                <a href='http://github.com/zkwentz'>@zkwentz</a> contributed status update privacy scans.
             </p>
             <h2>about the original author</h2>
             <p>

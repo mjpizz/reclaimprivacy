@@ -199,6 +199,16 @@ ol li {
     font-weight: bold;
 }
 
+.announcement {
+    color: #338013;
+    font-style: italic;
+}
+
+.announcement a {
+    color: #29670F;
+    font-weight: bold;
+}
+
 .press-links {
     margin-top: 20px;
     text-align: center;
