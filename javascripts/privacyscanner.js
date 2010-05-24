@@ -6254,7 +6254,7 @@ window.jQuery = window.$ = jQuery;
     var REQUEST_COMPLETION_DELTA_IN_MILLISECONDS = 3000;
     var TRANSIENT_STATUS_DELTA_IN_MILLISECONDS = 4000;
     var FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS = 2000;
-    var BAR_HEIGHT_IN_PX = 220;
+    var BAR_HEIGHT_IN_PX = 240;
     var BLOCKABLE_APPS = {
         "Microsoft Docs": '119178388096593',
         "Pandora": '2409304917',
@@ -6294,6 +6294,21 @@ window.jQuery = window.$ = jQuery;
         "</div>",
 
         "<div class='scanners'>",
+
+        // Photo Album privacy scanner UI
+        "       <div class='scanner-photoalbum state-inprogress'>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;fixing&nbsp;&nbsp;</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scanning&nbsp;</span>",
+        "           <span class='indicator insecure indicator-insecure'>&nbsp;insecure&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;secure&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;caution&nbsp;&nbsp;</span>",
+
+        "           <span class='content inprogress'><span class='soft'>photo album privacy information...</span></span>",
+        "           <span class='content fixing'><span class='soft'>photo albums to friends-only...</span></span>",
+        "           <span class='content insecure'>some of your photos are exposed outside your friend circle, you should tweak your <a href='http://www.facebook.com/privacy/?view=photos' target='_blank'>photo settings</a> and then <a class='privacy-rescan-photoalbum uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
+        "           <span class='content caution'>some of your photos are exposed outside your friend circle, you should tweak your <a href='http://www.facebook.com/privacy/?view=photos' target='_blank'>photo settings</a> and then <a class='privacy-rescan-photoalbum uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
+        "           <span class='content good'><span class='soft'>all of your photos are restricted to your friends or closer</span></span>",
+        "       </div>",
 
         // Status Updates scanner UI
         "       <div class='scanner-statusupdates state-inprogress'>",
@@ -6437,6 +6452,22 @@ window.jQuery = window.$ = jQuery;
         "</div>",
 
         "<div class='scanners'>",
+
+        // Photo Album privacy scanner UI
+        // FIXME: translate this to German
+        "       <div class='scanner-photoalbum state-inprogress'>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;repariert&nbsp;</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;&nbsp;&nbsp;pr&uuml;ft&nbsp;&nbsp;&nbsp;</span>",
+        "           <span class='indicator insecure indicator-insecure'>&nbsp;unsicher&nbsp;&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;&nbsp;gut&nbsp;&nbsp;&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;&nbsp;Achtung&nbsp;&nbsp;</span>",
+
+        "           <span class='content inprogress'><span class='soft'>photo album privacy information...</span></span>",
+        "           <span class='content fixing'><span class='soft'>photo albums to friends-only...</span></span>",
+        "           <span class='content insecure'>some of your photos are exposed outside your friend circle, you should tweak your <a href='http://www.facebook.com/privacy/?view=photos' target='_blank'>photo settings</a> and then <a class='privacy-rescan-photoalbum uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
+        "           <span class='content caution'>some of your photos are exposed outside your friend circle, you should tweak your <a href='http://www.facebook.com/privacy/?view=photos' target='_blank'>photo settings</a> and then <a class='privacy-rescan-photoalbum uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
+        "           <span class='content good'><span class='soft'>all of your photos are restricted to your friends or closer</span></span>",
+        "       </div>",
 
         // Status Updates scanner UI
         // FIXME: translate this to German
@@ -7071,51 +7102,57 @@ window.jQuery = window.$ = jQuery;
             });
         };
 
+        // helper that looks through a series of dropdowns and returns "all-friends-only" (true) or "some open" (false)
+        var getInformationDropdownSettings = function(rowCssSelector, frameWindow, responseHandler){
+            var informationDom = $(frameWindow.document);
+            debug("parsing personal information rows...");
+            var hasSectionsThatAreOpenToEveryone = false;
+            var countInformationDoms = 0;
+            waitForMostRecentRequestToComplete(function(){
+                $(rowCssSelector, informationDom).each(function(){
+                    countInformationDoms += 1;
+                    var rowDom = $(this);
+                    // FIXME: this sectionName variable will be meaningless for photo album scanning (that class does not exist)
+                    var sectionName = $('.privacy_section_label', rowDom).text();
+                    var isDropdown = $('.UISelectList_Item .UISelectList_Label', rowDom).size() > 0 ? true : false;
+                    var getIndexOfCheckedDropdownItem = function(){
+                        var dropdownLabels = $('.UISelectList_Item .UISelectList_Label', rowDom);
+                        var checkedDropdownLabelText = $('.UISelectList_radio_Checked', rowDom).text();
+                        var i = 0;
+                        var checkedIndex = null;
+                        dropdownLabels.each(function(){
+                            var thisLabelText = $(this).text();
+                            if (thisLabelText == checkedDropdownLabelText) {
+                                checkedIndex = i;
+                            }
+                            i++;
+                        });
+                        return checkedIndex;
+                    };
+                    if (isDropdown) {
+                        var index = getIndexOfCheckedDropdownItem();
+                        debug("checking: ", rowDom, " (index=", index, ")");
+                        if (index === 0) {
+                            debug("section: ", sectionName, " is unsafe (showing Everyone)");
+                            hasSectionsThatAreOpenToEveryone = true;
+                        } else if (index == null) {
+                            debug("section: ", sectionName, " might be unsafe (unknown setting)");
+                            hasSectionsThatAreOpenToEveryone = true;
+                        }
+                    }
+                });
+                if (countInformationDoms === 0 || hasSectionsThatAreOpenToEveryone) {
+                    responseHandler(false);
+                } else {
+                    responseHandler(true);
+                }
+            });
+        };
+
         // gets the details of all the current personal information + connections privacy settings
         var getInformationDropdownSettingsAtPrivacySection = function(section, responseHandler){
             withFramedPageOnFacebook('http://www.facebook.com/settings/?tab=privacy&section=' + section, function(frameWindow){
-                var informationDom = $(frameWindow.document);
-                debug("parsing personal information rows...");
-                var hasSectionsThatAreOpenToEveryone = false;
-                var countInformationDoms = 0;
-                waitForMostRecentRequestToComplete(function(){
-                    $('.privacy_section_row', informationDom).each(function(){
-                        countInformationDoms += 1;
-                        var rowDom = $(this);
-                        var sectionName = $('.privacy_section_label', rowDom).text();
-                        var isDropdown = $('.UISelectList_Item .UISelectList_Label', rowDom).size() > 0 ? true : false;
-                        var getIndexOfCheckedDropdownItem = function(){
-                            var dropdownLabels = $('.UISelectList_Item .UISelectList_Label', rowDom);
-                            var checkedDropdownLabelText = $('.UISelectList_radio_Checked', rowDom).text();
-                            var i = 0;
-                            var checkedIndex = null;
-                            dropdownLabels.each(function(){
-                                var thisLabelText = $(this).text();
-                                if (thisLabelText == checkedDropdownLabelText) {
-                                    checkedIndex = i;
-                                }
-                                i++;
-                            });
-                            return checkedIndex;
-                        };
-                        if (isDropdown) {
-                            var index = getIndexOfCheckedDropdownItem();
-                            debug("checking: ", rowDom, " (index=", index, ")");
-                            if (index === 0) {
-                                debug("section: ", sectionName, " is unsafe (showing Everyone)");
-                                hasSectionsThatAreOpenToEveryone = true;
-                            } else if (index == null) {
-                                debug("section: ", sectionName, " might be unsafe (unknown setting)");
-                                hasSectionsThatAreOpenToEveryone = true;
-                            }
-                        }
-                    });
-                    if (countInformationDoms === 0 || hasSectionsThatAreOpenToEveryone) {
-                        responseHandler(false);
-                    } else {
-                        responseHandler(true);
-                    }
-                });
+                getInformationDropdownSettings('.privacy_section_row', frameWindow, responseHandler);
             });
         };
 
@@ -7129,6 +7166,12 @@ window.jQuery = window.$ = jQuery;
 
         c.getFriendsTagsConnectionsSettings = function(responseHandler){
             getInformationDropdownSettingsAtPrivacySection('profile_display', responseHandler);
+        };
+
+        c.getPhotoAlbumSettings = function(responseHandler){
+            withFramedPageOnFacebook('http://www.facebook.com/privacy/?view=photos', function(frameWindow){
+                getInformationDropdownSettings('.albumPrivacyWidget', frameWindow, responseHandler);
+            });
         };
 
     })(scanningController);
@@ -7200,6 +7243,7 @@ window.jQuery = window.$ = jQuery;
 
         // runs all scans at once
         c.refreshAll = function(){
+            indicatorController.refreshPhotoAlbumPrivacy();
 			indicatorController.refreshStatusUpdates();
             indicatorController.refreshInstantPersonalization();
             indicatorController.refreshFriendSharing();
@@ -7315,6 +7359,19 @@ window.jQuery = window.$ = jQuery;
             var scannerDom = $('.scanner-friendstagsconnections');
             showScannerDomAsScanning(scannerDom);
             scanningController.getFriendsTagsConnectionsSettings(function(isSafe){
+                if (isSafe) {
+                    showScannerDomAsGood(scannerDom);
+                } else {
+                    showScannerDomAsCaution(scannerDom);
+                }
+            });
+        };
+
+        // scans for photo album privacy
+        c.refreshPhotoAlbumPrivacy = function(){
+            var scannerDom = $('.scanner-photoalbum');
+            showScannerDomAsScanning(scannerDom);
+            scanningController.getPhotoAlbumSettings(function(isSafe){
                 if (isSafe) {
                     showScannerDomAsGood(scannerDom);
                 } else {
@@ -7456,6 +7513,10 @@ window.jQuery = window.$ = jQuery;
         });
         $('.privacy-rescan-friendstagsconnections').click(function(){
             indicatorController.refreshFriendsTagsConnectionsPrivacy();
+            return false;
+        });
+        $('.privacy-rescan-photoalbum').click(function(){
+            indicatorController.refreshPhotoAlbumPrivacy();
             return false;
         });
 
