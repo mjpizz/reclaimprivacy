@@ -6250,7 +6250,6 @@ window.jQuery = window.$ = jQuery;
  */
 
     // constants
-    var BOOKMARKLET_JS_URL = 'http://static.reclaimprivacy.org/javascripts/privacyscanner.js';
     var REQUEST_COMPLETION_DELTA_IN_MILLISECONDS = 3000;
     var TRANSIENT_STATUS_DELTA_IN_MILLISECONDS = 4000;
     var FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS = 2000;
@@ -7114,8 +7113,9 @@ window.jQuery = window.$ = jQuery;
             var hasSectionsThatAreOpenToEveryone = false;
             var countInformationDoms = 0;
             waitForMostRecentRequestToComplete(function(){
+                debug("iterating throw all rows matching: ", rowCssSelector);
                 $(rowCssSelector, informationDom).each(function(){
-                    countInformationDoms += 1;
+                    debug("checking row #", countInformationDoms);
                     var rowDom = $(this);
                     // FIXME: this sectionName variable will be meaningless for photo album scanning (that class does not exist)
                     var sectionName = $('.privacy_section_label', rowDom).text();
@@ -7135,6 +7135,7 @@ window.jQuery = window.$ = jQuery;
                         return checkedIndex;
                     };
                     if (isDropdown) {
+                        countInformationDoms += 1;
                         var index = getIndexOfCheckedDropdownItem();
                         debug("checking: ", rowDom, " (index=", index, ")");
                         switch(index) {
@@ -7153,8 +7154,11 @@ window.jQuery = window.$ = jQuery;
                                 hasSectionsThatAreOpenToEveryone = true;
                                 break;
                         }
+                    } else {
+                        debug("not a dropdown?:", rowDom, $('.UISelectList_Item, .UISelectList_Item:hidden', rowDom).toArray());
                     }
                 });
+                debug("finished parsing personal information rows, countInformationDoms=", countInformationDoms, " and hasSectionsThatAreOpenToEveryone=", hasSectionsThatAreOpenToEveryone);
                 if (countInformationDoms === 0 || hasSectionsThatAreOpenToEveryone) {
                     responseHandler(false);
                 } else {
