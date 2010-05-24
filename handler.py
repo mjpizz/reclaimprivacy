@@ -6,7 +6,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '40'
+VERSION = '45'
 
 
 class NewsletterEntry(db.Model):
@@ -568,7 +568,7 @@ class Donations(webapp.RequestHandler):
 
 def _get_leftbar_content():
     return '''
-        <a href="http://www.reclaimprivacy.org"><img src='/images/logo.png' width='200' height='200' /></a>
+        <a href="http://www.reclaimprivacy.org"><img src='/images/logo.png?cb=1' width='200' height='200' /></a>
         <div>
             <strong>ReclaimPrivacy</strong><span class='soft'>.org</span>
         </div>
