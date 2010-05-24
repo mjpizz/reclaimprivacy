@@ -86,13 +86,13 @@ class Facebook(webapp.RequestHandler):
             # we need to serve a different bookmarklet Javascript for MSIE
             if browser == 'ie':
                 step_one_instructions = "Right-click this link and 'Add to Favorites'"
-                step_two_instructions = "<a href='http://www.facebook.com/settings/?tab=privacy&ref=mb'>Go to your Facebook privacy settings</a>, open your Favorites, and click the link called 'Scan for Privacy' once you are on Facebook"
+                step_two_instructions = "<a href='http://www.facebook.com/settings/?tab=privacy&ref=mb' target='_blank'>Go to your Facebook privacy settings</a>, open your Favorites, and click the link called 'Scan for Privacy' once you are on Facebook"
             elif browser == 'opera':
                 step_one_instructions = "Hold down the Shift key, then <strong>drag</strong> this link to your web browser toolbar"
-                step_two_instructions = "<a href='http://www.facebook.com/settings/?tab=privacy&ref=mb'>Go to your Facebook privacy settings</a>, open your Favorites, and click the link called 'Scan for Privacy' once you are on Facebook"
+                step_two_instructions = "<a href='http://www.facebook.com/settings/?tab=privacy&ref=mb' target='_blank'>Go to your Facebook privacy settings</a>, open your Favorites, and click the link called 'Scan for Privacy' once you are on Facebook"
             else:
                 step_one_instructions = "Drag this link to your web browser bookmarks bar"
-                step_two_instructions = "<a href='http://www.facebook.com/settings/?tab=privacy&ref=mb'>Go to your Facebook privacy settings</a> and then click that bookmark once you are on Facebook."
+                step_two_instructions = "<a href='http://www.facebook.com/settings/?tab=privacy&ref=mb' target='_blank'>Go to your Facebook privacy settings</a> and then click that bookmark once you are on Facebook."
 
             # build the page HTML
             leftbar_content = _get_leftbar_content()
@@ -329,7 +329,7 @@ class Help(webapp.RequestHandler):
             </p>
             <p class='answer'>
                 <strong>After you have added that grey box bookmark</strong> you need to
-                <a href='http://www.facebook.com/settings/?tab=privacy&ref=mb'>go to your Facebook privacy settings</a>.
+                <a href='http://www.facebook.com/settings/?tab=privacy&ref=mb' target='_blank'>go to your Facebook privacy settings</a>.
                 <strong>Once you are on Facebook</strong>, you should click that bookmark.
             </p>
         </p>
