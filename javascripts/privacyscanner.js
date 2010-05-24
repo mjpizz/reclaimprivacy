@@ -6255,6 +6255,11 @@ window.jQuery = window.$ = jQuery;
     var TRANSIENT_STATUS_DELTA_IN_MILLISECONDS = 4000;
     var FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS = 2000;
     var BAR_HEIGHT_IN_PX = 240;
+    var DROPDOWN_INDEX_EVERYONE = 0;
+    var DROPDOWN_INDEX_FRIENDS_AND_NETWORKS = 1;
+    var DROPDOWN_INDEX_FRIENDS_OF_FRIENDS = 2;
+    var DROPDOWN_INDEX_FRIENDS = 3;
+    var DROPDOWN_INDEX_CUSTOM = 4;
     var BLOCKABLE_APPS = {
         "Microsoft Docs": '119178388096593',
         "Pandora": '2409304917',
@@ -7132,12 +7137,21 @@ window.jQuery = window.$ = jQuery;
                     if (isDropdown) {
                         var index = getIndexOfCheckedDropdownItem();
                         debug("checking: ", rowDom, " (index=", index, ")");
-                        if (index === 0) {
-                            debug("section: ", sectionName, " is unsafe (showing Everyone)");
-                            hasSectionsThatAreOpenToEveryone = true;
-                        } else if (index == null) {
-                            debug("section: ", sectionName, " might be unsafe (unknown setting)");
-                            hasSectionsThatAreOpenToEveryone = true;
+                        switch(index) {
+                            case DROPDOWN_INDEX_FRIENDS:
+                            case DROPDOWN_INDEX_CUSTOM:
+                                debug("section: ", sectionName, " is safe (friends-only, or Custom)");
+                                break;
+                            case DROPDOWN_INDEX_FRIENDS_OF_FRIENDS:
+                            case DROPDOWN_INDEX_FRIENDS_AND_NETWORKS:
+                            case DROPDOWN_INDEX_EVERYONE:
+                                debug("section: ", sectionName, " is unsafe (showing people other than friends)");
+                                hasSectionsThatAreOpenToEveryone = true;
+                                break;
+                            default:
+                                debug("section: ", sectionName, " (#", index, ") might be unsafe (unknown setting)");
+                                hasSectionsThatAreOpenToEveryone = true;
+                                break;
                         }
                     }
                 });
