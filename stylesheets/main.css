@@ -322,8 +322,8 @@ a:hover .helper-arrow {
 
 a:hover .arrow-on-msie {
     position: absolute;
-    top: -205px;
-    left: -25px;
+    top: -105px;
+    left: -200px;
     background-image: url(../images/arrow-rightclick.png);
 }
 
