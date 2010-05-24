@@ -6,7 +6,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '45'
+VERSION = '46'
 
 
 class NewsletterEntry(db.Model):
@@ -111,33 +111,15 @@ class Facebook(webapp.RequestHandler):
     </div>
 
     <div id='content'>
-        <h1>Get Informed</h1>
-        <p>
-            Keep up with the latest news about privacy policies on Facebook.
-            <ul>
-                <li>
-                    <a href='http://www.eff.org/deeplinks/2010/04/facebook-further-reduces-control-over-personal-information'>The Erosion of Facebook Privacy</a>
-                    <span class='soft'>eff.org</span>
-                </li>
-                <li>
-                    <a href='http://www.eff.org/deeplinks/2009/12/facebooks-new-privacy-changes-good-bad-and-ugly'>Facebook Privacy Changes</a>
-                    <span class='soft'>eff.org</span>
-                </li>
-                <li>
-                    <a href='http://finance.yahoo.com/family-home/article/109538/7-things-to-stop-doing-now-on-facebook'>7 Things to Stop Doing Now on Facebook</a>
-                    <span class='soft'>yahoo.com</span>
-                </li>
-                <li>
-                    <a href='http://www.wired.com/epicenter/2010/05/facebook-rogue/'>Facebook's Gone Rogue</a>
-                    <span class='soft'>wired.com</span>
-                </li>
-            </ul>
-        </p>
 
         <h1>Get Protected</h1>
         <p>
             This website provides an <strong>independent</strong> and <strong>open</strong> tool for scanning
-            your Facebook privacy settings.  <em>The <a href='http://github.com/mjpizz/reclaimprivacy'>source code</a> and its development will always remain open and transparent.</em>
+            your Facebook privacy settings.
+            <div class='fresh-banner'>
+                <span class='label'>new!</span>
+                just added Photo Album privacy scanning
+            </div>
             <ol class='instructions'>
                 <li>
                     %(step_one_instructions)s:
@@ -156,20 +138,13 @@ class Facebook(webapp.RequestHandler):
                     <a href="http://www.facebook.com/pages/Reclaim-Privacy/121897834504447">Follow us on Facebook</a>
                     to hear about the latest updates.
                 </li>
+                <li>
+                    Tell your friends to check their privacy too: <a name="fb_share" type="button_count" share_url="http://www.reclaimprivacy.org/facebook" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+                </li>
             </ol>
-
-            <p class='announcement'>
-                <strong>Update!</strong> we now scan your wall posts / status updates too!
-            </p>
-            <p class='alert'>
-                <strong>Note:</strong> we are still working on adding privacy scans for your photos, the scanner does not check these yet.
-                Also, please note that Firefox currently has some issues that we are looking into, so please use Internet Explorer, Safari,
-                or Chrome for the time being.
-                <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447'>Stay tuned for updates</a>!
-            </p>
             <p class='need-help'>
                 <em>
-                    Having trouble? <a href='/help'>Check our help page</a> for tips and video walkthroughs.</a>
+                    Having trouble? <a href='/help'>Check our help page</a> for tips and video walkthroughs.
                 </em>
             </p
         </p>
@@ -195,10 +170,32 @@ class Facebook(webapp.RequestHandler):
                 </form>
             </p>
             <p>
-                    <em>Are you a coder?</em> <a href='http://github.com/mjpizz/reclaimprivacy'>Contribute to the source code</a> and help to
-                    keep the privacy scanner up-to-date.  You should <a href='http://www.nytimes.com/interactive/2010/05/12/business/facebook-privacy.html'>look at the settings</a>
-                    that we need to cover with this tool (provided by the NYTimes).
+                    Are you a programmer? <a href='http://github.com/mjpizz/reclaimprivacy'>Contribute to the source code</a> and help to
+                    keep the privacy scanner up-to-date.  All development will remain open and transparent.
             </p>
+        </p>
+
+        <h1>Stay Informed</h1>
+        <p>
+            Keep up with the latest news about privacy policies on Facebook.
+            <ul>
+                <li>
+                    <a href='http://www.eff.org/deeplinks/2010/04/facebook-further-reduces-control-over-personal-information'>The Erosion of Facebook Privacy</a>
+                    <span class='soft'>eff.org</span>
+                </li>
+                <li>
+                    <a href='http://www.eff.org/deeplinks/2009/12/facebooks-new-privacy-changes-good-bad-and-ugly'>Facebook Privacy Changes</a>
+                    <span class='soft'>eff.org</span>
+                </li>
+                <li>
+                    <a href='http://finance.yahoo.com/family-home/article/109538/7-things-to-stop-doing-now-on-facebook'>7 Things to Stop Doing Now on Facebook</a>
+                    <span class='soft'>yahoo.com</span>
+                </li>
+                <li>
+                    <a href='http://www.wired.com/epicenter/2010/05/facebook-rogue/'>Facebook's Gone Rogue</a>
+                    <span class='soft'>wired.com</span>
+                </li>
+            </ul>
         </p>
 
         <h1>Read Our Own Privacy Policy</h1>
@@ -246,7 +243,7 @@ class Facebook(webapp.RequestHandler):
             <p>
                 I am an avid Javascript developer and co-founder at <a href='http://www.olark.com/'>Olark</a> (check it out!).  You
                 can chat with me about ReclaimPrivacy.org on the <a href='/help'>help page</a>.  If you're with the press, please use
-                press@reclaimprivacy.org to reach me.
+                press@reclaimprivacy.org to reach us.
             </p>
         </div>
     </div>
@@ -308,6 +305,13 @@ class Help(webapp.RequestHandler):
     <div id='content'>
 
         <h1>Frequently Asked Questions</h1>
+
+        <p class='alert'>
+            Please note that Firefox currently has some issues that we are looking into, so please use Internet Explorer, Safari,
+            Chrome, or Opera for the time being.
+            <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447'>Stay tuned for updates</a>!
+        </p>
+
         <p>
             <em>Here are some of the questions that many people like you have asked...</em>
         </p>
@@ -365,7 +369,7 @@ class Help(webapp.RequestHandler):
             </p>
         </p>
         <p>
-            <h3>Why is the scanner stuck on the 2nd and 4th lines?</h3>
+            <h3>Why is the scanner stuck on the 4th and 6th lines?</h3>
             <p class='answer'>
                 We are currently working on fixing <a href='http://github.com/mjpizz/reclaimprivacy/issues#issue/2'>this bug</a> (if you are a programmer
                 and can help, let me know).  The easiest thing to do in the
@@ -512,8 +516,8 @@ class Donations(webapp.RequestHandler):
 
         <h1>What has been raised so far?</h1>
         <p>
-            As of Thursday, May 20th, the amount is about
-            <span class='donation-amount'>$2658</span>, donated by <span class='donation-people'>269 people</span>.
+            As of Sunday, May 23rd, the amount is about
+            <span class='donation-amount'>$2865</span>, donated by <span class='donation-people'>292 people</span>.
         </p>
         <p>
             <em class='soft'>
@@ -568,14 +572,13 @@ class Donations(webapp.RequestHandler):
 
 def _get_leftbar_content():
     return '''
-        <a href="http://www.reclaimprivacy.org"><img src='/images/logo.png?cb=1' width='200' height='200' /></a>
-        <div>
-            <strong>ReclaimPrivacy</strong><span class='soft'>.org</span>
-        </div>
+        <a href="/"><img src='/images/logo.png?cb=2' width='200' height='200' /></a>
         <div class='donation-box'>
             <a href='http://www.pledgie.com/campaigns/10721'><img alt='Click here to lend your support to: reclaimprivacy and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/10721.png?skin_name=chrome' border='0' width='149' height='37' /></a>
             <br/>
-            donations help cover costs
+            <span class='donation-summary'>
+                <strong class='amount'>$2865</strong> raised from <strong class='people'>292</strong> people
+            </span>
             <br/>
             <a class='soft' href='/donations'>how will donations be used?</a>
         </div>

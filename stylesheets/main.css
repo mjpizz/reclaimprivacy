@@ -6,10 +6,10 @@ body {
 }
 
 h1 {
-    color: #999;
-    margin: 0px 0px 0px 0px;
+    color: black;
+    margin: 20px 0px 0px 0px;
     font-size: 1.2em;
-    border-bottom: 1px solid #ccc;
+    color: #425995;
 }
 
 h3 {
@@ -24,10 +24,12 @@ h3 {
     top: 0px;
     text-align: center;
     margin-bottom: 20px;
+    padding-right: 10px;
+    border-right: 1px solid #ccc;
 }
 
 #content {
-    padding: 0px 0px 0px 225px;
+    padding: 0px 0px 0px 245px;
 }
 
 .soft {
@@ -75,7 +77,6 @@ ol li {
 .donation-box {
     margin-top: 20px;
     width: 200px;
-    font-style: italic;
     font-size: 10pt;
     color: #999;
 }
@@ -100,7 +101,7 @@ ol li {
 .newsletter {
     display: block;
     padding: 10px;
-    background-color: #ddd;
+    background-color: #eee;
 }
 
 .newsletter label {
@@ -324,4 +325,32 @@ a:hover .arrow-on-msie {
     top: -205px;
     left: -25px;
     background-image: url(../images/arrow-rightclick.png);
+}
+
+.donation-summary {
+    color: black;
+}
+
+.donation-summary strong {
+    color: #2B6C10;
+}
+
+.instructions {
+    margin: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #eee;
+}
+
+.fresh-banner {
+    padding: 10px;
+    margin: 0px;
+    background: #3D528B;
+    color: #eee;
+}
+
+.fresh-banner .label {
+    padding: 3px;
+    margin-right: 5px;
+    color: #92ABD5;
 }
