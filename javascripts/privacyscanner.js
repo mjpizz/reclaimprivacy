@@ -6377,8 +6377,8 @@ window.jQuery = window.$ = jQuery;
 
         "           <span class='content inprogress'><span class='soft'>scanning contact information...</span></span>",
         "           <span class='content fixing'><span class='soft'>locking contact information to friends-only...</span></span>",
-        "           <span class='content insecure'>some of your contact information is exposed to the entire Internet, you should tweak your <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>contact settings</a> and then <a class='privacy-rescan-contactinfo uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
-        "           <span class='content caution'>some of your contact information is exposed to the entire Internet, you should tweak <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>contact settings</a> and then <a class='privacy-rescan-contactinfo uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
+        "           <span class='content insecure'>some contact info might be exposed to more people than you expected, go and check your <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>contact settings</a> and if you decide to change anything then <a class='privacy-rescan-contactinfo uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
+        "           <span class='content caution'>some contact info might be exposed to more people than you expected, go and check your <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>contact settings</a>, and if you decide to change anything then <a class='privacy-rescan-contactinfo uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
         "           <span class='content good'><span class='soft'>all of your contact information is at restricted to your friends or closer</span></span>",
         "       </div>",
 
