@@ -6254,7 +6254,10 @@ window.jQuery = window.$ = jQuery;
     var TRANSIENT_STATUS_DELTA_IN_MILLISECONDS = 4000;
     var FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS = 3000;
     var BAR_HEIGHT_IN_PX = 240;
+    var NUMBER_OF_DROPDOWN_OPTIONS_IF_DROPDOWN_IS_EVERYONE_OR_FRIENDS_ONLY = 2;
     var NUMBER_OF_DROPDOWN_OPTIONS_IF_IN_NETWORK = 5;
+    var NUMBER_OF_DROPDOWN_OPTIONS_IF_NOT_IN_NETWORK = 4;
+    var DROPDOWN_INDEX_EVERYONE_WHEN_ONLY_2_OPTIONS = 0;
     var DROPDOWN_INDEX_EVERYONE = 0;
     var DROPDOWN_INDEX_FRIENDS_OF_FRIENDS = 1;
     var DROPDOWN_INDEX_FRIENDS = 2;
@@ -7145,41 +7148,58 @@ window.jQuery = window.$ = jQuery;
                         var totalNumberOfOptionsInDropdown = $('.UISelectList_Item .UISelectList_Label', rowDom).size();
                         var index = getIndexOfCheckedDropdownItem();
                         debug("checking: ", rowDom, " (index=", index, ") - totalNumberOfOptionsInDropdown=", totalNumberOfOptionsInDropdown);
-                        if (totalNumberOfOptionsInDropdown == NUMBER_OF_DROPDOWN_OPTIONS_IF_IN_NETWORK) {
-                            // this user is in a Network (which means they have an extra option in the dropdown)
-                            switch(index) {
-                                case DROPDOWN_INDEX_WITH_NETWORKS_FRIENDS:
-                                case DROPDOWN_INDEX_WITH_NETWORKS_CUSTOM:
-                                    debug("section: ", sectionName, " is safe (friends-only, or Custom)");
-                                    break;
-                                case DROPDOWN_INDEX_WITH_NETWORKS_FRIENDS_OF_FRIENDS:
-                                case DROPDOWN_INDEX_WITH_NETWORKS_FRIENDS_AND_NETWORKS:
-                                case DROPDOWN_INDEX_WITH_NETWORKS_EVERYONE:
-                                    debug("section: ", sectionName, " is unsafe (showing people other than friends)");
+                        switch(totalNumberOfOptionsInDropdown) {
+                            case NUMBER_OF_DROPDOWN_OPTIONS_IF_DROPDOWN_IS_EVERYONE_OR_FRIENDS_ONLY:
+                                // this dropdown only has 2 options: Everyone or Friends of Friends
+                                if (index == DROPDOWN_INDEX_EVERYONE_WHEN_ONLY_2_OPTIONS) {
                                     hasSectionsThatAreOpenToEveryone = true;
-                                    break;
-                                default:
-                                    debug("section: ", sectionName, " (#", index, ") might be unsafe (unknown setting)");
-                                    hasSectionsThatAreOpenToEveryone = true;
-                                    break;
-                            }
-                        } else {
-                            // this user is NOT in a Network (which means they have less options in their dropdown)
-                            switch(index) {
-                                case DROPDOWN_INDEX_FRIENDS:
-                                case DROPDOWN_INDEX_CUSTOM:
-                                    debug("section: ", sectionName, " is safe (friends-only, or Custom)");
-                                    break;
-                                case DROPDOWN_INDEX_FRIENDS_OF_FRIENDS:
-                                case DROPDOWN_INDEX_EVERYONE:
-                                    debug("section: ", sectionName, " is unsafe (showing people other than friends)");
-                                    hasSectionsThatAreOpenToEveryone = true;
-                                    break;
-                                default:
-                                    debug("section: ", sectionName, " (#", index, ") might be unsafe (unknown setting)");
-                                    hasSectionsThatAreOpenToEveryone = true;
-                                    break;
-                            }
+                                }
+                                break;
+
+                            case NUMBER_OF_DROPDOWN_OPTIONS_IF_IN_NETWORK:
+                                // this user is in a Network (which means they have an extra option in the dropdown)
+                                switch(index) {
+                                    case DROPDOWN_INDEX_WITH_NETWORKS_FRIENDS:
+                                    case DROPDOWN_INDEX_WITH_NETWORKS_CUSTOM:
+                                        debug("section: ", sectionName, " is safe (friends-only, or Custom)");
+                                        break;
+                                    case DROPDOWN_INDEX_WITH_NETWORKS_FRIENDS_OF_FRIENDS:
+                                    case DROPDOWN_INDEX_WITH_NETWORKS_FRIENDS_AND_NETWORKS:
+                                    case DROPDOWN_INDEX_WITH_NETWORKS_EVERYONE:
+                                        debug("section: ", sectionName, " is unsafe (showing people other than friends)");
+                                        hasSectionsThatAreOpenToEveryone = true;
+                                        break;
+                                    default:
+                                        debug("section: ", sectionName, " (#", index, ") might be unsafe (unknown setting)");
+                                        hasSectionsThatAreOpenToEveryone = true;
+                                        break;
+                                }
+                                break;
+
+                            case NUMBER_OF_DROPDOWN_OPTIONS_IF_NOT_IN_NETWORK:
+                                // this user is NOT in a Network (which means they have less options in their dropdown)
+                                switch(index) {
+                                    case DROPDOWN_INDEX_FRIENDS:
+                                    case DROPDOWN_INDEX_CUSTOM:
+                                        debug("section: ", sectionName, " is safe (friends-only, or Custom)");
+                                        break;
+                                    case DROPDOWN_INDEX_FRIENDS_OF_FRIENDS:
+                                    case DROPDOWN_INDEX_EVERYONE:
+                                        debug("section: ", sectionName, " is unsafe (showing people other than friends)");
+                                        hasSectionsThatAreOpenToEveryone = true;
+                                        break;
+                                    default:
+                                        debug("section: ", sectionName, " (#", index, ") might be unsafe (unknown setting)");
+                                        hasSectionsThatAreOpenToEveryone = true;
+                                        break;
+                                }
+                                break;
+
+                            default:
+                                // this is an unknown set of options, so we just
+                                // default to wwarning about open sections
+                                hasSectionsThatAreOpenToEveryone = true;
+                                break;
                         }
                     } else {
                         debug("not a dropdown?:", rowDom);
