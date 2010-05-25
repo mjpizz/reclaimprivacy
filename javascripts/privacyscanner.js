@@ -6252,7 +6252,7 @@ window.jQuery = window.$ = jQuery;
     // constants
     var REQUEST_COMPLETION_DELTA_IN_MILLISECONDS = 3000;
     var TRANSIENT_STATUS_DELTA_IN_MILLISECONDS = 4000;
-    var FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS = 2000;
+    var FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS = 3000;
     var BAR_HEIGHT_IN_PX = 240;
     var DROPDOWN_INDEX_EVERYONE = 0;
     var DROPDOWN_INDEX_FRIENDS_AND_NETWORKS = 1;
@@ -6898,6 +6898,7 @@ window.jQuery = window.$ = jQuery;
             $(iframe).load(function(){
                 debug("framed page loaded...");
                 setTimeout(function(){
+                    debug("handling loaded framed page...");
                     handler(iframe[0].contentWindow);
                 }, FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS);
             });
@@ -7112,7 +7113,7 @@ window.jQuery = window.$ = jQuery;
             debug("parsing personal information rows...");
             var hasSectionsThatAreOpenToEveryone = false;
             var countInformationDoms = 0;
-            waitForMostRecentRequestToComplete(function(){
+            var checkPrivacyDropdownsIfTheyExist = function(){
                 debug("iterating throw all rows matching: ", rowCssSelector);
                 $(rowCssSelector, informationDom).each(function(){
                     debug("checking row #", countInformationDoms);
@@ -7155,16 +7156,26 @@ window.jQuery = window.$ = jQuery;
                                 break;
                         }
                     } else {
-                        debug("not a dropdown?:", rowDom, $('.UISelectList_Item, .UISelectList_Item:hidden', rowDom).toArray());
+                        debug("not a dropdown?:", rowDom);
                     }
                 });
                 debug("finished parsing personal information rows, countInformationDoms=", countInformationDoms, " and hasSectionsThatAreOpenToEveryone=", hasSectionsThatAreOpenToEveryone);
-                if (countInformationDoms === 0 || hasSectionsThatAreOpenToEveryone) {
-                    responseHandler(false);
+                if (countInformationDoms === 0){
+                    // we didn't find anything here, probably need to wait even longer for the most
+                    // recent request to complete
+                    debug("waiting longer for dropdowns...");
+                    waitForMostRecentRequestToComplete(checkPrivacyDropdownsIfTheyExist);
                 } else {
-                    responseHandler(true);
+                    if (hasSectionsThatAreOpenToEveryone) {
+                        responseHandler(false);
+                    } else {
+                        responseHandler(true);
+                    }
                 }
-            });
+            };
+
+            // try to check the privacy dropdowns after a short delay
+            waitForMostRecentRequestToComplete(checkPrivacyDropdownsIfTheyExist);
         };
 
         // gets the details of all the current personal information + connections privacy settings
