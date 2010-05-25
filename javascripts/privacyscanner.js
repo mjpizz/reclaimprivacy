@@ -7147,10 +7147,11 @@ window.jQuery = window.$ = jQuery;
                         countInformationDoms += 1;
                         var totalNumberOfOptionsInDropdown = $('.UISelectList_Item .UISelectList_Label', rowDom).size();
                         var index = getIndexOfCheckedDropdownItem();
-                        debug("checking: ", rowDom, " (index=", index, ") - totalNumberOfOptionsInDropdown=", totalNumberOfOptionsInDropdown);
+                        debug("checking: ", sectionName, " rowDom=", rowDom, " (index=", index, ") - totalNumberOfOptionsInDropdown=", totalNumberOfOptionsInDropdown);
                         switch(totalNumberOfOptionsInDropdown) {
                             case NUMBER_OF_DROPDOWN_OPTIONS_IF_DROPDOWN_IS_EVERYONE_OR_FRIENDS_ONLY:
                                 // this dropdown only has 2 options: Everyone or Friends of Friends
+                                debug("this is an Everyone/FriendsOfFriends section (like 'Add me as a Friend')");
                                 if (index == DROPDOWN_INDEX_EVERYONE_WHEN_ONLY_2_OPTIONS) {
                                     hasSectionsThatAreOpenToEveryone = true;
                                 }
@@ -7198,6 +7199,7 @@ window.jQuery = window.$ = jQuery;
                             default:
                                 // this is an unknown set of options, so we just
                                 // default to wwarning about open sections
+                                debug("unexpected number of options in dropdown (", totalNumberOfOptionsInDropdown, ")");
                                 hasSectionsThatAreOpenToEveryone = true;
                                 break;
                         }
