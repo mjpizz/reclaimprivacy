@@ -6258,6 +6258,7 @@ window.jQuery = window.$ = jQuery;
     var NUMBER_OF_DROPDOWN_OPTIONS_IF_DROPDOWN_IS_EVERYONE_OR_FRIENDS_ONLY = 2;
     var NUMBER_OF_DROPDOWN_OPTIONS_IF_IN_NETWORK = 5;
     var NUMBER_OF_DROPDOWN_OPTIONS_IF_NOT_IN_NETWORK = 4;
+    var NUMBER_OF_DROPDOWN_OPTIONS_IF_NOT_IN_NETWORK_AND_CHECKING_MESSAGE_SECTION = 3;
     var DROPDOWN_INDEX_EVERYONE_WHEN_ONLY_2_OPTIONS = 0;
     var DROPDOWN_INDEX_EVERYONE = 0;
     var DROPDOWN_INDEX_FRIENDS_OF_FRIENDS = 1;
@@ -7196,11 +7197,14 @@ window.jQuery = window.$ = jQuery;
                                 }
                                 break;
 
+                            case NUMBER_OF_DROPDOWN_OPTIONS_IF_NOT_IN_NETWORK_AND_CHECKING_MESSAGE_SECTION:
                             case NUMBER_OF_DROPDOWN_OPTIONS_IF_NOT_IN_NETWORK:
                                 // this user is NOT in a Network (which means they have less options in their dropdown)
                                 switch(index) {
                                     case DROPDOWN_INDEX_FRIENDS:
                                     case DROPDOWN_INDEX_CUSTOM:
+                                        // Note: DROPDOWN_INDEX_CUSTOM is mutually exclusive with the case of NUMBER_OF_DROPDOWN_OPTIONS_IF_NOT_IN_NETWORK_AND_CHECKING_MESSAGE_SECTION
+                                        // ...this is because there is no custom setting for sending messages
                                         debug("section: ", sectionName, " is safe (friends-only, or Custom)");
                                         break;
                                     case DROPDOWN_INDEX_FRIENDS_OF_FRIENDS:
