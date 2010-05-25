@@ -6627,11 +6627,11 @@ window.jQuery = window.$ = jQuery;
 
         // Photo Album privacy scanner UI
         "       <div class='scanner-photoalbum state-inprogress'>",
-        "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;correggendo&nbsp;&nbsp;</span>",
-        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;</span>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;correggendo</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;&nbsp;</span>",
         "           <span class='indicator insecure indicator-insecure'>&nbsp;non sicuro&nbsp;</span>",
-        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;sicuro&nbsp;&nbsp;</span>",
-        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;sicuro&nbsp;&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;</span>",
 
         "           <span class='content inprogress'><span class='soft'>scansione delle informazioni sulla privacy degli album fotografici...</span></span>",
         "           <span class='content fixing'><span class='soft'>sto impostando la visualizzazione degli album fotografici solo agli amici...</span></span>",
@@ -6642,11 +6642,11 @@ window.jQuery = window.$ = jQuery;
 
         // Status Updates scanner UI
         "       <div class='scanner-statusupdates state-inprogress'>",
-        "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;correggendo&nbsp;&nbsp;</span>",
-        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;</span>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;correggendo</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;&nbsp;</span>",
         "           <span class='indicator insecure indicator-insecure'>&nbsp;non sicuro&nbsp;</span>",
-        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;sicuro&nbsp;&nbsp;</span>",
-        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;sicuro&nbsp;&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;</span>",
 
         "           <span class='content inprogress'><span class='soft'>scansione delle impostazioni sugli Aggiornamenti di Stato...</span></span>",
         "           <span class='content fixing'><span class='soft'>sto correggendo le impostazioni sugli Aggiornamenti di Stato...</span></span>",
@@ -6657,11 +6657,11 @@ window.jQuery = window.$ = jQuery;
 
         // Instant Personalization scanner UI
         "       <div class='state-inprogress scanner-instantpersonalization'>",
-        "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;correggendo&nbsp;&nbsp;</span>",
-        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;</span>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;correggendo</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;&nbsp;</span>",
         "           <span class='indicator insecure indicator-insecure'>&nbsp;non sicuro&nbsp;</span>",
-        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;sicuro&nbsp;&nbsp;</span>",
-        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;sicuro&nbsp;&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;</span>",
 
         "           <span class='content inprogress'><span class='soft'>scansione delle impostazioni sulla Personalizzazione Istantanea...</span></span>",
         "           <span class='content fixing'><span class='soft'>sto correggendo le impostazioni sulla Personalizzazione Istantanea...</span></span>",
@@ -6672,11 +6672,11 @@ window.jQuery = window.$ = jQuery;
 
         // Personal Information scanner UI
         "       <div class='scanner-personalinfo state-inprogress'>",
-        "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;correggendo&nbsp;&nbsp;</span>",
-        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;</span>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;correggendo</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;&nbsp;</span>",
         "           <span class='indicator insecure indicator-insecure'>&nbsp;non sicuro&nbsp;</span>",
-        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;sicuro&nbsp;&nbsp;</span>",
-        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;sicuro&nbsp;&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;</span>",
 
         "           <span class='content inprogress'><span class='soft'>scansione delle impostazioni sulle informazioni personali...</span></span>",
         "           <span class='content fixing'><span class='soft'>restrizione delle informazioni personali solo agli amici...</span></span>",
@@ -6687,11 +6687,11 @@ window.jQuery = window.$ = jQuery;
 
         // Contact Information scanner UI
         "       <div class='scanner-contactinfo state-inprogress'>",
-        "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;correggendo&nbsp;&nbsp;</span>",
-        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;</span>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;correggendo</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;&nbsp;</span>",
         "           <span class='indicator insecure indicator-insecure'>&nbsp;non sicuro&nbsp;</span>",
-        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;sicuro&nbsp;&nbsp;</span>",
-        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;sicuro&nbsp;&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;</span>",
 
         "           <span class='content inprogress'><span class='soft'>scansione delle impostazioni sulle informazioni di contatto...</span></span>",
         "           <span class='content fixing'><span class='soft'>restrizione delle informazioni di contatto solo agli amici...</span></span>",
@@ -6702,11 +6702,11 @@ window.jQuery = window.$ = jQuery;
 
         // Friends/Tags/Connections Information scanner UI
         "       <div class='scanner-friendstagsconnections state-inprogress'>",
-        "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;correggendo&nbsp;&nbsp;</span>",
-        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;</span>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;correggendo</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;&nbsp;</span>",
         "           <span class='indicator insecure indicator-insecure'>&nbsp;non sicuro&nbsp;</span>",
-        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;sicuro&nbsp;&nbsp;</span>",
-        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;sicuro&nbsp;&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;</span>",
 
         "           <span class='content inprogress'><span class='soft'>scansione delle impostazioni su amici, tag e connessioni...</span></span>",
         "           <span class='content fixing'><span class='soft'>restrizione delle informazioni su amici, tag e connessioni solo agli amici...</span></span>",
@@ -6717,11 +6717,11 @@ window.jQuery = window.$ = jQuery;
 
         // Friend Sharing scanner UI
         "       <div class='scanner-friendsharing state-inprogress'>",
-        "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;correggendo&nbsp;&nbsp;</span>",
-        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;</span>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;correggendo</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;&nbsp;</span>",
         "           <span class='indicator insecure indicator-insecure'>&nbsp;non sicuro&nbsp;</span>",
-        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;sicuro&nbsp;&nbsp;</span>",
-        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;sicuro&nbsp;&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;</span>",
 
         "           <span class='content inprogress'><span class='soft'>scansione delle impostazioni sulle informazioni che i tuoi amici possono condividere di te...</span></span>",
         "           <span class='content fixing'><span class='soft'>sto correggendo le impostazioni sulle informazioni che i tuoi amici possono condividere di te...</span></span>",
@@ -6732,11 +6732,11 @@ window.jQuery = window.$ = jQuery;
 
         // Blocked Apps scanner UI
         "       <div class='scanner-blockedapps state-inprogress'>",
-        "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;correggendo&nbsp;&nbsp;</span>",
-        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;</span>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;correggendo</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;&nbsp;</span>",
         "           <span class='indicator insecure indicator-insecure'>&nbsp;non sicuro&nbsp;</span>",
-        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;sicuro&nbsp;&nbsp;</span>",
-        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;sicuro&nbsp;&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;</span>",
 
         "           <span class='content inprogress'><span class='soft'>scansione delle applicazioni bloccate...</span></span>",
         "           <span class='content fixing'><span class='soft'>sto bloccando le applicazioni...</span></span>",
