@@ -6995,12 +6995,6 @@ window.jQuery = window.$ = jQuery;
             "   display: none !important",
             "}",
 
-            // allow translations to work
-            ".language-english .language-german {display: none;}",
-            ".language-german .language-english {display: none;}",
-            ".language-english .language-english {display: block;}",
-            ".language-german .language-german {display: block;}",
-
             // make sure our testing frames are hidden from view
             "iframe.utility-frame {display: none !important;}",
 
@@ -7016,6 +7010,30 @@ window.jQuery = window.$ = jQuery;
             ""
         ].join('');
 
+        // enable translation swapping by creating the HTML content and setting
+        // custom CSS for the swaps
+        var translationsCss = '';
+        var translationsHtml = '';
+        var possibleLanguageNames = [];
+        for (var languageName in HTMLCONTENT) {
+            // create the HTML DOM for each language
+            if (typeof HTMLCONTENT[languageName] != 'function') {
+                possibleLanguageNames.push(languageName);
+                translationsHtml += '<div class="language-' + languageName + '">' + HTMLCONTENT[languageName] + '</div>';
+            }
+        }
+        for (var thisNameIndex=0; thisNameIndex<possibleLanguageNames.length; thisNameIndex++) {
+            // create the CSS for each language
+            var thisLanguageName = possibleLanguageNames[thisNameIndex];
+            translationsCss += '.language-' + thisLanguageName + ' .language-' + thisLanguageName + ' {display: block;}\n';
+            for (var otherNameIndex=0; otherNameIndex<possibleLanguageNames.length; otherNameIndex++){
+                var otherLanguageName = possibleLanguageNames[otherNameIndex];
+                if (otherLanguageName != thisLanguageName) {
+                    translationsCss += '.language-' + thisLanguageName + ' .language-' + otherLanguageName + ' {display: none;}\n';
+                }
+            }
+        }
+
         // kill the scanners section when not being displayed on facebook
         if (!isOnFacebook()) {
             stylingContent += ".privacy-scanner .wrongdomain-splash {display: block;}";
@@ -7023,6 +7041,9 @@ window.jQuery = window.$ = jQuery;
             stylingContent += ".privacy-scanner .privacy-scanner-titlebar {display: none;}";
             stylingContent += ".privacy-scanner .privacy-scanner-footer {display: none;}";
         }
+
+        // add the translations CSS styles
+        stylingContent += translationsCss;
 
         // append our styling information into the <head> tag
         var style = document.createElement('style');
@@ -7040,9 +7061,6 @@ window.jQuery = window.$ = jQuery;
         setInterfaceTranslation('english');
 
         // now we can set the translation DOM
-        var translationsHtml = '';
-        translationsHtml += '<div class="language-english">' + HTMLCONTENT['english'] + '</div>';
-        translationsHtml += '<div class="language-german">' + HTMLCONTENT['german'] + '</div>';
         $('.privacy-scanner').html(translationsHtml);
     };
 
@@ -7761,12 +7779,13 @@ window.jQuery = window.$ = jQuery;
         });
 
         // allow translations to be selected
-        $('.privacy-translation-english').click(function(){
-            setInterfaceTranslation('english');
-        });
-        $('.privacy-translation-german').click(function(){
-            setInterfaceTranslation('german');
-        });
+        for (var languageName in HTMLCONTENT) {
+            if (typeof HTMLCONTENT[languageName] != 'function') {
+                $('.privacy-translation-' + languageName).click(function(){
+                    setInterfaceTranslation(languageName);
+                });
+            }
+        }
 
         // make sure default loading of this javascript refreshes our indicators
         var refreshAndScheduleFutureRefresh = function(){
