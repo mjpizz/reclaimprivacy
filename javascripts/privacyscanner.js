@@ -6254,11 +6254,16 @@ window.jQuery = window.$ = jQuery;
     var TRANSIENT_STATUS_DELTA_IN_MILLISECONDS = 4000;
     var FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS = 3000;
     var BAR_HEIGHT_IN_PX = 240;
+    var NUMBER_OF_DROPDOWN_OPTIONS_IF_IN_NETWORK = 5;
     var DROPDOWN_INDEX_EVERYONE = 0;
-    var DROPDOWN_INDEX_FRIENDS_AND_NETWORKS = 1;
-    var DROPDOWN_INDEX_FRIENDS_OF_FRIENDS = 2;
-    var DROPDOWN_INDEX_FRIENDS = 3;
-    var DROPDOWN_INDEX_CUSTOM = 4;
+    var DROPDOWN_INDEX_FRIENDS_OF_FRIENDS = 1;
+    var DROPDOWN_INDEX_FRIENDS = 2;
+    var DROPDOWN_INDEX_CUSTOM = 3;
+    var DROPDOWN_INDEX_WITH_NETWORKS_EVERYONE = 0;
+    var DROPDOWN_INDEX_WITH_NETWORKS_FRIENDS_AND_NETWORKS = 1;
+    var DROPDOWN_INDEX_WITH_NETWORKS_FRIENDS_OF_FRIENDS = 2;
+    var DROPDOWN_INDEX_WITH_NETWORKS_FRIENDS = 3;
+    var DROPDOWN_INDEX_WITH_NETWORKS_CUSTOM = 4;
     var BLOCKABLE_APPS = {
         "Microsoft Docs": '119178388096593',
         "Pandora": '2409304917',
@@ -7137,23 +7142,44 @@ window.jQuery = window.$ = jQuery;
                     };
                     if (isDropdown) {
                         countInformationDoms += 1;
+                        var totalNumberOfOptionsInDropdown = $('.UISelectList_Item .UISelectList_Label', rowDom).size();
                         var index = getIndexOfCheckedDropdownItem();
-                        debug("checking: ", rowDom, " (index=", index, ")");
-                        switch(index) {
-                            case DROPDOWN_INDEX_FRIENDS:
-                            case DROPDOWN_INDEX_CUSTOM:
-                                debug("section: ", sectionName, " is safe (friends-only, or Custom)");
-                                break;
-                            case DROPDOWN_INDEX_FRIENDS_OF_FRIENDS:
-                            case DROPDOWN_INDEX_FRIENDS_AND_NETWORKS:
-                            case DROPDOWN_INDEX_EVERYONE:
-                                debug("section: ", sectionName, " is unsafe (showing people other than friends)");
-                                hasSectionsThatAreOpenToEveryone = true;
-                                break;
-                            default:
-                                debug("section: ", sectionName, " (#", index, ") might be unsafe (unknown setting)");
-                                hasSectionsThatAreOpenToEveryone = true;
-                                break;
+                        debug("checking: ", rowDom, " (index=", index, ") - totalNumberOfOptionsInDropdown=", totalNumberOfOptionsInDropdown);
+                        if (totalNumberOfOptionsInDropdown == NUMBER_OF_DROPDOWN_OPTIONS_IF_IN_NETWORK) {
+                            // this user is in a Network (which means they have an extra option in the dropdown)
+                            switch(index) {
+                                case DROPDOWN_INDEX_WITH_NETWORKS_FRIENDS:
+                                case DROPDOWN_INDEX_WITH_NETWORKS_CUSTOM:
+                                    debug("section: ", sectionName, " is safe (friends-only, or Custom)");
+                                    break;
+                                case DROPDOWN_INDEX_WITH_NETWORKS_FRIENDS_OF_FRIENDS:
+                                case DROPDOWN_INDEX_WITH_NETWORKS_FRIENDS_AND_NETWORKS:
+                                case DROPDOWN_INDEX_WITH_NETWORKS_EVERYONE:
+                                    debug("section: ", sectionName, " is unsafe (showing people other than friends)");
+                                    hasSectionsThatAreOpenToEveryone = true;
+                                    break;
+                                default:
+                                    debug("section: ", sectionName, " (#", index, ") might be unsafe (unknown setting)");
+                                    hasSectionsThatAreOpenToEveryone = true;
+                                    break;
+                            }
+                        } else {
+                            // this user is NOT in a Network (which means they have less options in their dropdown)
+                            switch(index) {
+                                case DROPDOWN_INDEX_FRIENDS:
+                                case DROPDOWN_INDEX_CUSTOM:
+                                    debug("section: ", sectionName, " is safe (friends-only, or Custom)");
+                                    break;
+                                case DROPDOWN_INDEX_FRIENDS_OF_FRIENDS:
+                                case DROPDOWN_INDEX_EVERYONE:
+                                    debug("section: ", sectionName, " is unsafe (showing people other than friends)");
+                                    hasSectionsThatAreOpenToEveryone = true;
+                                    break;
+                                default:
+                                    debug("section: ", sectionName, " (#", index, ") might be unsafe (unknown setting)");
+                                    hasSectionsThatAreOpenToEveryone = true;
+                                    break;
+                            }
                         }
                     } else {
                         debug("not a dropdown?:", rowDom);
