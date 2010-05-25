@@ -6254,6 +6254,7 @@ window.jQuery = window.$ = jQuery;
     var TRANSIENT_STATUS_DELTA_IN_MILLISECONDS = 4000;
     var FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS = 3000;
     var BAR_HEIGHT_IN_PX = 240;
+    var MAX_RETRIES_FOR_FRAMEWINDOW_DOCUMENT = 4;
     var NUMBER_OF_DROPDOWN_OPTIONS_IF_DROPDOWN_IS_EVERYONE_OR_FRIENDS_ONLY = 2;
     var NUMBER_OF_DROPDOWN_OPTIONS_IF_IN_NETWORK = 5;
     var NUMBER_OF_DROPDOWN_OPTIONS_IF_NOT_IN_NETWORK = 4;
@@ -6905,10 +6906,28 @@ window.jQuery = window.$ = jQuery;
             var iframe = $('<iframe/>');
             $(iframe).load(function(){
                 debug("framed page loaded...");
-                setTimeout(function(){
-                    debug("handling loaded framed page...");
-                    handler(iframe[0].contentWindow);
-                }, FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS);
+                var tries = 0;
+                var tryToCallHandlerAndRetryAfterWaiting = function(){
+                    // ensure the document works
+                    try {
+                        debug("trying to handle loaded framed page...");
+                        var frameWindow = iframe[0].contentWindow;
+                        $(frameWindow.document);
+                        handler(frameWindow);
+                    } catch(e) {
+                        // failed, reschedule another try
+                        tries += 1;
+                        if (tries < MAX_RETRIES_FOR_FRAMEWINDOW_DOCUMENT) {
+                            debug("failed to load page, retrying...");
+                            setTimeout(tryToCallHandlerAndRetryAfterWaiting, FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS);
+                        } else {
+                            debug("failed to load page, done retrying, just moving forward as a failsafe.");
+                            var frameWindow = iframe[0].contentWindow;
+                            handler(frameWindow);
+                        }
+                    }
+                };
+                setTimeout(tryToCallHandlerAndRetryAfterWaiting, FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS);
             });
             $(iframe).attr('src', url);
             $(iframe).addClass('utility-frame');
