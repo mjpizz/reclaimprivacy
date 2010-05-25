@@ -6,7 +6,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '49'
+VERSION = '50'
 
 
 class NewsletterEntry(db.Model):
@@ -305,12 +305,6 @@ class Help(webapp.RequestHandler):
     <div id='content'>
 
         <h1>Frequently Asked Questions</h1>
-
-        <p class='alert'>
-            Please note that Firefox currently has some issues that we are looking into, so please use Internet Explorer, Safari,
-            Chrome, or Opera for the time being.
-            <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447'>Stay tuned for updates</a>!
-        </p>
 
         <p>
             <em>Here are some of the questions that many people like you have asked...</em>
