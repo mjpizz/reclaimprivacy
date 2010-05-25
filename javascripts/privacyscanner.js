@@ -6296,7 +6296,7 @@ window.jQuery = window.$ = jQuery;
         "   <span class='soft'>from <a href='http://www.reclaimprivacy.org/facebook' target='_blank'>reclaimprivacy.org</a></span>",
         "   <span class='source'>",
         "       <span class='soft'>&nbsp;&nbsp;&nbsp;&nbsp;languages: </span>",
-        "       <span><a href='#' class='privacy-translation-english'>English</a> &middot; <a href='#' class='privacy-translation-german'>Deutsch</a></span>",
+        "       <span><a href='#' class='privacy-translation-english'>English</a> &middot; <a href='#' class='privacy-translation-german'>Deutsch</a> &middot; <a href='#' class='privacy-translation-italian'>Italian</a></span>",
         "   </span>",
         "</div>",
 
@@ -6454,7 +6454,7 @@ window.jQuery = window.$ = jQuery;
         " <span class='soft'>von <a href='http://www.reclaimprivacy.org/facebook' target='_blank'>reclaimprivacy.org</a></span>",
         " <span class='source'>",
         " <span class='soft'>&nbsp;&nbsp;&nbsp;&nbsp;&Uuml;bersetzungen: </span>",
-        " <span><a href='#' class='privacy-translation-english'>English</a> &middot; <a href='#' class='privacy-translation-german'>Deutsch</a></span>",
+        " <span><a href='#' class='privacy-translation-english'>English</a> &middot; <a href='#' class='privacy-translation-german'>Deutsch</a> &middot; <a href='#' class='privacy-translation-italian'>Italian</a></span>",
         " </span>",
         "</div>",
 
@@ -6596,6 +6596,164 @@ window.jQuery = window.$ = jQuery;
         "</div>",
 
         "<div class='privacy-scanner-status'>arbeitet...</div>",
+
+        ""
+    ].join('');
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //              ITALIAN
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    HTMLCONTENT['italian'] = [
+        "<div class='privacy-scanner-titlebar'>",
+        "   <h1>privacy scanner</h1>",
+        "   &nbsp;&nbsp;<span class='soft'>non dimenticare di</span> <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>seguirci su Facebook</a> <span class='soft'>per rimanere informato sugli ultimi aggiornamenti</span>",
+        "   <span class='soft'>da <a href='http://www.reclaimprivacy.org/facebook' target='_blank'>reclaimprivacy.org</a></span>",
+        "   <span class='source'>",
+        "       <span class='soft'>&nbsp;&nbsp;&nbsp;&nbsp;lingua: </span>",
+        "       <span><a href='#' class='privacy-translation-english'>English</a> &middot; <a href='#' class='privacy-translation-german'>Deutsch</a> &middot; <a href='#' class='privacy-translation-italian'>Italian</a></span>",
+        "   </span>",
+        "</div>",
+
+        "<div class='wrongdomain-splash'>",
+        "   Dopo aver aggiunto il segnalibro, dovrai <a href='http://www.facebook.com/settings/?tab=privacy&ref=mb'>aprire la pagina delle impostazioni sulla privacy di Facebook</a>, e <strong>una volta che sei su Facebook</strong> eseguire nuovamente il privacy scanner.",
+        "   <a class='close' href='#'>x</a>",
+        "</div>",
+
+        "<div class='scanners'>",
+
+        // Photo Album privacy scanner UI
+        "       <div class='scanner-photoalbum state-inprogress'>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;correggendo&nbsp;&nbsp;</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;</span>",
+        "           <span class='indicator insecure indicator-insecure'>&nbsp;non sicuro&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;sicuro&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;&nbsp;</span>",
+
+        "           <span class='content inprogress'><span class='soft'>scansione delle informazioni sulla privacy degli album fotografici...</span></span>",
+        "           <span class='content fixing'><span class='soft'>sto impostando la visualizzazione degli album fotografici solo agli amici...</span></span>",
+        "           <span class='content insecure'>alcune delle tue foto sono visibili anche al di fuori del tuo gruppo di amici, dovresti correggere le tue <a href='http://www.facebook.com/privacy/?view=photos' target='_blank'>impostazioni sulle foto</a> e successivamente <a class='privacy-rescan-photoalbum uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
+        "           <span class='content caution'>alcune delle tue foto sono visibili anche al di fuori del tuo gruppo di amici, dovresti correggere le tue <a href='http://www.facebook.com/privacy/?view=photos' target='_blank'>impostazioni sulle foto</a> e successivamente <a class='privacy-rescan-photoalbum uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
+        "           <span class='content good'><span class='soft'>la visualizzazione delle tue foto è limitata, al massimo, ai tuoi amici</span></span>",
+        "       </div>",
+
+        // Status Updates scanner UI
+        "       <div class='scanner-statusupdates state-inprogress'>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;correggendo&nbsp;&nbsp;</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;</span>",
+        "           <span class='indicator insecure indicator-insecure'>&nbsp;non sicuro&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;sicuro&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;&nbsp;</span>",
+
+        "           <span class='content inprogress'><span class='soft'>scansione delle impostazioni sugli Aggiornamenti di Stato...</span></span>",
+        "           <span class='content fixing'><span class='soft'>sto correggendo le impostazioni sugli Aggiornamenti di Stato...</span></span>",
+        "           <span class='content insecure'>gli Aggiornamenti di Stato stanno attualmente condividendo informazioni personali con siti esterni a Facebook. <a class='action-privatizestatusupdates uiButton uiButtonConfirm' href='#'>Rendi privati gli Aggiornamenti di Stato</a></span>",
+        "           <span class='content caution'>gli Aggiornamenti di Stato stanno attualmente condividendo informazioni personali con gli amici dei tuoi amici, dovresti correggere le tue <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>impostazioni sulle informazioni personali</a> e successivamente <a id='privacy-rescan-statusupdates' class='uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
+        "           <span class='content good'><span class='soft'>i tuoi Aggiornamenti di Stato sono privati.</span></span>",
+        "       </div>",
+
+        // Instant Personalization scanner UI
+        "       <div class='state-inprogress scanner-instantpersonalization'>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;correggendo&nbsp;&nbsp;</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;</span>",
+        "           <span class='indicator insecure indicator-insecure'>&nbsp;non sicuro&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;sicuro&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;&nbsp;</span>",
+
+        "           <span class='content inprogress'><span class='soft'>scansione delle impostazioni sulla Personalizzazione Istantanea...</span></span>",
+        "           <span class='content fixing'><span class='soft'>sto correggendo le impostazioni sulla Personalizzazione Istantanea...</span></span>",
+        "           <span class='content insecure'><a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=instant_personalization'>il programma di Personalizzazione Istantanea</a> sta attualmente condividendo informazioni personali con siti esterni a Facebook. <a class='action-optoutinstantpersonalization uiButton uiButtonConfirm' href='#'>Abbandona il programma di Personalizzazione Istantanea</a></span>",
+        "           <span class='content caution'><a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=instant_personalization'>il programma di Personalizzazione Istantanea</a> sta attualmente condividendo informazioni personali con siti esterni a Facebook. <a class='action-optoutinstantpersonalization uiButton uiButtonConfirm' href='#'>Abbandona il programma di Personalizzazione Istantanea</a></span>",
+        "           <span class='content good'><span class='soft'>hai abbandonato il programma di Personalizzazione Istantanea</span></span>",
+        "       </div>",
+
+        // Personal Information scanner UI
+        "       <div class='scanner-personalinfo state-inprogress'>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;correggendo&nbsp;&nbsp;</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;</span>",
+        "           <span class='indicator insecure indicator-insecure'>&nbsp;non sicuro&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;sicuro&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;&nbsp;</span>",
+
+        "           <span class='content inprogress'><span class='soft'>scansione delle impostazioni sulle informazioni personali...</span></span>",
+        "           <span class='content fixing'><span class='soft'>restrizione delle informazioni personali solo agli amici...</span></span>",
+        "           <span class='content insecure'>alcune delle tue informazioni personali sono visibili da chiunque, dovresti correggere le tue <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>impostazioni sulle informazioni personali</a> e successivamente <a class='privacy-rescan-personalinfo uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
+        "           <span class='content caution'>alcune delle tue informazioni personali sono visibili da chiunque, dovresti correggere le tue <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>impostazioni sulle informazioni personali</a> e successivamente <a class='privacy-rescan-personalinfo uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
+        "           <span class='content good'><span class='soft'>la visualizzazione delle tue informazioni personali è limitata, al massimo, ai tuoi amici</span></span>",
+        "       </div>",
+
+        // Contact Information scanner UI
+        "       <div class='scanner-contactinfo state-inprogress'>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;correggendo&nbsp;&nbsp;</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;</span>",
+        "           <span class='indicator insecure indicator-insecure'>&nbsp;non sicuro&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;sicuro&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;&nbsp;</span>",
+
+        "           <span class='content inprogress'><span class='soft'>scansione delle impostazioni sulle informazioni di contatto...</span></span>",
+        "           <span class='content fixing'><span class='soft'>restrizione delle informazioni di contatto solo agli amici...</span></span>",
+        "           <span class='content insecure'>alcune delle tue informazioni di contatto sono visibili da chiunque, dovresti correggere le tue <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>impostazioni sulle informazioni di contatto</a> e successivamente <a class='privacy-rescan-contactinfo uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
+        "           <span class='content caution'>alcune delle tue informazioni di contatto sono visibili da chiunque, dovresti correggere le tue <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>impostazioni sulle informazioni di contatto</a> e successivamente <a class='privacy-rescan-contactinfo uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
+        "           <span class='content good'><span class='soft'>la visualizzazione delle tue informazioni di contatto è limitata, al massimo, ai tuoi amici</span></span>",
+        "       </div>",
+
+        // Friends/Tags/Connections Information scanner UI
+        "       <div class='scanner-friendstagsconnections state-inprogress'>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;correggendo&nbsp;&nbsp;</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;</span>",
+        "           <span class='indicator insecure indicator-insecure'>&nbsp;non sicuro&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;sicuro&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;&nbsp;</span>",
+
+        "           <span class='content inprogress'><span class='soft'>scansione delle impostazioni su amici, tag e connessioni...</span></span>",
+        "           <span class='content fixing'><span class='soft'>restrizione delle informazioni su amici, tag e connessioni solo agli amici...</span></span>",
+        "           <span class='content insecure'>alcune delle tue informazioni su amici, tag e connessioni sono visibili da chiunque, dovresti correggere le tue <a href='http://www.facebook.com/settings/?tab=privacy&section=profile_display' target='_blank'>impostazioni su amici, tag e connessioni</a> e successivamente <a class='privacy-rescan-friendstagsconnections uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
+        "           <span class='content caution'>alcune delle tue informazioni su amici, tag e connessioni sono visibili da chiunque, dovresti correggere le tue <a href='http://www.facebook.com/settings/?tab=privacy&section=profile_display' target='_blank'>impostazioni su amici, tag e connessioni</a> e successivamente <a class='privacy-rescan-friendstagsconnections uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
+        "           <span class='content good'><span class='soft'>la visualizzazione delle tue informazioni su amici, tag e connessioni è limitata, al massimo, ai tuoi amici</span></span>",
+        "       </div>",
+
+        // Friend Sharing scanner UI
+        "       <div class='scanner-friendsharing state-inprogress'>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;correggendo&nbsp;&nbsp;</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;</span>",
+        "           <span class='indicator insecure indicator-insecure'>&nbsp;non sicuro&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;sicuro&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;&nbsp;</span>",
+
+        "           <span class='content inprogress'><span class='soft'>scansione delle impostazioni sulle informazioni che i tuoi amici possono condividere di te...</span></span>",
+        "           <span class='content fixing'><span class='soft'>sto correggendo le impostazioni sulle informazioni che i tuoi amici possono condividere di te...</span></span>",
+        "           <span class='content insecure'>i tuoi amici possono <a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=friends_share'>condividere accidentalmente</a> le tue informazioni personali. <a class='action-disablefriendsharing uiButton uiButtonConfirm' href='#'>Previeni la condivisione delle tue informazioni da parte degli amici</a></span>",
+        "           <span class='content caution'>i tuoi amici possono <a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=friends_share'>condividere accidentalmente</a> le tue informazioni personali. <a class='action-disablefriendsharing uiButton uiButtonConfirm' href='#'>Previeni la condivisione delle tue informazioni da parte degli amici</a></span>",
+        "           <span class='content good'><span class='soft'>i tuoi amici non possono condividere accidentalmente nessuna tua informazione pesonale</span></span>",
+        "       </div>",
+
+        // Blocked Apps scanner UI
+        "       <div class='scanner-blockedapps state-inprogress'>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;correggendo&nbsp;&nbsp;</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;</span>",
+        "           <span class='indicator insecure indicator-insecure'>&nbsp;non sicuro&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;sicuro&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;&nbsp;</span>",
+
+        "           <span class='content inprogress'><span class='soft'>scansione delle applicazioni bloccate...</span></span>",
+        "           <span class='content fixing'><span class='soft'>sto bloccando le applicazioni...</span></span>",
+        "           <span class='content insecure'>alcuni siti possono avere accesso alle tue informazioni personali. <a class='action-blockdocs uiButton uiButtonConfirm' href='#'>Blocca Microsoft Docs</a>, <a class='action-blockpandora uiButton uiButtonConfirm' href='#'>Blocca Pandora</a>, e<a class='action-blockyelp uiButton uiButtonConfirm' href='#'>Blocca Yelp</a>.</span>",
+        "           <span class='content caution'>alcuni siti possono avere accesso alle tue informazioni personali. <a class='action-blockdocs uiButton uiButtonConfirm' href='#'>Blocca Microsoft Docs</a>, <a class='action-blockpandora uiButton uiButtonConfirm' href='#'>Blocca Pandora</a>, e<a class='action-blockyelp uiButton uiButtonConfirm' href='#'>Blocca Yelp</a>.</span>",
+        "           <span class='content good'><span class='soft'>hai bloccato tutte le applicazioni che potrebbero accedere alle tue informazioni personali</span></span>",
+        "       </div>",
+
+        "</div>",
+
+        "<div class='privacy-scanner-footer'>",
+        "   consiglia anche ai tuoi amici di proteggere la loro privacy",
+        '   <a name="fb_share" type="button_count" share_url="http://www.reclaimprivacy.org/facebook" href="http://www.facebook.com/sharer.php">Condividi</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>',
+        "   <a class='close-privacy-scanner uiButton uiButtonConfirm' href='#'>Chiudi</a>",
+        "</div>",
+
+        "<div class='privacy-scanner-status'>sto eseguendo la scansione...</div>",
 
         ""
     ].join('');
