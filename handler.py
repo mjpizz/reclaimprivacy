@@ -528,11 +528,10 @@ class Donations(webapp.RequestHandler):
             <a href='http://www.pledgie.com/campaigns/10721'><img alt='Click here to lend your support to: reclaimprivacy and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/10721.png?skin_name=chrome' border='0' width='149' height='37' /></a>
         </p>
 
-        <h1>Can I donate to buy you a beer instead?</h1>
+        <h1>Can I donate towards a nice dinner for you folks instead?</h1>
         <p>
-            Yea...could really use one about now in fact.  I don't have a separate
-            donation button, but if you leave
-            a note on your donation marking it for personal use, I am happy to accept.
+            Yep.  We don't have a separate donation button for that, but if you leave
+            a note on your donation marking it for personal use, we are happy to accept!
         </p>
 
     </div>
