@@ -6245,7 +6245,7 @@ window.jQuery = window.$ = jQuery;
  * ReclaimPrivacy JavaScript Library
  * http://www.reclaimprivacy.org/
  *
- * Copyright 2010, Matt Pizzimenti
+ * Copyright 2010, ReclaimPrivacy.org
  * Licensed under the GPL Version 2 license
  */
 
@@ -6253,7 +6253,7 @@ window.jQuery = window.$ = jQuery;
     var REQUEST_COMPLETION_DELTA_IN_MILLISECONDS = 3000;
     var TRANSIENT_STATUS_DELTA_IN_MILLISECONDS = 4000;
     var FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS = 3000;
-    var BAR_HEIGHT_IN_PX = 240;
+    var BAR_HEIGHT_IN_PX = 220;
     var MAX_RETRIES_FOR_FRAMEWINDOW_DOCUMENT = 4;
     var NUMBER_OF_DROPDOWN_OPTIONS_IF_DROPDOWN_IS_EVERYONE_OR_FRIENDS_ONLY = 2;
     var NUMBER_OF_DROPDOWN_OPTIONS_IF_IN_NETWORK = 5;
@@ -6322,21 +6322,6 @@ window.jQuery = window.$ = jQuery;
         "           <span class='content insecure'>some of your photos are exposed outside your friend circle, you should tweak your <a href='http://www.facebook.com/privacy/?view=photos' target='_blank'>photo settings</a> and then <a class='privacy-rescan-photoalbum uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
         "           <span class='content caution'>some of your photos are exposed outside your friend circle, you should tweak your <a href='http://www.facebook.com/privacy/?view=photos' target='_blank'>photo settings</a> and then <a class='privacy-rescan-photoalbum uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
         "           <span class='content good'><span class='soft'>all of your photos are restricted to your friends or closer</span></span>",
-        "       </div>",
-
-        // Status Updates scanner UI
-        "       <div class='scanner-statusupdates state-inprogress'>",
-        "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;fixing&nbsp;&nbsp;</span>",
-        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scanning&nbsp;</span>",
-        "           <span class='indicator insecure indicator-insecure'>&nbsp;insecure&nbsp;</span>",
-        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;secure&nbsp;&nbsp;</span>",
-        "           <span class='indicator caution indicator-caution'>&nbsp;caution&nbsp;&nbsp;</span>",
-
-        "           <span class='content inprogress'><span class='soft'>scanning Status Update settings...</span></span>",
-        "           <span class='content fixing'><span class='soft'>fixing Status Update settings...</span></span>",
-        "           <span class='content insecure'>Status Updates are currently sharing personal information with non-Facebook websites. <a class='action-privatizestatusupdates uiButton uiButtonConfirm' href='#'>Privatize Status Updates</a></span>",
-        "           <span class='content caution'>Status Updates are currently sharing personal information with friends of your friends, you should tweak <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>personal settings</a> and then <a id='privacy-rescan-statusupdates' class='uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
-        "           <span class='content good'><span class='soft'>you are not publicly broadcasting your Status Updates.</span></span>",
         "       </div>",
 
         // Instant Personalization scanner UI
@@ -6483,22 +6468,6 @@ window.jQuery = window.$ = jQuery;
         "           <span class='content good'><span class='soft'>all of your photos are restricted to your friends or closer</span></span>",
         "       </div>",
 
-        // Status Updates scanner UI
-        // FIXME: translate this to German
-        "       <div class='scanner-statusupdates state-inprogress'>",
-        "           <span class='indicator fixing indicator-fixing'>&nbsp;repariert&nbsp;</span>",
-        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;&nbsp;&nbsp;pr&uuml;ft&nbsp;&nbsp;&nbsp;</span>",
-        "           <span class='indicator insecure indicator-insecure'>&nbsp;unsicher&nbsp;&nbsp;</span>",
-        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;&nbsp;gut&nbsp;&nbsp;&nbsp;&nbsp;</span>",
-        "           <span class='indicator caution indicator-caution'>&nbsp;&nbsp;Achtung&nbsp;&nbsp;</span>",
-
-        "           <span class='content inprogress'><span class='soft'>scanning Status Update settings...</span></span>",
-        "           <span class='content fixing'><span class='soft'>fixing Status Update settings...</span></span>",
-        "           <span class='content insecure'>Status Updates are currently sharing personal information with non-Facebook websites. <a class='action-privatizestatusupdates uiButton uiButtonConfirm' href='#'>Privatize Status Updates</a></span>",
-        "           <span class='content caution'>Status Updates are currently sharing personal information with friends of your friends, you should tweak <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>personal settings</a> and then <a id='privacy-rescan-statusupdates' class='uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
-        "           <span class='content good'><span class='soft'>you are not publicly broadcasting your Status Updates.</span></span>",
-        "       </div>",
-
         // Instant Personalization scanner UI
         " <div class='scanner-instantpersonalization state-inprogress'>",
         " <span class='indicator fixing indicator-fixing'>&nbsp;repariert&nbsp;</span>",
@@ -6640,21 +6609,6 @@ window.jQuery = window.$ = jQuery;
         "           <span class='content insecure'>alcune delle tue foto sono visibili anche al di fuori del tuo gruppo di amici, dovresti correggere le tue <a href='http://www.facebook.com/privacy/?view=photos' target='_blank'>impostazioni sulle foto</a> e successivamente <a class='privacy-rescan-photoalbum uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
         "           <span class='content caution'>alcune delle tue foto sono visibili anche al di fuori del tuo gruppo di amici, dovresti correggere le tue <a href='http://www.facebook.com/privacy/?view=photos' target='_blank'>impostazioni sulle foto</a> e successivamente <a class='privacy-rescan-photoalbum uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
         "           <span class='content good'><span class='soft'>la visualizzazione delle tue foto è limitata, al massimo, ai tuoi amici</span></span>",
-        "       </div>",
-
-        // Status Updates scanner UI
-        "       <div class='scanner-statusupdates state-inprogress'>",
-        "           <span class='indicator fixing indicator-fixing'>&nbsp;correggendo</span>",
-        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;&nbsp;</span>",
-        "           <span class='indicator insecure indicator-insecure'>&nbsp;non sicuro&nbsp;</span>",
-        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;sicuro&nbsp;&nbsp;&nbsp;</span>",
-        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;</span>",
-
-        "           <span class='content inprogress'><span class='soft'>scansione delle impostazioni sugli Aggiornamenti di Stato...</span></span>",
-        "           <span class='content fixing'><span class='soft'>sto correggendo le impostazioni sugli Aggiornamenti di Stato...</span></span>",
-        "           <span class='content insecure'>gli Aggiornamenti di Stato stanno attualmente condividendo informazioni personali con siti esterni a Facebook. <a class='action-privatizestatusupdates uiButton uiButtonConfirm' href='#'>Rendi privati gli Aggiornamenti di Stato</a></span>",
-        "           <span class='content caution'>gli Aggiornamenti di Stato stanno attualmente condividendo informazioni personali con gli amici dei tuoi amici, dovresti correggere le tue <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>impostazioni sulle informazioni personali</a> e successivamente <a id='privacy-rescan-statusupdates' class='uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
-        "           <span class='content good'><span class='soft'>i tuoi Aggiornamenti di Stato sono privati.</span></span>",
         "       </div>",
 
         // Instant Personalization scanner UI
@@ -7118,22 +7072,6 @@ window.jQuery = window.$ = jQuery;
     var fixingController = {};
     (function(c){
 
-		// changes Status Updates to broadcast to "Only Friends"
-		c.privatizeStatusUpdates = function(afterHandler){
-			$(c).trigger('ongoingStatus', {message: "privatizing Status Updates..."});
-			withFramedPageOnFacebook('http://www.facebook.com/settings/?tab=privacy&section=personal_content', function(frameWindow){
-				var only_friends = $('tr:contains("Posts by Me")').find('.UISelectList_Label:contains("Only Friends")');
-				if (only_friends.hasClass('UISelectList_radio_Checked'))
-				{
-					$(c).trigger('transientStatus', {message: "you are already protected against broadcasting Status Updates."});
-					afterHandler(true);
-				} else {
-					only_friends.click();
-					afterHandler(true);
-				}
-			});
-		};
-
         // opts-out of the Instant Personalization pilot program
         c.optOutOfInstantPersonalization = function(afterHandler){
             $(c).trigger('ongoingStatus', {message: "opting out of Instant Personalization..."});
@@ -7241,32 +7179,6 @@ window.jQuery = window.$ = jQuery;
     // controller that can determine the state of your current privacy settings
     var scanningController = {};
     (function(c){
-
-		// gets whether Status Updates are set to broadcast to everyone or not
-        c.areStatusUpdatesPublic = function(responseHandler){
-			withFramedPageOnFacebook('http://www.facebook.com/settings/?tab=privacy&section=personal_content', function(frameWindow){
-				var everyone = $('tr:contains("Posts by Me")').find('.UISelectList_Label:contains("Everyone")');
-				if (everyone.hasClass('UISelectList_radio_Checked'))
-				{
-					responseHandler(true);
-				} else {
-					responseHandler(false);
-				}
-			});
-		};
-		
-		// get whether Status Updates are set to broadcast to Friends of Friends
-		c.areStatusUpdatesSemiPublic = function(responseHandler){
-			withFramedPageOnFacebook('http://www.facebook.com/settings/?tab=privacy&section=personal_content', function(frameWindow){
-				var fof = $('tr:contains("Posts by Me")').find('.UISelectList_Label:contains("Friends of Friends")');
-				if (fof.hasClass('UISelectList_radio_Checked'))
-				{
-					responseHandler(true);
-				} else {
-					responseHandler(false);
-				}
-			});
-		};
 
         // gets whether Instant Personalization is enabled
         c.isInstantPersonalizationEnabled = function(responseHandler){
@@ -7493,12 +7405,6 @@ window.jQuery = window.$ = jQuery;
             dom.each(function(){$(this).addClass('state-fixing');});
         };
 
-		// shows we are fixing Status Updates
-        c.showFixingStatusUpdates = function(){
-            var scannerDom = $('.scanner-statusupdates');
-            showScannerDomAsFixing(scannerDom);
-        };
-
         // shows we are fixing Instant Personalization
         c.showFixingInstantPersonalization = function(){
             var scannerDom = $('.scanner-instantpersonalization');
@@ -7520,7 +7426,6 @@ window.jQuery = window.$ = jQuery;
         // runs all scans at once
         c.refreshAll = function(){
             indicatorController.refreshPhotoAlbumPrivacy();
-			indicatorController.refreshStatusUpdates();
             indicatorController.refreshInstantPersonalization();
             indicatorController.refreshFriendSharing();
             indicatorController.refreshBlockedApps();
@@ -7529,25 +7434,6 @@ window.jQuery = window.$ = jQuery;
             indicatorController.refreshFriendsTagsConnectionsPrivacy();
         };
 
-		// scans for Status Update
-        c.refreshStatusUpdates = function(){
-            var scannerDom = $('.scanner-statusupdates');
-            showScannerDomAsScanning(scannerDom);
-            scanningController.areStatusUpdatesPublic(function(yes){
-                if (yes) {
-                    showScannerDomAsInsecure(scannerDom);
-                } else {
-					scanningController.areStatusUpdatesSemiPublic(function(semi){
-						if (semi) {
-							showScannerDomAsCaution(scannerDom);
-						} else {
-							showScannerDomAsGood(scannerDom);
-						}
-					});
-                }
-            });
-        };
-		
         // scans for Instant Personalization
         c.refreshInstantPersonalization = function(){
             var scannerDom = $('.scanner-instantpersonalization');
@@ -7720,16 +7606,7 @@ window.jQuery = window.$ = jQuery;
 
         // bind the controller status changes to the status area
         statusAreaController.bindStatusFromAnotherController(fixingController);
-		
-		// bind all the button actions to controller actions
-		$('.action-privatizestatusupdates').click(function(){
-            indicatorController.showFixingStatusUpdates();
-            fixingController.privatizeStatusUpdates(function(success){
-                indicatorController.refreshStatusUpdates();
-            });
-            return false;
-        });
-		
+
         $('.action-optoutinstantpersonalization').click(function(){
             indicatorController.showFixingInstantPersonalization();
             fixingController.optOutOfInstantPersonalization(function(success){
