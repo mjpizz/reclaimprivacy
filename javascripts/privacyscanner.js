@@ -6347,11 +6347,11 @@ window.jQuery = window.$ = jQuery;
         "           <span class='indicator good indicator-good'>&nbsp;&nbsp;secure&nbsp;&nbsp;</span>",
         "           <span class='indicator caution indicator-caution'>&nbsp;caution&nbsp;&nbsp;</span>",
 
-        "           <span class='content inprogress'><span class='soft'>scanning personal information...</span></span>",
-        "           <span class='content fixing'><span class='soft'>locking personal information to friends-only...</span></span>",
-        "           <span class='content insecure'>some of your personal information is exposed, you should tweak <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>personal settings</a> and then <a class='privacy-rescan-personalinfo uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
-        "           <span class='content caution'>some of your personal information is exposed, you should tweak <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>personal settings</a> and then <a class='privacy-rescan-personalinfo uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
-        "           <span class='content good'><span class='soft'>all of your personal information is at restricted to your friends or closer</span></span>",
+        "           <span class='content inprogress'><span class='soft'>scanning personal information and posts...</span></span>",
+        "           <span class='content fixing'><span class='soft'>locking personal information and posts to friends-only...</span></span>",
+        "           <span class='content insecure'>some of your personal information and posts are exposed, you should tweak <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>personal settings</a> and then <a class='privacy-rescan-personalinfo uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
+        "           <span class='content caution'>some of your personal information and posts are exposed, you should tweak <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>personal settings</a> and then <a class='privacy-rescan-personalinfo uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
+        "           <span class='content good'><span class='soft'>all of your personal information and posts are restricted to your friends or closer</span></span>",
         "       </div>",
 
         // Contact Information scanner UI
@@ -6381,7 +6381,7 @@ window.jQuery = window.$ = jQuery;
         "           <span class='content fixing'><span class='soft'>locking friends, tags, and connections information to friends-only...</span></span>",
         "           <span class='content insecure'>some of your friends, tags, and connections information is exposed, you should tweak your <a href='http://www.facebook.com/settings/?tab=privacy&section=profile_display' target='_blank'>friends, tags, and connections settings</a> and then <a class='privacy-rescan-friendstagsconnections uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
         "           <span class='content caution'>some of your friends, tags, and connections information is exposed, you should tweak <a href='http://www.facebook.com/settings/?tab=privacy&section=profile_display' target='_blank'>friends, tags, and connections settings</a> and then <a class='privacy-rescan-friendstagsconnections uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
-        "           <span class='content good'><span class='soft'>all of your friends, tags, and connections information is at restricted to your friends or closer</span></span>",
+        "           <span class='content good'><span class='soft'>all of your friends, tags, and connections information is restricted to your friends or closer</span></span>",
         "       </div>",
 
         // Friend Sharing scanner UI
