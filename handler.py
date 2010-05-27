@@ -238,6 +238,7 @@ class Facebook(webapp.RequestHandler):
                 Frieder contributed the German translation of the tool.  <a href='http://www.bitwig.com'>Pablo</a> contributed the snazzy new logo.
                 <a href='http://github.com/leighman'>@leighman</a> contributed usability improvements to the website.
                 <a href='http://github.com/zkwentz'>@zkwentz</a> contributed status update privacy scans.
+                Matteo and <a href='http://github.com/mfornasa'>@mfornasa</a> both provided Italian translations of the tool.
             </p>
             <h2>about the original author</h2>
             <p>
