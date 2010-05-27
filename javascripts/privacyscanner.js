@@ -6254,9 +6254,11 @@ window.jQuery = window.$ = jQuery;
     var TRANSIENT_STATUS_DELTA_IN_MILLISECONDS = 4000;
     var FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS = 3000;
     var BAR_HEIGHT_IN_PX = 240;
+    var MAX_RETRIES_FOR_FRAMEWINDOW_DOCUMENT = 4;
     var NUMBER_OF_DROPDOWN_OPTIONS_IF_DROPDOWN_IS_EVERYONE_OR_FRIENDS_ONLY = 2;
     var NUMBER_OF_DROPDOWN_OPTIONS_IF_IN_NETWORK = 5;
     var NUMBER_OF_DROPDOWN_OPTIONS_IF_NOT_IN_NETWORK = 4;
+    var NUMBER_OF_DROPDOWN_OPTIONS_IF_NOT_IN_NETWORK_AND_CHECKING_MESSAGE_SECTION = 3;
     var DROPDOWN_INDEX_EVERYONE_WHEN_ONLY_2_OPTIONS = 0;
     var DROPDOWN_INDEX_EVERYONE = 0;
     var DROPDOWN_INDEX_FRIENDS_OF_FRIENDS = 1;
@@ -7081,10 +7083,28 @@ window.jQuery = window.$ = jQuery;
             var iframe = $('<iframe/>');
             $(iframe).load(function(){
                 debug("framed page loaded...");
-                setTimeout(function(){
-                    debug("handling loaded framed page...");
-                    handler(iframe[0].contentWindow);
-                }, FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS);
+                var tries = 0;
+                var tryToCallHandlerAndRetryAfterWaiting = function(){
+                    // ensure the document works
+                    try {
+                        debug("trying to handle loaded framed page...");
+                        var frameWindow = iframe[0].contentWindow;
+                        $(frameWindow.document);
+                        handler(frameWindow);
+                    } catch(e) {
+                        // failed, reschedule another try
+                        tries += 1;
+                        if (tries < MAX_RETRIES_FOR_FRAMEWINDOW_DOCUMENT) {
+                            debug("failed to load page, retrying...");
+                            setTimeout(tryToCallHandlerAndRetryAfterWaiting, FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS);
+                        } else {
+                            debug("failed to load page, done retrying, just moving forward as a failsafe.");
+                            var frameWindow = iframe[0].contentWindow;
+                            handler(frameWindow);
+                        }
+                    }
+                };
+                setTimeout(tryToCallHandlerAndRetryAfterWaiting, FRAME_JAVASCRIPT_LOAD_DELTA_IN_MILLISECONDS);
             });
             $(iframe).attr('src', url);
             $(iframe).addClass('utility-frame');
@@ -7323,10 +7343,11 @@ window.jQuery = window.$ = jQuery;
                         countInformationDoms += 1;
                         var totalNumberOfOptionsInDropdown = $('.UISelectList_Item .UISelectList_Label', rowDom).size();
                         var index = getIndexOfCheckedDropdownItem();
-                        debug("checking: ", rowDom, " (index=", index, ") - totalNumberOfOptionsInDropdown=", totalNumberOfOptionsInDropdown);
+                        debug("checking: ", sectionName, " rowDom=", rowDom, " (index=", index, ") - totalNumberOfOptionsInDropdown=", totalNumberOfOptionsInDropdown);
                         switch(totalNumberOfOptionsInDropdown) {
                             case NUMBER_OF_DROPDOWN_OPTIONS_IF_DROPDOWN_IS_EVERYONE_OR_FRIENDS_ONLY:
                                 // this dropdown only has 2 options: Everyone or Friends of Friends
+                                debug("this is an Everyone/FriendsOfFriends section (like 'Add me as a Friend')");
                                 if (index == DROPDOWN_INDEX_EVERYONE_WHEN_ONLY_2_OPTIONS) {
                                     hasSectionsThatAreOpenToEveryone = true;
                                 }
@@ -7352,11 +7373,14 @@ window.jQuery = window.$ = jQuery;
                                 }
                                 break;
 
+                            case NUMBER_OF_DROPDOWN_OPTIONS_IF_NOT_IN_NETWORK_AND_CHECKING_MESSAGE_SECTION:
                             case NUMBER_OF_DROPDOWN_OPTIONS_IF_NOT_IN_NETWORK:
                                 // this user is NOT in a Network (which means they have less options in their dropdown)
                                 switch(index) {
                                     case DROPDOWN_INDEX_FRIENDS:
                                     case DROPDOWN_INDEX_CUSTOM:
+                                        // Note: DROPDOWN_INDEX_CUSTOM is mutually exclusive with the case of NUMBER_OF_DROPDOWN_OPTIONS_IF_NOT_IN_NETWORK_AND_CHECKING_MESSAGE_SECTION
+                                        // ...this is because there is no custom setting for sending messages
                                         debug("section: ", sectionName, " is safe (friends-only, or Custom)");
                                         break;
                                     case DROPDOWN_INDEX_FRIENDS_OF_FRIENDS:
@@ -7374,6 +7398,7 @@ window.jQuery = window.$ = jQuery;
                             default:
                                 // this is an unknown set of options, so we just
                                 // default to wwarning about open sections
+                                debug("unexpected number of options in dropdown (", totalNumberOfOptionsInDropdown, ")");
                                 hasSectionsThatAreOpenToEveryone = true;
                                 break;
                         }
