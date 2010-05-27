@@ -7683,9 +7683,11 @@ window.jQuery = window.$ = jQuery;
         // allow translations to be selected
         for (var languageName in HTMLCONTENT) {
             if (typeof HTMLCONTENT[languageName] != 'function') {
-                $('.privacy-translation-' + languageName).click(function(){
-                    setInterfaceTranslation(languageName);
-                });
+                (function(frozenLanguageName){
+                    $('.privacy-translation-' + frozenLanguageName).click(function(){
+                        setInterfaceTranslation(frozenLanguageName);
+                    });
+                })(languageName);
             }
         }
 
