@@ -6307,7 +6307,8 @@ window.jQuery = window.$ = jQuery;
         "   <a class='close' href='#'>x</a>",
         "</div>",
 
-        "<div class='scanners'>",
+        // Scanners for V1 of the Facebook Privacy Interface
+        "<div class='scanners scanners-v1'>",
 
         // Photo Album privacy scanner UI
         "       <div class='scanner-photoalbum state-inprogress'>",
@@ -6416,6 +6417,22 @@ window.jQuery = window.$ = jQuery;
 
         "</div>",
 
+        // Scanners for V2 of the Facebook Privacy Interface
+        "<div class='scanners scanners-v2'>",
+        "   <div class='note'>",
+        "       <strong>Sorry!</strong>  It looks like you have access to the new Facebook privacy settings, and the scanner is not quite ready to check those",
+        "       settings yet.  We are still waiting for access to the new settings so that we can update the scanner. <strong>Please",
+        "       <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>follow our Facebook page</a>",
+        "       to hear when we update this privacy scanner to work with your new settings.</strong>",
+        "   </div>",
+        "</div>",
+
+        // loading interface
+        "<div class='scanners scanners-loading'>",
+        "   <div class='banner'>loading privacy scanner, should only take a moment...</div>",
+        "</div>",
+
+        // common footer
         "<div class='privacy-scanner-footer'>",
         "   tell your friends to protect their privacy too",
         '   <a name="fb_share" type="button_count" share_url="http://www.reclaimprivacy.org/facebook" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>',
@@ -6450,7 +6467,8 @@ window.jQuery = window.$ = jQuery;
         " <a class='close' href='#'>x</a>",
         "</div>",
 
-        "<div class='scanners'>",
+        // Scanners for V1 of the Facebook Privacy Interface
+        "<div class='scanners scanners-v1'>",
 
         // Photo Album privacy scanner UI
         // FIXME: translate this to German
@@ -6560,6 +6578,24 @@ window.jQuery = window.$ = jQuery;
 
         "</div>",
 
+        // Scanners for V2 of the Facebook Privacy Interface
+        // FIXME: translate this
+        "<div class='scanners scanners-v2'>",
+        "   <div class='note'>",
+        "       <strong>Sorry!</strong>  It looks like you have access to the new Facebook privacy settings, and the scanner is not quite ready to check those",
+        "       settings yet.  We are still waiting for access to the new settings so that we can update the scanner.  <strong>Please",
+        "       <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>follow our Facebook page</a>",
+        "       to hear when we update this privacy scanner to work with your new settings.</strong>",
+        "   </div>",
+        "</div>",
+
+        // loading interface
+        // FIXME: translate this
+        "<div class='scanners scanners-loading'>",
+        "   <div class='banner'>loading privacy scanner, should only take a moment...</div>",
+        "</div>",
+
+        // common footer
         "<div class='privacy-scanner-footer'>",
         " Deine Freunde sollten auch auf ihre Privatsph&auml;re achten: ",
         ' <a name="fb_share" type="button_count" share_url="http://www.reclaimprivacy.org/facebook" href="http://www.facebook.com/sharer.php">Teilen</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>',
@@ -6594,7 +6630,8 @@ window.jQuery = window.$ = jQuery;
         "   <a class='close' href='#'>x</a>",
         "</div>",
 
-        "<div class='scanners'>",
+        // Scanners for V1 of the Facebook Privacy Interface
+        "<div class='scanners scanners-v1'>",
 
         // Photo Album privacy scanner UI
         "       <div class='scanner-photoalbum state-inprogress'>",
@@ -6703,6 +6740,24 @@ window.jQuery = window.$ = jQuery;
 
         "</div>",
 
+        // Scanners for V2 of the Facebook Privacy Interface
+        // FIXME: translate this
+        "<div class='scanners scanners-v2'>",
+        "   <div class='note'>",
+        "       <strong>Sorry!</strong>  It looks like you have access to the new Facebook privacy settings, and the scanner is not quite ready to check those",
+        "       settings yet.  We are still waiting for access to the new settings so that we can update the scanner.  <strong>Please",
+        "       <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>follow our Facebook page</a>",
+        "       to hear when we update this privacy scanner to work with your new settings.</strong>",
+        "   </div>",
+        "</div>",
+
+        // loading interface
+        // FIXME: translate this
+        "<div class='scanners scanners-loading'>",
+        "   <div class='banner'>loading privacy scanner, should only take a moment...</div>",
+        "</div>",
+
+        // common footer
         "<div class='privacy-scanner-footer'>",
         "   consiglia anche ai tuoi amici di proteggere la loro privacy",
         '   <a name="fb_share" type="button_count" share_url="http://www.reclaimprivacy.org/facebook" href="http://www.facebook.com/sharer.php">Condividi</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>',
@@ -6963,6 +7018,30 @@ window.jQuery = window.$ = jQuery;
 
             ".privacy-scanner-shown {display: block !important;}",
 
+            // handle the new Facebook settings
+            ".privacy-scanner .scanners-loading {display: none;}",
+            ".privacy-scanner .scanners-v1 {display: none;}",
+            ".privacy-scanner .scanners-v2 {display: none;}",
+            ".scanner-version-loading .scanners-loading {display: block !important;}",
+            ".scanner-version-v1 .scanners-v1 {display: block !important;}",
+            ".scanner-version-v2 .scanners-v2 {display: block !important;}",
+
+            // nice class for showing a note inside the scanner
+            ".scanners .note {",
+            "   border: 1px solid #9C7018;",
+            "   background-color: #FCF0BA;",
+            "   padding: 25px;",
+            "   margin: 30px 70px 30px 70px;",
+            "}",
+
+            // nice class for showing a banner inside the scanner
+            ".scanners .banner {",
+            "   text-align: center;",
+            "   color: #999;",
+            "   font-size: 20px;",
+            "   margin: 50px 0px 0px 0px;",
+            "}",
+
             ""
         ].join('');
 
@@ -7028,6 +7107,31 @@ window.jQuery = window.$ = jQuery;
         }
         $('.privacy-scanner').addClass('language-' + newLanguage);
         previousLanguage = newLanguage;
+    };
+
+    // helper that detects what version of the Facebook privacy settings we have
+    var determinePrivacySettingsVersion = function(resultCallback){
+        // we detect the new version of the privacy settings by looking
+        // at the privacy page and determining if it looks like the old version
+        debug("determining Facebook settings version...");
+        withFramedPageOnFacebook('http://www.facebook.com/settings/?tab=privacy', function(frameWindow){
+            debug("loaded privacy page, looking for indicators of the new settings...");
+            var anchorsOnPrivacyPage = $('#globalContainer a.privacy_section_link', frameWindow.document);
+            var numValidPrivacySectionLinks = 0;
+            anchorsOnPrivacyPage.each(function(){
+                var anchorHref = $(this).attr('href');
+                if (/\/settings\/\?tab\=privacy\&section\=(contact|profile_display|search|applications|block)/.test(anchorHref)){
+                    numValidPrivacySectionLinks++;
+                }
+            });
+            if (numValidPrivacySectionLinks == 5 || numValidPrivacySectionLinks == 6) {
+                // we recognize this page as the old settings navigation
+                resultCallback('v1');
+            } else {
+                // we don't recognize this page, maybe it is the new settings navigation
+                resultCallback('v2');
+            }
+        });
     };
 
     // helper to deal with a Facebook page inside an iframe
@@ -7694,11 +7798,19 @@ window.jQuery = window.$ = jQuery;
         // make sure default loading of this javascript refreshes our indicators
         var refreshAndScheduleFutureRefresh = function(){
             debug("refreshing and scheduling future refresh...");
-            showPrivacyScannerInterface();
-            if (isOnFacebook()) {
-                indicatorController.refreshAll();
-            }
             window.__facebook_privacy_load_callback = refreshAndScheduleFutureRefresh;
+            $('.privacy-scanner').addClass('scanner-version-loading');
+            showPrivacyScannerInterface();
+            determinePrivacySettingsVersion(function(version){
+                // detect the version of the settings and show the proper interface
+                debug("determined version, loading scanner for Facebook privacy settings: version=", version);
+                if (isOnFacebook() && version == 'v1') {
+                    // only run the scanners if we are on version 1 of the privacy settings on Facebook
+                    indicatorController.refreshAll();
+                }
+                $('.privacy-scanner').removeClass('scanner-version-loading');
+                $('.privacy-scanner').addClass('scanner-version-' + version);
+            });
         };
         refreshAndScheduleFutureRefresh();
     }
