@@ -7134,6 +7134,32 @@ window.jQuery = window.$ = jQuery;
         });
     };
 
+    // helper that detects the language desired, and returns the translation
+    // that should be used
+    var determineProperLocalization = function(resultCallback){
+        // we do this in an async fashion for now, so that if we find it is better
+        // to use the Facebook localization (instead of the browser localization),
+        // we can do that easily with AJAX calls
+        try {
+            var language = navigator.language ? navigator.language : navigator.userLanguage;
+            var languageCode = language.substring(0, 2);
+            switch(languageCode){
+                case 'it':
+                    resultCallback('italian');
+                    break;
+                case 'de':
+                    resultCallback('german');
+                    break;
+                case 'en':
+                default:
+                    resultCallback('english');
+                    break;
+            }
+        } catch(e) {
+            resultCallback('english');
+        }
+    };
+
     // helper to deal with a Facebook page inside an iframe
     var withFramedPageOnFacebook = function(url, handler) {
         if (/facebook.com/.test(document.location.toString())) {
@@ -7812,7 +7838,10 @@ window.jQuery = window.$ = jQuery;
                 $('.privacy-scanner').addClass('scanner-version-' + version);
             });
         };
-        refreshAndScheduleFutureRefresh();
+        determineProperLocalization(function(language){
+            setInterfaceTranslation(language);
+            refreshAndScheduleFutureRefresh();
+        });
     }
 
 })(jQuery.noConflict());
