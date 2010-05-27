@@ -7072,7 +7072,7 @@ window.jQuery = window.$ = jQuery;
         // kill the scanners section when not being displayed on facebook
         if (!isOnFacebook()) {
             stylingContent += ".privacy-scanner .wrongdomain-splash {display: block;}";
-            stylingContent += ".privacy-scanner .scanners {display: none;}";
+            stylingContent += ".privacy-scanner .scanners {display: none !important;}";
             stylingContent += ".privacy-scanner .privacy-scanner-titlebar {display: none;}";
             stylingContent += ".privacy-scanner .privacy-scanner-footer {display: none;}";
         }
