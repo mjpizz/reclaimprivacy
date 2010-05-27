@@ -6,7 +6,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '51'
+VERSION = '55'
 
 
 class NewsletterEntry(db.Model):
@@ -511,8 +511,8 @@ class Donations(webapp.RequestHandler):
 
         <h1>What has been raised so far?</h1>
         <p>
-            As of Sunday, May 23rd, the amount is about
-            <span class='donation-amount'>$2957</span>, donated by <span class='donation-people'>303 people</span>.
+            As of Thursday, May 27th, the amount is about
+            <span class='donation-amount'>$3006</span>, donated by <span class='donation-people'>313 people</span>.
         </p>
         <p>
             <em class='soft'>
@@ -571,7 +571,7 @@ def _get_leftbar_content():
             <a href='http://www.pledgie.com/campaigns/10721'><img alt='Click here to lend your support to: reclaimprivacy and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/10721.png?skin_name=chrome' border='0' width='149' height='37' /></a>
             <br/>
             <span class='donation-summary'>
-                <strong class='amount'>$2957</strong> raised from <strong class='people'>303</strong> people
+                <strong class='amount'>$3006</strong> raised from <strong class='people'>313</strong> people
             </span>
             <br/>
             <a class='soft' href='/donations'>how will donations be used?</a>
