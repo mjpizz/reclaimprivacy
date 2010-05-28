@@ -6779,7 +6779,7 @@ window.jQuery = window.$ = jQuery;
     HTMLCONTENT['french'] = [
         "<div class='privacy-scanner-titlebar'>",
         "   <h1>privacy scanner</h1>",
-        "   &nbsp;&nbsp;<span class='soft'>Nous bliez pas de </span> <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>nous suivre sur Facebook</a> <span class='soft'>pour &ecirc;tre au courant des derni&egrave;res mises &agrave; jour</span>",
+        "   &nbsp;&nbsp;<span class='soft'>n'oubliez pas de </span> <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>nous suivre sur Facebook</a> <span class='soft'>pour &ecirc;tre au courant des derni&egrave;res mises &agrave; jour</span>",
         "   <span class='soft'>par <a href='http://www.reclaimprivacy.org/facebook' target='_blank'>reclaimprivacy.org</a></span>",
         "   <span class='source'>",
         "       <span class='soft'>&nbsp;&nbsp;&nbsp;&nbsp;langues: </span>",
@@ -6850,8 +6850,8 @@ window.jQuery = window.$ = jQuery;
 
         "           <span class='content inprogress'><span class='soft'>analyse des coordonn&eacute;es...</span></span>",
         "           <span class='content fixing'><span class='soft'>verrouillage des coordonn&eacute;es pour les amis seulement...</span></span>",
-        "           <span class='content insecure'>certaines de vos coordonn&eacute;es sont paut-&ecirc;tre visibles par plus de personnes que vous ne le souhaiteriez, v&eacute;rifiez vos <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>param&egrave;tres de coordonn&eacute;es</a> et si vous les modifiez, lancez une <a class='privacy-rescan-contactinfo uiButton uiButtonConfirm' href='#'>Nouvelle analyse</a></span>",
-        "           <span class='content caution'>certaines de vos coordonn&eacute;es sont paut-&ecirc;tre visibles par plus de personnes que vous ne le souhaiteriez, v&eacute;rifiez vos <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>param&egrave;tres de coordonn&eacute;es</a> et si vous les modifiez, lancez une <a class='privacy-rescan-contactinfo uiButton uiButtonConfirm' href='#'>Nouvelle analyse</a></span>",
+        "           <span class='content insecure'>certaines de vos coordonn&eacute;es sont peut-&ecirc;tre visibles par plus de personnes que vous ne le souhaiteriez, v&eacute;rifiez vos <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>param&egrave;tres de coordonn&eacute;es</a> et si vous les modifiez, lancez une <a class='privacy-rescan-contactinfo uiButton uiButtonConfirm' href='#'>Nouvelle analyse</a></span>",
+        "           <span class='content caution'>certaines de vos coordonn&eacute;es sont peut-&ecirc;tre visibles par plus de personnes que vous ne le souhaiteriez, v&eacute;rifiez vos <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>param&egrave;tres de coordonn&eacute;es</a> et si vous les modifiez, lancez une <a class='privacy-rescan-contactinfo uiButton uiButtonConfirm' href='#'>Nouvelle analyse</a></span>",
         "           <span class='content good'><span class='soft'>toutes vos coordonn&eacute;es sont visibles uniquement par vos amis, ou seulement certains d'entre eux</span></span>",
         "       </div>",
 
