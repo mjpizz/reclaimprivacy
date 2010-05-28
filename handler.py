@@ -6,7 +6,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '55'
+VERSION = '56'
 
 
 class NewsletterEntry(db.Model):
@@ -239,7 +239,7 @@ class Facebook(webapp.RequestHandler):
                 <a href='http://github.com/leighman'>@leighman</a> contributed usability improvements to the website.
                 <a href='http://github.com/zkwentz'>@zkwentz</a> contributed status update privacy scans.
                 Matteo and <a href='http://github.com/mfornasa'>@mfornasa</a> both provided Italian translations of the tool.
-                Renaud provided the French translations of the tool.
+                Renaud Boitouzet provided the French translations of the tool.
             </p>
             <h2>about the original author</h2>
             <p>
