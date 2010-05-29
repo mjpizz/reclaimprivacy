@@ -6419,12 +6419,28 @@ window.jQuery = window.$ = jQuery;
 
         // Scanners for V2 of the Facebook Privacy Interface
         "<div class='scanners scanners-v2'>",
+
+        // Basic Directory Information scanner UI (v2)
+        "       <div class='scanner-basicdirinfo state-inprogress'>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;&nbsp;fixing&nbsp;&nbsp;</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scanning&nbsp;</span>",
+        "           <span class='indicator insecure indicator-insecure'>&nbsp;insecure&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;secure&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;caution&nbsp;&nbsp;</span>",
+
+        "           <span class='content inprogress'><span class='soft'>scanning contact information...</span></span>",
+        "           <span class='content fixing'><span class='soft'>locking contact information to friends-only...</span></span>",
+        "           <span class='content insecure'>some contact info might be exposed to more people than you expected, go and check your <a class='scanner-section-replacement-basic' href='#' target='_blank'>contact settings</a> and if you decide to change anything then <a class='privacy-rescan-basicdirinfo uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
+        "           <span class='content caution'>some contact info might be exposed to more people than you expected, go and check your <a class='scanner-section-replacement-basic' href='#' target='_blank'>contact settings</a>, and if you decide to change anything then <a class='privacy-rescan-basicdirinfo uiButton uiButtonConfirm' href='#'>Re-scan</a></span>",
+        "           <span class='content good'><span class='soft'>all of your contact information is at restricted to your friends or closer</span></span>",
+        "       </div>",
+
         "   <div class='note'>",
-        "       <strong>Sorry!</strong>  It looks like you have access to the new Facebook privacy settings, and the scanner is not quite ready to check those",
-        "       settings yet.  We are still waiting for access to the new settings so that we can update the scanner. <strong>Please",
+        "       You have the new Facebook settings.  This is an early version of our compatibility, so please be patient if it doesn't work yet. <br/><strong>Please",
         "       <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>follow our Facebook page</a>",
-        "       to hear when we update this privacy scanner to work with your new settings.</strong>",
+        "       to hear about compatibility updates to this privacy scanner.</strong>",
         "   </div>",
+
         "</div>",
 
         // loading interface
@@ -7030,8 +7046,8 @@ window.jQuery = window.$ = jQuery;
             ".scanners .note {",
             "   border: 1px solid #9C7018;",
             "   background-color: #FCF0BA;",
-            "   padding: 25px;",
-            "   margin: 30px 70px 30px 70px;",
+            "   padding: 10px;",
+            "   margin: 10px 0px 10px 0px;",
             "}",
 
             // nice class for showing a banner inside the scanner
@@ -7197,6 +7213,45 @@ window.jQuery = window.$ = jQuery;
             debug("cannot perform checks on a non-Facebook URL");
         }
     };
+
+    // helper for v2 privacy settings (since all URLs appear to be signed now)
+    var getUrlForV2Section = null;
+    (function(){
+        var urlForSection = {};
+        var didCacheUrls = false;
+        getUrlForV2Section = function(sectionName, responseHandler){
+            debug("getting URL for section=", sectionName);
+            if (didCacheUrls) {
+                // already cached, just respond with it
+                responseHandler(urlForSection[sectionName]);
+            } else {
+                // need to grab the signed URLs first (and cache them)
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://www.facebook.com/settings/?tab=privacy',
+                    success: function(html){
+                        // find 'basic' section URL
+                        var privacyAnchors = $('.privacyPlanDirectoryDescription a', $(html));
+                        privacyAnchors.each(function(){
+                            var anchor = $(this);
+                            var href = anchor.attr('href');
+                            debug("checking this anchor:", anchor, " with href=", href);
+                            if (/.*section\=basic.*/.test(href)){
+                                debug("setting section for 'basic' (href=", href, ")");
+                                urlForSection['basic'] = href;
+                            }
+                        });
+                        didCacheUrls = true;
+                        responseHandler(urlForSection[sectionName]);
+                    },
+                    error: function(){
+                        debug("failed to load main privacy tab for analysis.");
+                        responseHandler(false);
+                    }
+                });
+            }
+        };
+    })();
 
     // controller that can take actions to fix holes in your privacy settings
     var fixingController = {};
@@ -7492,6 +7547,21 @@ window.jQuery = window.$ = jQuery;
             });
         };
 
+        // gets Basic Directory Info details (v2 settings)
+        c.getBasicDirectoryInfoSettings = function(responseHandler){
+            getUrlForV2Section('basic', function(basicPageUrl){
+                if (basicPageUrl) {
+                    withFramedPageOnFacebook(basicPageUrl, function(frameWindow){
+                        getInformationDropdownSettings('li .itemControl', frameWindow, responseHandler);
+                    });
+                } else {
+                    // couldn't access the page
+                    debug("failed to access Basic Directory Info, could not determine URL");
+                    responseHandler(false);
+                }
+            });
+        };
+
     })(scanningController);
 
     // controller that manages our UX indicators
@@ -7555,13 +7625,18 @@ window.jQuery = window.$ = jQuery;
 
         // runs all scans at once
         c.refreshAll = function(){
-            indicatorController.refreshPhotoAlbumPrivacy();
-            indicatorController.refreshInstantPersonalization();
-            indicatorController.refreshFriendSharing();
-            indicatorController.refreshBlockedApps();
-            indicatorController.refreshPersonalInfoPrivacy();
-            indicatorController.refreshContactInfoPrivacy();
-            indicatorController.refreshFriendsTagsConnectionsPrivacy();
+            c.refreshPhotoAlbumPrivacy();
+            c.refreshInstantPersonalization();
+            c.refreshFriendSharing();
+            c.refreshBlockedApps();
+            c.refreshPersonalInfoPrivacy();
+            c.refreshContactInfoPrivacy();
+            c.refreshFriendsTagsConnectionsPrivacy();
+        };
+
+        // runs all the scans for v2 of the settings
+        c.refreshAllForV2 = function(){
+            c.refreshBasicDirectoryInfo();
         };
 
         // scans for Instant Personalization
@@ -7664,6 +7739,20 @@ window.jQuery = window.$ = jQuery;
             var scannerDom = $('.scanner-photoalbum');
             showScannerDomAsScanning(scannerDom);
             scanningController.getPhotoAlbumSettings(function(isSafe){
+                if (isSafe) {
+                    showScannerDomAsGood(scannerDom);
+                } else {
+                    showScannerDomAsCaution(scannerDom);
+                }
+            });
+        };
+
+        // scans for Basic Directory Info (v2 settings)
+        c.refreshBasicDirectoryInfo = function(){
+            // TODO: separate DOM? or keep reusing DOM since we have translations already?
+            var scannerDom = $('.scanner-basicdirinfo');
+            showScannerDomAsScanning(scannerDom);
+            scanningController.getBasicDirectoryInfoSettings(function(isSafe){
                 if (isSafe) {
                     showScannerDomAsGood(scannerDom);
                 } else {
@@ -7810,6 +7899,12 @@ window.jQuery = window.$ = jQuery;
             return false;
         });
 
+        // link up V2 scan buttons
+        $('.privacy-rescan-basicdirinfo').click(function(){
+            indicatorController.refreshBasicDirectoryInfo();
+            return false;
+        });
+
         // allow translations to be selected
         for (var languageName in HTMLCONTENT) {
             if (typeof HTMLCONTENT[languageName] != 'function') {
@@ -7821,6 +7916,15 @@ window.jQuery = window.$ = jQuery;
             }
         }
 
+        // helper that fixes up all the V2 UI with URLs (since they are now signed)
+        var updateV2Urls = function(){
+            getUrlForV2Section('basic', function(url){
+                var anchors = $('.scanner-section-replacement-basic');
+                debug("replacing URL for section=basic (href=", url, ") for anchors=", anchors);
+                anchors.attr('href', url);
+            });
+        };
+
         // make sure default loading of this javascript refreshes our indicators
         var refreshAndScheduleFutureRefresh = function(){
             debug("refreshing and scheduling future refresh...");
@@ -7830,9 +7934,17 @@ window.jQuery = window.$ = jQuery;
             determinePrivacySettingsVersion(function(version){
                 // detect the version of the settings and show the proper interface
                 debug("determined version, loading scanner for Facebook privacy settings: version=", version);
-                if (isOnFacebook() && version == 'v1') {
-                    // only run the scanners if we are on version 1 of the privacy settings on Facebook
-                    indicatorController.refreshAll();
+                if (isOnFacebook()) {
+                    switch(version){
+                        case 'v1':
+                            indicatorController.refreshAll();
+                            break;
+                        case 'v2':
+                        default:
+                            updateV2Urls();
+                            indicatorController.refreshAllForV2();
+                            break;
+                    }
                 }
                 $('.privacy-scanner').removeClass('scanner-version-loading');
                 $('.privacy-scanner').addClass('scanner-version-' + version);
