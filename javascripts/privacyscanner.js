@@ -7338,22 +7338,30 @@ window.jQuery = window.$ = jQuery;
         // we detect the new version of the privacy settings by looking
         // at the privacy page and determining if it looks like the old version
         debug("determining Facebook settings version...");
-        withFramedPageOnFacebook('http://www.facebook.com/settings/?tab=privacy', function(frameWindow){
-            debug("loaded privacy page, looking for indicators of the new settings...");
-            var anchorsOnPrivacyPage = $('#globalContainer a.privacy_section_link', frameWindow.document);
-            var numValidPrivacySectionLinks = 0;
-            anchorsOnPrivacyPage.each(function(){
-                var anchorHref = $(this).attr('href');
-                if (/\/settings\/\?tab\=privacy\&section\=(contact|profile_display|search|applications|block)/.test(anchorHref)){
-                    numValidPrivacySectionLinks++;
+        $.ajax({
+            type: 'GET',
+            url: 'http://www.facebook.com/settings/?tab=privacy',
+            success: function(html){
+                debug("loaded privacy page, looking for indicators of the new settings...");
+                var anchorsOnPrivacyPage = $('#globalContainer a.privacy_section_link', $(html));
+                var numValidPrivacySectionLinks = 0;
+                anchorsOnPrivacyPage.each(function(){
+                    var anchorHref = $(this).attr('href');
+                    if (/\/settings\/\?tab\=privacy\&section\=(contact|profile_display|search|applications|block)/.test(anchorHref)){
+                        numValidPrivacySectionLinks++;
+                    }
+                });
+                if (numValidPrivacySectionLinks == 5 || numValidPrivacySectionLinks == 6) {
+                    // we recognize this page as the old settings navigation
+                    resultCallback('v1');
+                } else {
+                    // we don't recognize this page, maybe it is the new settings navigation
+                    resultCallback('v2');
                 }
-            });
-            if (numValidPrivacySectionLinks == 5 || numValidPrivacySectionLinks == 6) {
-                // we recognize this page as the old settings navigation
-                resultCallback('v1');
-            } else {
-                // we don't recognize this page, maybe it is the new settings navigation
-                resultCallback('v2');
+            },
+            error: function(){
+                debug("failed to load main privacy page for version check.");
+                responseHandler(false);
             }
         });
     };
