@@ -6435,7 +6435,7 @@ window.jQuery = window.$ = jQuery;
 
         "   <div class='note'>",
         "       You have the new Facebook settings.  This is an early version of our new compatibility, so please be patient if it doesn't work yet. <br/><strong>Please",
-        "       <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>follow our Facebook page</a>",
+        "       <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447?v=app_4949752878' target='_blank'>follow our Facebook page</a>",
         "       to hear about compatibility updates to this privacy scanner.</strong>",
         "   </div>",
 
@@ -6449,7 +6449,7 @@ window.jQuery = window.$ = jQuery;
         // common footer
         "<div class='privacy-scanner-footer'>",
         "   tell your friends to protect their privacy too",
-        "   <a class='scanner-footer-button uiButton uiButtonConfirm' href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>follow us for updates</a>",
+        "   <a class='scanner-footer-button uiButton uiButtonConfirm' href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447?v=app_4949752878' target='_blank'>follow us for updates</a>",
         '   <a name="fb_share" type="button_count" share_url="http://www.reclaimprivacy.org/facebook" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>',
         "   <a class='scanner-footer-button close-privacy-scanner uiButton uiButtonConfirm' href='#'>done</a>",
         "</div>",
@@ -6612,7 +6612,7 @@ window.jQuery = window.$ = jQuery;
         // FIXME: translate this
         "   <div class='note'>",
         "       You have the new Facebook settings.  This is an early version of our new compatibility, so please be patient if it doesn't work yet. <br/><strong>Please",
-        "       <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>follow our Facebook page</a>",
+        "       <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447?v=app_4949752878' target='_blank'>follow our Facebook page</a>",
         "       to hear about compatibility updates to this privacy scanner.</strong>",
         "   </div>",
 
@@ -6627,7 +6627,7 @@ window.jQuery = window.$ = jQuery;
         // common footer
         "<div class='privacy-scanner-footer'>",
         " Deine Freunde sollten auch auf ihre Privatsph&auml;re achten: ",
-        "   <a class='scanner-footer-button uiButton uiButtonConfirm' href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>abonnieren um immer auf dem neusten Stand zu sein</a>",
+        "   <a class='scanner-footer-button uiButton uiButtonConfirm' href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447?v=app_4949752878' target='_blank'>abonnieren um immer auf dem neusten Stand zu sein</a>",
         ' <a name="fb_share" type="button_count" share_url="http://www.reclaimprivacy.org/facebook" href="http://www.facebook.com/sharer.php">Teilen</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>',
         " <a class='close-privacy-scanner uiButton uiButtonConfirm' href='#'>schlie&szlig;en</a>",
         "</div>",
@@ -6789,7 +6789,7 @@ window.jQuery = window.$ = jQuery;
         // FIXME: translate this
         "   <div class='note'>",
         "       You have the new Facebook settings.  This is an early version of our new compatibility, so please be patient if it doesn't work yet. <br/><strong>Please",
-        "       <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>follow our Facebook page</a>",
+        "       <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447?v=app_4949752878' target='_blank'>follow our Facebook page</a>",
         "       to hear about compatibility updates to this privacy scanner.</strong>",
         "   </div>",
 
@@ -6804,7 +6804,7 @@ window.jQuery = window.$ = jQuery;
         // common footer
         "<div class='privacy-scanner-footer'>",
         "   consiglia anche ai tuoi amici di proteggere la loro privacy",
-        "   <a class='scanner-footer-button uiButton uiButtonConfirm' href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>seguirci per rimanere informato sugli ultimi aggiornamenti</a>",
+        "   <a class='scanner-footer-button uiButton uiButtonConfirm' href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447?v=app_4949752878' target='_blank'>seguirci per rimanere informato sugli ultimi aggiornamenti</a>",
         '   <a name="fb_share" type="button_count" share_url="http://www.reclaimprivacy.org/facebook" href="http://www.facebook.com/sharer.php">Condividi</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>',
         "   <a class='close-privacy-scanner uiButton uiButtonConfirm' href='#'>Chiudi</a>",
         "</div>",
@@ -6965,7 +6965,7 @@ window.jQuery = window.$ = jQuery;
 
         "   <div class='note'>",
         "       You have the new Facebook settings.  This is an early version of our new compatibility, so please be patient if it doesn't work yet. <br/><strong>Please",
-        "       <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>follow our Facebook page</a>",
+        "       <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447?v=app_4949752878' target='_blank'>follow our Facebook page</a>",
         "       to hear about compatibility updates to this privacy scanner.</strong>",
         "   </div>",
 
@@ -6979,7 +6979,7 @@ window.jQuery = window.$ = jQuery;
         // common footer
         "<div class='privacy-scanner-footer'>",
         "   dites &agrave; vos amis de prot&eacute;ger leur confidentialit&eacute;",
-        "   <a class='scanner-footer-button uiButton uiButtonConfirm' href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>nous suivre pour &ecirc;tre au courant des derni&egrave;res mises &agrave; jour</a>",
+        "   <a class='scanner-footer-button uiButton uiButtonConfirm' href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447?v=app_4949752878' target='_blank'>nous suivre pour &ecirc;tre au courant des derni&egrave;res mises &agrave; jour</a>",
         '   <a name="fb_share" type="button_count" share_url="http://www.reclaimprivacy.org/facebook" href="http://www.facebook.com/sharer.php">Partager</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>',
         "   <a class='close-privacy-scanner uiButton uiButtonConfirm' href='#'>termin&eacute;</a>",
         "</div>",

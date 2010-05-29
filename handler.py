@@ -6,7 +6,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '56'
+VERSION = '57'
 
 
 class NewsletterEntry(db.Model):
@@ -135,7 +135,7 @@ class Facebook(webapp.RequestHandler):
                     settings that might be unexpectedly public.
                 </li>
                 <li>
-                    <a href="http://www.facebook.com/pages/Reclaim-Privacy/121897834504447">Follow us on Facebook</a>
+                    <a href="http://www.facebook.com/pages/Reclaim-Privacy/121897834504447?v=app_4949752878">Follow us on Facebook</a>
                     to hear about the latest updates.
                 </li>
                 <li>
