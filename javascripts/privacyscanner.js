@@ -7343,20 +7343,11 @@ window.jQuery = window.$ = jQuery;
             url: 'http://www.facebook.com/settings/?tab=privacy',
             success: function(html){
                 debug("loaded privacy page, looking for indicators of the new settings...");
-                var anchorsOnPrivacyPage = $('#globalContainer a.privacy_section_link', $(html));
-                var numValidPrivacySectionLinks = 0;
-                anchorsOnPrivacyPage.each(function(){
-                    var anchorHref = $(this).attr('href');
-                    if (/\/settings\/\?tab\=privacy\&section\=(contact|profile_display|search|applications|block)/.test(anchorHref)){
-                        numValidPrivacySectionLinks++;
-                    }
-                });
-                if (numValidPrivacySectionLinks == 5 || numValidPrivacySectionLinks == 6) {
-                    // we recognize this page as the old settings navigation
-                    resultCallback('v1');
-                } else {
-                    // we don't recognize this page, maybe it is the new settings navigation
+                var newVersionDivs = $('.privacyPlanDirectoryDescription, #recommendedControl', $(html));
+                if (newVersionDivs.size() >= 2) {
                     resultCallback('v2');
+                } else {
+                    resultCallback('v1');
                 }
             },
             error: function(){
