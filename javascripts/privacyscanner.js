@@ -6436,7 +6436,7 @@ window.jQuery = window.$ = jQuery;
         "       </div>",
 
         "   <div class='note'>",
-        "       You have the new Facebook settings.  This is an early version of our compatibility, so please be patient if it doesn't work yet. <br/><strong>Please",
+        "       You have the new Facebook settings.  This is an early version of our new compatibility, so please be patient if it doesn't work yet. <br/><strong>Please",
         "       <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>follow our Facebook page</a>",
         "       to hear about compatibility updates to this privacy scanner.</strong>",
         "   </div>",
@@ -6595,14 +6595,30 @@ window.jQuery = window.$ = jQuery;
         "</div>",
 
         // Scanners for V2 of the Facebook Privacy Interface
-        // FIXME: translate this
         "<div class='scanners scanners-v2'>",
+
+        // Basic Directory Information scanner UI (v2)
+        "       <div class='scanner-basicdirinfo state-inprogress'>",
+        " <span class='indicator fixing indicator-fixing'>&nbsp;repariert&nbsp;</span>",
+        " <span class='indicator inprogress indicator-inprogress'>&nbsp;&nbsp;&nbsp;pr&uuml;ft&nbsp;&nbsp;&nbsp;</span>",
+        " <span class='indicator insecure indicator-insecure'>&nbsp;unsicher&nbsp;&nbsp;</span>",
+        " <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;&nbsp;gut&nbsp;&nbsp;&nbsp;&nbsp;</span>",
+        " <span class='indicator caution indicator-caution'>&nbsp;&nbsp;Achtung&nbsp;&nbsp;</span>",
+
+        " <span class='content inprogress'><span class='soft'>pr&uuml;ft die Kontaktinformationen...</span></span>",
+        " <span class='content fixing'><span class='soft'>macht die Kontaktinformationen nur f&uuml;r Freunde sichtbar...</span></span>",
+        " <span class='content insecure'>einige deiner Kontaktinformationen sind f&uuml;r das ganze Internet sichtbar, du solltest die <a class='scanner-section-replacement-basic' href='#' target='_blank'>Kontaktinformationen</a> optimieren und dann <a class='privacy-rescan-basicdirinfo uiButton uiButtonConfirm' href='#'>neu scannen</a></span>",
+        " <span class='content caution'>einige deiner Kontaktinformationen sind f&uuml;r das ganze Internet sichtbar, du solltest die <a class='scanner-section-replacement-basic' href='#' target='_blank'>Kontaktinformationen</a> optimieren und dann <a class='privacy-rescan-basicdirinfo uiButton uiButtonConfirm' href='#'>neu scannen</a></span>",
+        " <span class='content good'><span class='soft'>alle deine Kontaktinformationen sind h&ouml;chstens f&uuml;r Freunde sichtbar</span></span>",
+        "       </div>",
+
+        // FIXME: translate this
         "   <div class='note'>",
-        "       <strong>Sorry!</strong>  It looks like you have access to the new Facebook privacy settings, and the scanner is not quite ready to check those",
-        "       settings yet.  We are still waiting for access to the new settings so that we can update the scanner.  <strong>Please",
+        "       You have the new Facebook settings.  This is an early version of our new compatibility, so please be patient if it doesn't work yet. <br/><strong>Please",
         "       <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>follow our Facebook page</a>",
-        "       to hear when we update this privacy scanner to work with your new settings.</strong>",
+        "       to hear about compatibility updates to this privacy scanner.</strong>",
         "   </div>",
+
         "</div>",
 
         // loading interface
@@ -6757,14 +6773,30 @@ window.jQuery = window.$ = jQuery;
         "</div>",
 
         // Scanners for V2 of the Facebook Privacy Interface
-        // FIXME: translate this
         "<div class='scanners scanners-v2'>",
+
+        // Basic Directory Information scanner UI (v2)
+        "       <div class='scanner-basicdirinfo state-inprogress'>",
+        "           <span class='indicator fixing indicator-fixing'>&nbsp;correggendo</span>",
+        "           <span class='indicator inprogress indicator-inprogress'>&nbsp;scansione&nbsp;&nbsp;</span>",
+        "           <span class='indicator insecure indicator-insecure'>&nbsp;non sicuro&nbsp;</span>",
+        "           <span class='indicator good indicator-good'>&nbsp;&nbsp;&nbsp;sicuro&nbsp;&nbsp;&nbsp;</span>",
+        "           <span class='indicator caution indicator-caution'>&nbsp;attenzione&nbsp;</span>",
+
+        "           <span class='content inprogress'><span class='soft'>scansione delle impostazioni sulle informazioni di contatto...</span></span>",
+        "           <span class='content fixing'><span class='soft'>restrizione delle informazioni di contatto solo agli amici...</span></span>",
+        "           <span class='content insecure'>alcune delle tue informazioni di contatto sono visibili da chiunque, dovresti correggere le tue <a class='scanner-section-replacement-basic' href='#' target='_blank'>impostazioni sulle informazioni di contatto</a> e successivamente <a class='privacy-rescan-basicdirinfo uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
+        "           <span class='content caution'>alcune delle tue informazioni di contatto sono visibili da chiunque, dovresti correggere le tue <a class='scanner-section-replacement-basic' href='#' target='_blank'>impostazioni sulle informazioni di contatto</a> e successivamente <a class='privacy-rescan-basicdirinfo uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
+        "           <span class='content good'><span class='soft'>la visualizzazione delle tue informazioni di contatto è limitata, al massimo, ai tuoi amici</span></span>",
+        "       </div>",
+
+        // FIXME: translate this
         "   <div class='note'>",
-        "       <strong>Sorry!</strong>  It looks like you have access to the new Facebook privacy settings, and the scanner is not quite ready to check those",
-        "       settings yet.  We are still waiting for access to the new settings so that we can update the scanner.  <strong>Please",
+        "       You have the new Facebook settings.  This is an early version of our new compatibility, so please be patient if it doesn't work yet. <br/><strong>Please",
         "       <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>follow our Facebook page</a>",
-        "       to hear when we update this privacy scanner to work with your new settings.</strong>",
+        "       to hear about compatibility updates to this privacy scanner.</strong>",
         "   </div>",
+
         "</div>",
 
         // loading interface
