@@ -6287,13 +6287,13 @@ window.jQuery = window.$ = jQuery;
 LOCALECONTENT['en'] = {};
 
 LOCALECONTENT['de'] = {
-    'fixing': null,
-    'scanning': null,
-    'insecure': null,
-    'secure': null,
-    'caution': null,
-    'privacy scanner': null,
-    'service provided by <a href=\'http://www.reclaimprivacy.org/facebook\' target=\'_blank\'>reclaimprivacy.org</a>': null,
+    'fixing': "repariert",
+    'scanning': "pr&uuml;ft",
+    'insecure': "unsicher",
+    'secure': "gut",
+    'caution': "Achtung",
+    'privacy scanner': "Datenschutz-Scanner",
+    'service provided by': null,
     'After adding the bookmark, you must <a href=\'http://www.facebook.com/settings/?tab=privacy&ref=mb\'>go to your Facebook privacy settings</a>, and <strong>once you are on Facebook</strong> run this privacy scanner again.': null,
     'photo album privacy information...': null,
     'photo albums to friends-only...': null,
@@ -6348,13 +6348,13 @@ LOCALECONTENT['de'] = {
 };
 
 LOCALECONTENT['it'] = {
-    'fixing': null,
-    'scanning': null,
-    'insecure': null,
-    'secure': null,
-    'caution': null,
-    'privacy scanner': null,
-    'service provided by <a href=\'http://www.reclaimprivacy.org/facebook\' target=\'_blank\'>reclaimprivacy.org</a>': null,
+    'fixing': "correggendo",
+    'scanning': "scansione",
+    'insecure': "non sicuro",
+    'secure': "sicuro",
+    'caution': "attenzione",
+    'privacy scanner': "privacy scanner",
+    'service provided by': null,
     'After adding the bookmark, you must <a href=\'http://www.facebook.com/settings/?tab=privacy&ref=mb\'>go to your Facebook privacy settings</a>, and <strong>once you are on Facebook</strong> run this privacy scanner again.': null,
     'photo album privacy information...': null,
     'photo albums to friends-only...': null,
@@ -6409,13 +6409,13 @@ LOCALECONTENT['it'] = {
 };
 
 LOCALECONTENT['fr'] = {
-    'fixing': null,
-    'scanning': null,
-    'insecure': null,
-    'secure': null,
-    'caution': null,
-    'privacy scanner': null,
-    'service provided by <a href=\'http://www.reclaimprivacy.org/facebook\' target=\'_blank\'>reclaimprivacy.org</a>': null,
+    'fixing': "r&eacute;glage",
+    'scanning': "analyse",
+    'insecure': "vuln&eacute;rable",
+    'secure': "verrouill&eacute;",
+    'caution': "attention",
+    'privacy scanner': "privacy scanner",
+    'service provided by': null,
     'After adding the bookmark, you must <a href=\'http://www.facebook.com/settings/?tab=privacy&ref=mb\'>go to your Facebook privacy settings</a>, and <strong>once you are on Facebook</strong> run this privacy scanner again.': null,
     'photo album privacy information...': null,
     'photo albums to friends-only...': null,
@@ -6503,31 +6503,31 @@ LOCALECONTENT['fr'] = {
         };
 
         // build the HTML that we use for the state indicators (varies based on string length)
-        // FIXME: this code could probably be cleaner
         var fixingText = tr("fixing");
         var scanningText = tr("scanning");
         var insecureText = tr("insecure");
         var secureText = tr("secure");
         var cautionText = tr("caution");
         var longestTextLength = 0;
-        if (fixingText.length > longestTextLength){
-            longestTextLength = fixingText.length;
+        var htmlEntitiesTestDiv = $('<div></div>');
+        var lengthAfterDecodingEntities = function(text){
+            htmlEntitiesTestDiv.html(text);
+            return htmlEntitiesTestDiv.text().length;
         }
-        if (scanningText.length > longestTextLength){
-            longestTextLength = scanningText.length;
-        }
-        if (insecureText.length > longestTextLength){
-            longestTextLength = insecureText.length;
-        }
-        if (secureText.length > longestTextLength){
-            longestTextLength = secureText.length;
-        }
-        if (cautionText.length > longestTextLength){
-            longestTextLength = cautionText.length;
-        }
+        var testAndSetLongestLength = function(text){
+            var length = lengthAfterDecodingEntities(text);
+            if (length > longestTextLength){
+                longestTextLength = lengthAfterDecodingEntities(text);
+            }
+        };
+        testAndSetLongestLength(fixingText);
+        testAndSetLongestLength(scanningText);
+        testAndSetLongestLength(insecureText);
+        testAndSetLongestLength(secureText);
+        testAndSetLongestLength(cautionText);
         var getTextPaddedToLongestLength = function(text){
             // we always add one extra space on the left/right (+2)
-            var lengthToMakeUpfor = longestTextLength - text.length + 2;
+            var lengthToMakeUpfor = longestTextLength - lengthAfterDecodingEntities(text) + 2;
             var endPaddingLength = Math.round(lengthToMakeUpfor/2.0);
             var prePaddingLength = lengthToMakeUpfor - endPaddingLength;
             while(endPaddingLength--){
@@ -6548,7 +6548,7 @@ LOCALECONTENT['fr'] = {
         var finalTranslation = [
             "<div class='privacy-scanner-titlebar'>",
             "   <h1>"+tr("privacy scanner")+"</h1>",
-            "   &nbsp;&nbsp;<span class='soft'>"+tr("service provided by <a href='http://www.reclaimprivacy.org/facebook' target='_blank'>reclaimprivacy.org</a>")+"</span>",
+            "   &nbsp;&nbsp;<span class='soft'>"+tr("service provided by")+" <a href='http://www.reclaimprivacy.org/facebook' target='_blank'>reclaimprivacy.org</a></span>",
             "   <span class='source'>",
             "       <span><a href='#' class='privacy-translation-en'>English</a> &middot; <a href='#' class='privacy-translation-de'>Deutsch</a> &middot; <a href='#' class='privacy-translation-it'>Italiano</a> &middot; <a href='#' class='privacy-translation-fr'>Fran&ccedil;ais</a></span>",
             "   </span>",
