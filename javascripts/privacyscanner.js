@@ -6294,10 +6294,8 @@ window.jQuery = window.$ = jQuery;
     HTMLCONTENT['english'] = [
         "<div class='privacy-scanner-titlebar'>",
         "   <h1>privacy scanner</h1>",
-        "   &nbsp;&nbsp;<span class='soft'>don't forget to</span> <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>follow us on Facebook</a> <span class='soft'>to hear about the latest updates</span>",
-        "   <span class='soft'>from <a href='http://www.reclaimprivacy.org/facebook' target='_blank'>reclaimprivacy.org</a></span>",
+        "   &nbsp;&nbsp;<span class='soft'>service provided by <a href='http://www.reclaimprivacy.org/facebook' target='_blank'>reclaimprivacy.org</a></span>",
         "   <span class='source'>",
-        "       <span class='soft'>&nbsp;&nbsp;&nbsp;&nbsp;languages: </span>",
         "       <span><a href='#' class='privacy-translation-english'>English</a> &middot; <a href='#' class='privacy-translation-german'>Deutsch</a> &middot; <a href='#' class='privacy-translation-italian'>Italiano</a> &middot; <a href='#' class='privacy-translation-french'>Fran&ccedil;ais</a></span>",
         "   </span>",
         "</div>",
@@ -6451,8 +6449,9 @@ window.jQuery = window.$ = jQuery;
         // common footer
         "<div class='privacy-scanner-footer'>",
         "   tell your friends to protect their privacy too",
+        "   <a class='scanner-footer-button uiButton uiButtonConfirm' href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>follow us for updates</a>",
         '   <a name="fb_share" type="button_count" share_url="http://www.reclaimprivacy.org/facebook" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>',
-        "   <a class='close-privacy-scanner uiButton uiButtonConfirm' href='#'>done</a>",
+        "   <a class='scanner-footer-button close-privacy-scanner uiButton uiButtonConfirm' href='#'>done</a>",
         "</div>",
 
         "<div class='privacy-scanner-status'>working...</div>",
@@ -6470,10 +6469,8 @@ window.jQuery = window.$ = jQuery;
     HTMLCONTENT['german'] = [
         "<div class='privacy-scanner-titlebar'>",
         " <h1>Datenschutz-Scanner</h1>",
-        " &nbsp;&nbsp;<span class='soft'>Vergiss nicht, uns auf Facebook zu </span> <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>abonnieren</a> <span class='soft'> um immer auf dem neusten Stand zu sein!</span>",
-        " <span class='soft'>von <a href='http://www.reclaimprivacy.org/facebook' target='_blank'>reclaimprivacy.org</a></span>",
+        " &nbsp;&nbsp;<span class='soft'>von <a href='http://www.reclaimprivacy.org/facebook' target='_blank'>reclaimprivacy.org</a></span>",
         " <span class='source'>",
-        " <span class='soft'>&nbsp;&nbsp;&nbsp;&nbsp;&Uuml;bersetzungen: </span>",
         " <span><a href='#' class='privacy-translation-english'>English</a> &middot; <a href='#' class='privacy-translation-german'>Deutsch</a> &middot; <a href='#' class='privacy-translation-italian'>Italiano</a> &middot; <a href='#' class='privacy-translation-french'>Fran&ccedil;ais</a></span>",
         " </span>",
         "</div>",
@@ -6630,6 +6627,7 @@ window.jQuery = window.$ = jQuery;
         // common footer
         "<div class='privacy-scanner-footer'>",
         " Deine Freunde sollten auch auf ihre Privatsph&auml;re achten: ",
+        "   <a class='scanner-footer-button uiButton uiButtonConfirm' href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>abonnieren um immer auf dem neusten Stand zu sein</a>",
         ' <a name="fb_share" type="button_count" share_url="http://www.reclaimprivacy.org/facebook" href="http://www.facebook.com/sharer.php">Teilen</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>',
         " <a class='close-privacy-scanner uiButton uiButtonConfirm' href='#'>schlie&szlig;en</a>",
         "</div>",
@@ -6649,10 +6647,8 @@ window.jQuery = window.$ = jQuery;
     HTMLCONTENT['italian'] = [
         "<div class='privacy-scanner-titlebar'>",
         "   <h1>privacy scanner</h1>",
-        "   &nbsp;&nbsp;<span class='soft'>non dimenticare di</span> <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>seguirci su Facebook</a> <span class='soft'>per rimanere informato sugli ultimi aggiornamenti</span>",
-        "   <span class='soft'>da <a href='http://www.reclaimprivacy.org/facebook' target='_blank'>reclaimprivacy.org</a></span>",
+        "   &nbsp;&nbsp;<span class='soft'>da <a href='http://www.reclaimprivacy.org/facebook' target='_blank'>reclaimprivacy.org</a></span>",
         "   <span class='source'>",
-        "       <span class='soft'>&nbsp;&nbsp;&nbsp;&nbsp;lingua: </span>",
         "       <span><a href='#' class='privacy-translation-english'>English</a> &middot; <a href='#' class='privacy-translation-german'>Deutsch</a> &middot; <a href='#' class='privacy-translation-italian'>Italiano</a> &middot; <a href='#' class='privacy-translation-french'>Fran&ccedil;ais</a></span>",
         "   </span>",
         "</div>",
@@ -6808,6 +6804,7 @@ window.jQuery = window.$ = jQuery;
         // common footer
         "<div class='privacy-scanner-footer'>",
         "   consiglia anche ai tuoi amici di proteggere la loro privacy",
+        "   <a class='scanner-footer-button uiButton uiButtonConfirm' href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>seguirci per rimanere informato sugli ultimi aggiornamenti</a>",
         '   <a name="fb_share" type="button_count" share_url="http://www.reclaimprivacy.org/facebook" href="http://www.facebook.com/sharer.php">Condividi</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>',
         "   <a class='close-privacy-scanner uiButton uiButtonConfirm' href='#'>Chiudi</a>",
         "</div>",
@@ -6827,10 +6824,8 @@ window.jQuery = window.$ = jQuery;
     HTMLCONTENT['french'] = [
         "<div class='privacy-scanner-titlebar'>",
         "   <h1>privacy scanner</h1>",
-        "   &nbsp;&nbsp;<span class='soft'>n'oubliez pas de </span> <a href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>nous suivre sur Facebook</a> <span class='soft'>pour &ecirc;tre au courant des derni&egrave;res mises &agrave; jour</span>",
-        "   <span class='soft'>par <a href='http://www.reclaimprivacy.org/facebook' target='_blank'>reclaimprivacy.org</a></span>",
+        "   &nbsp;&nbsp;<span class='soft'>par <a href='http://www.reclaimprivacy.org/facebook' target='_blank'>reclaimprivacy.org</a></span>",
         "   <span class='source'>",
-        "       <span class='soft'>&nbsp;&nbsp;&nbsp;&nbsp;langues: </span>",
         "       <span><a href='#' class='privacy-translation-english'>English</a> &middot; <a href='#' class='privacy-translation-german'>Deutsch</a> &middot; <a href='#' class='privacy-translation-italian'>Italiano</a> &middot; <a href='#' class='privacy-translation-french'>Fran&ccedil;ais</a></span>",
         "   </span>",
         "</div>",
@@ -6984,6 +6979,7 @@ window.jQuery = window.$ = jQuery;
         // common footer
         "<div class='privacy-scanner-footer'>",
         "   dites &agrave; vos amis de prot&eacute;ger leur confidentialit&eacute;",
+        "   <a class='scanner-footer-button uiButton uiButtonConfirm' href='http://www.facebook.com/pages/Reclaim-Privacy/121897834504447' target='_blank'>nous suivre pour &ecirc;tre au courant des derni&egrave;res mises &agrave; jour</a>",
         '   <a name="fb_share" type="button_count" share_url="http://www.reclaimprivacy.org/facebook" href="http://www.facebook.com/sharer.php">Partager</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>',
         "   <a class='close-privacy-scanner uiButton uiButtonConfirm' href='#'>termin&eacute;</a>",
         "</div>",
@@ -7094,8 +7090,9 @@ window.jQuery = window.$ = jQuery;
             "}",
 
             // vertically center the "done" button
-            ".close-privacy-scanner {",
+            ".scanner-footer-button {",
             "   margin-bottom: 2px;",
+            "   padding-bottom: 1px;",
             "}",
 
             // style the "status" bar (the black bar that fades in/out)
