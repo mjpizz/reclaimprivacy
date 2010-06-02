@@ -7,7 +7,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '57'
+VERSION = '58'
 
 
 class NewsletterEntry(db.Model):
@@ -171,7 +171,11 @@ class Facebook(webapp.RequestHandler):
                 </form>
             </p>
             <p>
-                    Are you a programmer? <a href='http://github.com/mjpizz/reclaimprivacy'>Contribute to the source code</a> and help to
+                Are you a translator? <a href='/translations/template'>Contribute a translation</a> and help to spread
+                the privacy scanner to other countries!
+            </p>
+            <p>
+                    Are you a programmer? <a href='http://github.com/mjpizz/reclaimprivacy'>Contribute to the source code on Github</a> and help to
                     keep the privacy scanner up-to-date.  All development will remain open and transparent.
             </p>
         </p>
@@ -673,6 +677,8 @@ class Translations(webapp.RequestHandler):
                 <li>German</li>
                 <li>other languages...</li>
             </ul>
+            You can email translations@reclaimprivacy.org with translations
+            from the template below.
             Thanks to everyone for your help!
         </p>
 
