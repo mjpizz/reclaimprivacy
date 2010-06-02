@@ -6671,8 +6671,8 @@ window.jQuery = window.$ = jQuery;
 
         "           <span class='content inprogress'><span class='soft'>scansione delle informazioni sulla privacy degli album fotografici...</span></span>",
         "           <span class='content fixing'><span class='soft'>sto impostando la visualizzazione degli album fotografici solo agli amici...</span></span>",
-        "           <span class='content insecure'>alcune delle tue foto sono visibili anche al di fuori del tuo gruppo di amici, dovresti correggere le tue <a href='http://www.facebook.com/privacy/?view=photos' target='_blank'>impostazioni sulle foto</a> e successivamente <a class='privacy-rescan-photoalbum uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
-        "           <span class='content caution'>alcune delle tue foto sono visibili anche al di fuori del tuo gruppo di amici, dovresti correggere le tue <a href='http://www.facebook.com/privacy/?view=photos' target='_blank'>impostazioni sulle foto</a> e successivamente <a class='privacy-rescan-photoalbum uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
+        "           <span class='content insecure'>alcune delle tue foto sono visibili anche al di fuori del tuo gruppo di amici, dovresti correggere le tue <a href='http://www.facebook.com/privacy/?view=photos' target='_blank'>impostazioni sulle foto</a> e successivamente <a class='privacy-rescan-photoalbum uiButton uiButtonConfirm' href='#'>Riscansiona</a></span>",
+        "           <span class='content caution'>alcune delle tue foto sono visibili anche al di fuori del tuo gruppo di amici, dovresti correggere le tue <a href='http://www.facebook.com/privacy/?view=photos' target='_blank'>impostazioni sulle foto</a> e successivamente <a class='privacy-rescan-photoalbum uiButton uiButtonConfirm' href='#'>Riscansiona</a></span>",
         "           <span class='content good'><span class='soft'>la visualizzazione delle tue foto è limitata, al massimo, ai tuoi amici</span></span>",
         "       </div>",
 
@@ -6686,8 +6686,8 @@ window.jQuery = window.$ = jQuery;
 
         "           <span class='content inprogress'><span class='soft'>scansione delle impostazioni sulla Personalizzazione Istantanea...</span></span>",
         "           <span class='content fixing'><span class='soft'>sto correggendo le impostazioni sulla Personalizzazione Istantanea...</span></span>",
-        "           <span class='content insecure'><a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=instant_personalization'>il programma di Personalizzazione Istantanea</a> sta attualmente condividendo informazioni personali con siti esterni a Facebook. <a class='action-optoutinstantpersonalization uiButton uiButtonConfirm' href='#'>Abbandona il programma di Personalizzazione Istantanea</a></span>",
-        "           <span class='content caution'><a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=instant_personalization'>il programma di Personalizzazione Istantanea</a> sta attualmente condividendo informazioni personali con siti esterni a Facebook. <a class='action-optoutinstantpersonalization uiButton uiButtonConfirm' href='#'>Abbandona il programma di Personalizzazione Istantanea</a></span>",
+        "           <span class='content insecure'><a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=instant_personalization'>il programma di Personalizzazione Istantanea</a> sta attualmente condividendo informazioni personali con siti esterni a Facebook. <a class='action-optoutinstantpersonalization uiButton uiButtonConfirm' href='#'>Risolvi il problema</a></span>",
+        "           <span class='content caution'><a target='_blank' href='http://www.facebook.com/settings/?tab=privacy&section=applications&field=instant_personalization'>il programma di Personalizzazione Istantanea</a> sta attualmente condividendo informazioni personali con siti esterni a Facebook. <a class='action-optoutinstantpersonalization uiButton uiButtonConfirm' href='#'>Risolvi il problema</a></span>",
         "           <span class='content good'><span class='soft'>hai abbandonato il programma di Personalizzazione Istantanea</span></span>",
         "       </div>",
 
@@ -6701,8 +6701,8 @@ window.jQuery = window.$ = jQuery;
 
         "           <span class='content inprogress'><span class='soft'>scansione delle impostazioni sulle informazioni personali...</span></span>",
         "           <span class='content fixing'><span class='soft'>restrizione delle informazioni personali solo agli amici...</span></span>",
-        "           <span class='content insecure'>alcune delle tue informazioni personali sono visibili da chiunque, dovresti correggere le tue <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>impostazioni sulle informazioni personali</a> e successivamente <a class='privacy-rescan-personalinfo uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
-        "           <span class='content caution'>alcune delle tue informazioni personali sono visibili da chiunque, dovresti correggere le tue <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>impostazioni sulle informazioni personali</a> e successivamente <a class='privacy-rescan-personalinfo uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
+        "           <span class='content insecure'>alcune delle tue informazioni personali sono visibili da chiunque, dovresti correggere le tue <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>impostazioni sulle informazioni personali</a> e successivamente <a class='privacy-rescan-personalinfo uiButton uiButtonConfirm' href='#'>Riscansiona</a></span>",
+        "           <span class='content caution'>alcune delle tue informazioni personali sono visibili da chiunque, dovresti correggere le tue <a href='http://www.facebook.com/settings/?tab=privacy&section=personal_content' target='_blank'>impostazioni sulle informazioni personali</a> e successivamente <a class='privacy-rescan-personalinfo uiButton uiButtonConfirm' href='#'>Riscansiona</a></span>",
         "           <span class='content good'><span class='soft'>la visualizzazione delle tue informazioni personali è limitata, al massimo, ai tuoi amici</span></span>",
         "       </div>",
 
@@ -6716,8 +6716,8 @@ window.jQuery = window.$ = jQuery;
 
         "           <span class='content inprogress'><span class='soft'>scansione delle impostazioni sulle informazioni di contatto...</span></span>",
         "           <span class='content fixing'><span class='soft'>restrizione delle informazioni di contatto solo agli amici...</span></span>",
-        "           <span class='content insecure'>alcune delle tue informazioni di contatto sono visibili da chiunque, dovresti correggere le tue <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>impostazioni sulle informazioni di contatto</a> e successivamente <a class='privacy-rescan-contactinfo uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
-        "           <span class='content caution'>alcune delle tue informazioni di contatto sono visibili da chiunque, dovresti correggere le tue <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>impostazioni sulle informazioni di contatto</a> e successivamente <a class='privacy-rescan-contactinfo uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
+        "           <span class='content insecure'>alcune delle tue informazioni di contatto sono visibili da chiunque, dovresti correggere le tue <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>impostazioni sulle informazioni di contatto</a> e successivamente <a class='privacy-rescan-contactinfo uiButton uiButtonConfirm' href='#'>Riscansiona</a></span>",
+        "           <span class='content caution'>alcune delle tue informazioni di contatto sono visibili da chiunque, dovresti correggere le tue <a href='http://www.facebook.com/settings/?tab=privacy&section=contact' target='_blank'>impostazioni sulle informazioni di contatto</a> e successivamente <a class='privacy-rescan-contactinfo uiButton uiButtonConfirm' href='#'>Riscansiona</a></span>",
         "           <span class='content good'><span class='soft'>la visualizzazione delle tue informazioni di contatto è limitata, al massimo, ai tuoi amici</span></span>",
         "       </div>",
 
@@ -6731,8 +6731,8 @@ window.jQuery = window.$ = jQuery;
 
         "           <span class='content inprogress'><span class='soft'>scansione delle impostazioni su amici, tag e connessioni...</span></span>",
         "           <span class='content fixing'><span class='soft'>restrizione delle informazioni su amici, tag e connessioni solo agli amici...</span></span>",
-        "           <span class='content insecure'>alcune delle tue informazioni su amici, tag e connessioni sono visibili da chiunque, dovresti correggere le tue <a href='http://www.facebook.com/settings/?tab=privacy&section=profile_display' target='_blank'>impostazioni su amici, tag e connessioni</a> e successivamente <a class='privacy-rescan-friendstagsconnections uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
-        "           <span class='content caution'>alcune delle tue informazioni su amici, tag e connessioni sono visibili da chiunque, dovresti correggere le tue <a href='http://www.facebook.com/settings/?tab=privacy&section=profile_display' target='_blank'>impostazioni su amici, tag e connessioni</a> e successivamente <a class='privacy-rescan-friendstagsconnections uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
+        "           <span class='content insecure'>alcune delle tue informazioni su amici, tag e connessioni sono visibili da chiunque, dovresti correggere le tue <a href='http://www.facebook.com/settings/?tab=privacy&section=profile_display' target='_blank'>impostazioni su amici, tag e connessioni</a> e successivamente <a class='privacy-rescan-friendstagsconnections uiButton uiButtonConfirm' href='#'>Riscansiona</a></span>",
+        "           <span class='content caution'>alcune delle tue informazioni su amici, tag e connessioni sono visibili da chiunque, dovresti correggere le tue <a href='http://www.facebook.com/settings/?tab=privacy&section=profile_display' target='_blank'>impostazioni su amici, tag e connessioni</a> e successivamente <a class='privacy-rescan-friendstagsconnections uiButton uiButtonConfirm' href='#'>Riscansiona</a></span>",
         "           <span class='content good'><span class='soft'>la visualizzazione delle tue informazioni su amici, tag e connessioni è limitata, al massimo, ai tuoi amici</span></span>",
         "       </div>",
 
@@ -6781,8 +6781,8 @@ window.jQuery = window.$ = jQuery;
 
         "           <span class='content inprogress'><span class='soft'>scansione delle impostazioni sulle informazioni di contatto...</span></span>",
         "           <span class='content fixing'><span class='soft'>restrizione delle informazioni di contatto solo agli amici...</span></span>",
-        "           <span class='content insecure'>alcune delle tue informazioni di contatto sono visibili da chiunque, dovresti correggere le tue <a class='scanner-section-replacement-basic' href='#' target='_blank'>impostazioni sulle informazioni di contatto</a> e successivamente <a class='privacy-rescan-basicdirinfo uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
-        "           <span class='content caution'>alcune delle tue informazioni di contatto sono visibili da chiunque, dovresti correggere le tue <a class='scanner-section-replacement-basic' href='#' target='_blank'>impostazioni sulle informazioni di contatto</a> e successivamente <a class='privacy-rescan-basicdirinfo uiButton uiButtonConfirm' href='#'>Ripetere la scansione</a></span>",
+        "           <span class='content insecure'>alcune delle tue informazioni di contatto sono visibili da chiunque, dovresti correggere le tue <a class='scanner-section-replacement-basic' href='#' target='_blank'>impostazioni sulle informazioni di contatto</a> e successivamente <a class='privacy-rescan-basicdirinfo uiButton uiButtonConfirm' href='#'>Riscansiona</a></span>",
+        "           <span class='content caution'>alcune delle tue informazioni di contatto sono visibili da chiunque, dovresti correggere le tue <a class='scanner-section-replacement-basic' href='#' target='_blank'>impostazioni sulle informazioni di contatto</a> e successivamente <a class='privacy-rescan-basicdirinfo uiButton uiButtonConfirm' href='#'>Riscansiona</a></span>",
         "           <span class='content good'><span class='soft'>la visualizzazione delle tue informazioni di contatto è limitata, al massimo, ai tuoi amici</span></span>",
         "       </div>",
 
