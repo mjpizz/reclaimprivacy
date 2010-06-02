@@ -671,6 +671,8 @@ class Translations(webapp.RequestHandler):
                 <li>Spanish</li>
                 <li>Indonesian</li>
                 <li>Norsk</li>
+                <li>Arabic</li>
+                <li>Portuguese</li>
             </ul>
             We still need updated translations for:
             <ul>
