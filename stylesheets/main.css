@@ -354,3 +354,13 @@ a:hover .arrow-on-msie {
     margin-right: 5px;
     color: #92ABD5;
 }
+
+.code-javascript {
+    font-size: 0.9em;
+    white-space: pre;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background: #eee;
+    margin-bottom: 80px;
+}

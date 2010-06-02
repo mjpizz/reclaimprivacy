@@ -1,4 +1,5 @@
 import os
+import cgi
 import logging
 import urlparse
 from google.appengine.api import memcache
@@ -565,6 +566,134 @@ class Donations(webapp.RequestHandler):
         self.response.out.write(page_content)
 
 
+class Translations(webapp.RequestHandler):
+    def get(self):
+
+        # build the memcache key we will use
+        version = VERSION
+        memcache_key = 'page_content:translations:%(version)s' % locals()
+
+        # set the translations dict so it can be displayed
+        translations_dictionary_with_htmlentities = cgi.escape('''
+{
+    'fixing': null,
+    'scanning': null,
+    'insecure': null,
+    'secure': null,
+    'caution': null,
+    'privacy scanner': null,
+    'service provided by': null,
+    'After adding the bookmark, you must <a href=\\'http://www.facebook.com/settings/?tab=privacy&ref=mb\\'>go to your Facebook privacy settings</a>, and <strong>once you are on Facebook</strong> run this privacy scanner again.': null,
+    'photo album privacy information...': null,
+    'photo albums to friends-only...': null,
+    'some of your photos are exposed outside your friend circle, you should tweak your': null,
+    'and then': null,
+    'Re-scan': null,
+    'all of your photos are restricted to your friends or closer': null,
+    'scanning Instant Personalization settings...': null,
+    'fixing Instant Personalization settings...': null,
+    'Instant Personalization': null,
+    'is currently sharing personal information with non-Facebook websites.': null,
+    'Opt-out of Instant Personalization': null,
+    'scanning personal information and posts...': null,
+    'locking personal information and posts to friends-only...': null,
+    'some of your personal information and posts are exposed, you should tweak': null,
+    'personal settings': null,
+    'all of your personal information and posts are restricted to your friends or closer': null,
+    'scanning contact information...': null,
+    'locking contact information to friends-only...': null,
+    'some contact info might be exposed to more people than you expected, go and check your': null,
+    'contact settings': null,
+    'and if you decide to change anything then': null,
+    'all of your contact information is at restricted to your friends or closer': null,
+    'scanning friends, tags, and connections information...': null,
+    'locking friends, tags, and connections information to friends-only...': null,
+    'some of your friends, tags, and connections information is exposed, you should tweak your': null,
+    'friends, tags, and connections settings': null,
+    'all of your friends, tags, and connections information is restricted to your friends or closer': null,
+    'scanning friendship sharing settings...': null,
+    'fixing friendship sharing settings...': null,
+    'your friends can': null,
+    'accidentally share': null,
+    'your personal information.': null,
+    'Prevent friends from sharing your data': null,
+    'your friends are protected from accidentally sharing your personal information': null,
+    'scanning blocked applications...': null,
+    'blocking applications...': null,
+    'certain websites can automatically access personal information.': null,
+    'Block Microsoft Docs': null,
+    'Block Pandora': null,
+    'Block Yelp': null,
+    'you have blocked all known applications that could leak your personal information': null,
+    'You have the new Facebook settings.  This is an early version of our new compatibility, so please be patient if it doesn\\'t work yet. <br/><strong>Please': null,
+    'follow our Facebook page': null,
+    'to hear about compatibility updates to this privacy scanner.</strong>': null,
+    'loading privacy scanner, should only take a moment...': null,
+    'tell your friends to protect their privacy too': null,
+    'follow us for updates': null,
+    'Share': null,
+    'done': null,
+    'working...': null
+}
+''').strip().replace('null', '"{translation here}"')
+
+        # try to get a cached page, and otherwise build the page
+        page_content = memcache.get(memcache_key)
+        if not page_content:
+
+            # render the page
+            leftbar_content = _get_leftbar_content()
+            page_content = '''
+<html>
+<head>
+    <title>ReclaimPrivacy.org | Facebook Privacy Scanner</title>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+</head>
+<body>
+
+    <div id='logo'>
+        %(leftbar_content)s
+    </div>
+
+    <div id='content'>
+
+        <p class='translations-summary'>
+            We already have the following translations up-to-date:
+            <ul>
+                <li>Italian</li>
+                <li>Dutch</li>
+                <li>French</li>
+                <li>Spanish</li>
+                <li>Indonesian</li>
+                <li>Norsk</li>
+            </ul>
+            We still need updated translations for:
+            <ul>
+                <li>German</li>
+                <li>other languages...</li>
+            </ul>
+            Thanks to everyone for your help!
+        </p>
+
+        <div class='code-javascript'>%(translations_dictionary_with_htmlentities)s</div>
+
+    </div>
+
+</body>
+</html>
+            ''' % locals()
+
+            # cache the page in memcache (only on the production servers)
+            parts = urlparse.urlparse(self.request.url)
+            if 'reclaimprivacy.org' in parts.hostname:
+                memcache.set(memcache_key, page_content)
+
+        # write the response
+        self.response.headers['Content-Type'] = 'text/html'
+        self.response.out.write(page_content)
+
+
 def _get_leftbar_content():
     return '''
         <a href="/"><img src='/images/logo.png?cb=2' width='200' height='200' /></a>
@@ -593,6 +722,7 @@ application = webapp.WSGIApplication([
     ('/facebook', Facebook),
     ('/help', Help),
     ('/donations', Donations),
+    ('/translations/template', Translations),
     ('/', Facebook),
 ], debug=True)
 
