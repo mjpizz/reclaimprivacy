@@ -9,6 +9,10 @@ handlers:
   static_files: favicon.ico
   upload: favicon.ico
 
+- url: /translations/template
+  static_files: translations.js
+  upload: translations.js
+
 - url: /images
   static_dir: images
 
