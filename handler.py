@@ -7,7 +7,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '58'
+VERSION = '60'
 
 
 class NewsletterEntry(db.Model):
@@ -673,11 +673,12 @@ class Translations(webapp.RequestHandler):
                 <li>Norsk</li>
                 <li>Arabic</li>
                 <li>Portuguese</li>
+                <li>German</li>
+                <li>Swedish</li>
             </ul>
             We still need updated translations for:
             <ul>
-                <li>German</li>
-                <li>other languages...</li>
+                <li>any other languages...</li>
             </ul>
             You can email translations@reclaimprivacy.org with translations
             from the template below.
