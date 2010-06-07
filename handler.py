@@ -7,7 +7,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '60'
+VERSION = '61'
 
 
 class NewsletterEntry(db.Model):
@@ -670,11 +670,14 @@ class Translations(webapp.RequestHandler):
                 <li>French</li>
                 <li>Spanish</li>
                 <li>Indonesian</li>
-                <li>Norsk</li>
+                <li>Norsk/Norwegian</li>
                 <li>Arabic</li>
                 <li>Portuguese</li>
                 <li>German</li>
                 <li>Swedish</li>
+                <li>Finnish</li>
+                <li>Polish</li>
+                <li>Turkish</li>
             </ul>
             We still need updated translations for:
             <ul>
