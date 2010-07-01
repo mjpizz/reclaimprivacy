@@ -678,6 +678,10 @@ class Translations(webapp.RequestHandler):
                 <li>Finnish</li>
                 <li>Polish</li>
                 <li>Turkish</li>
+                <li>Greek</li>
+                <li>Croatian</li>
+                <li>Traditional Chinese</li>
+                <li>Czech</li>
             </ul>
             We still need updated translations for:
             <ul>
