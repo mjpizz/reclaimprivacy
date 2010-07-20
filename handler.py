@@ -117,9 +117,14 @@ class Facebook(webapp.RequestHandler):
         <p>
             This website provides an <strong>independent</strong> and <strong>open</strong> tool for scanning
             your Facebook privacy settings.
-            <div class='fresh-banner'>
-                <span class='label'>new!</span>
-                just added Photo Album privacy scanning
+            <div class='note-banner'>
+                <span class='label'>NOTE</span>
+                <strong>this scanner is not fully compatible with the latest Facebook privacy settings, so please be sure you check your
+                privacy settings manually yourself.</strong>
+                
+                <br/><br/>This site is maintained on
+                a volunteer basis, and though we hope to keep it up to date, there
+                often isn't enough spare time to do so.
             </div>
             <ol class='instructions'>
                 <li>
@@ -682,6 +687,7 @@ class Translations(webapp.RequestHandler):
                 <li>Croatian</li>
                 <li>Traditional Chinese</li>
                 <li>Czech</li>
+                <li>Hebrew</li>
             </ul>
             We still need updated translations for:
             <ul>
@@ -713,15 +719,6 @@ class Translations(webapp.RequestHandler):
 def _get_leftbar_content():
     return '''
         <a href="/"><img src='/images/logo.png?cb=2' width='200' height='200' /></a>
-        <div class='donation-box'>
-            <a href='http://www.pledgie.com/campaigns/10721'><img alt='Click here to lend your support to: reclaimprivacy and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/10721.png?skin_name=chrome' border='0' width='149' height='37' /></a>
-            <br/>
-            <span class='donation-summary'>
-                <strong class='amount'>$3006</strong> raised from <strong class='people'>313</strong> people
-            </span>
-            <br/>
-            <a class='soft' href='/donations'>how will donations be used?</a>
-        </div>
         <div class='press-links'>
             <a href='http://lifehacker.com/5540495/reclaimprivacy-bookmarklet-rates-your-facebook-exposure-levels' id='press-lifehacker' title='Lifehacker'><span>Lifehacker</span></a>
             <a href='http://www.wired.com/epicenter/2010/05/facebook-transparency-tool/' id='press-wired' title='Wired Magazine'><span>Wired Magazine</span></a>

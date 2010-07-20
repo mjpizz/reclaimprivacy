@@ -364,3 +364,15 @@ a:hover .arrow-on-msie {
     background: #eee;
     margin-bottom: 80px;
 }
+.note-banner {
+    padding: 10px;
+    margin: 0px;
+    background: #FF6810;
+    color: #FFEC94;
+}
+
+.note-banner .label {
+    padding: 3px;
+    margin-right: 5px;
+    color: #FFBF01;
+}
