@@ -7,7 +7,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-VERSION = '61'
+VERSION = '65'
 
 
 class NewsletterEntry(db.Model):
@@ -125,6 +125,10 @@ class Facebook(webapp.RequestHandler):
                 <br/><br/>This site is maintained on
                 a volunteer basis, and though we hope to keep it up to date, there
                 often isn't enough spare time to do so.
+
+                <br/><br/>
+                We recommend reading the MakeUseOf.com <a href='http://www.makeuseof.com/tag/download-unofficial-facebook-privacy-guide/'><strong>Guide to Facebook Privacy</strong></a>
+                in the meantime - that guide has solid tips for walking through your privacy settings and locking them down to your liking.
             </div>
             <ol class='instructions'>
                 <li>
