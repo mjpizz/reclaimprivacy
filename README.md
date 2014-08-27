@@ -1,21 +1,30 @@
-# Important: Please remove all bookmarks pointing to ReclaimPrivacy.org
+Using it
+========
 
-**ReclaimPrivacy.org and ReclaimPrivacy.com have expired and been re-purchased
-by another organization.** I recommend removing the ReclaimPrivacy bookmarklet
-from your bookmarks. Do not use it, since it is not controlled by us anymore.
+1. go to http://www.reclaimprivacy.org
+2. drag the bookmarklet into your browser bar
+3. log in to Facebook
+4. click the bookmarklet
 
-With that, it appears the time has come to shut down Reclaim Privacy on Facebook
-and Twitter as well. We had a good run, and in the end we were able to play a
-part in raising awareness around privacy, and hopefully influence some of the
-privacy improvements that Facebook did eventually implement.
+Improving it
+============
 
-**For the curious:** This domain expiration was an error on my part. The
-expiration notice got lost in an email filter, and I did not renew the domains
-in time. I am very sorry about this, and hope you all can forgive my oversight.
-Even though this was a small after-hours project for me, I still feel
-responsible to you all. Please continue to keep safe on the web, and keep track
-of your privacy. And thank you everyone for being a part of this!
+1. download the Google AppEngine launcher: http://code.google.com/appengine/downloads.html
+2. open the launcher
+3. add this directory
+4. click the "Run" button in the launcher
+5. preview in your browser
+6. add the bookmarklet you see there (it will point at your local copy of the bookmarklet)
+7. edit `javascripts/privacyscanner.js` :)
 
----
-*this letter is a copy of the [Facebook announcement we made](https://www.facebook.com/permalink.php?story_fbid=900729419954614&id=121897834504447)
-announcing the expiration of the domains*
+
+Known Issues (or, a Todo List)
+==============================
+
+- blocked apps are not detected properly
+- does not scan Photo privacy yet
+- does not scan Wall Post privacy yet
+- the scanner for the dropdown settings is wonky sometimes in Firefox
+- "Re-scan" buttons don't work (need to click the bookmarklet instead)
+- Internet Explorer and Opera are not tested (only Safari 4 and FF3 have been tested)
+- need to ensure that this entire list of settings is covered: http://www.nytimes.com/interactive/2010/05/12/business/facebook-privacy.html

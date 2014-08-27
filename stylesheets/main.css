@@ -1,0 +1,378 @@
+body {
+    position: relative;
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 30px auto 0px auto;
+    width: 820px;
+}
+
+h1 {
+    color: black;
+    margin: 20px 0px 0px 0px;
+    font-size: 1.2em;
+    color: #425995;
+}
+
+h3 {
+    margin: 40px 0px 0px 0px;
+    font-size: 1.1em;
+    font-style: italic;
+}
+
+#logo {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-right: 10px;
+    border-right: 1px solid #ccc;
+}
+
+#content {
+    padding: 0px 0px 0px 245px;
+}
+
+.soft {
+    color: #aaa;
+}
+
+a.soft:hover {
+    color: #777;
+}
+
+a {
+    color: #3D528B;
+}
+
+a img {
+    border-width: 0px;
+}
+
+.bookmarklet {
+    position: relative;
+    background: #ccc;
+    padding: 0.5em;
+    font-size: 0.8em;
+    background: #555;
+    color: #eee;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 1px 1px 4px #444;
+    -webkit-box-shadow: 1px 1px 4px #444;
+}
+
+ol li {
+    margin-bottom: 0.7em;
+}
+
+.msie-warning-message {
+    background-color: #A31914;
+    color: #FF5C56;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.donation-box {
+    margin-top: 20px;
+    width: 200px;
+    font-size: 10pt;
+    color: #999;
+}
+
+.about-section * {
+    font-style: italic;
+    color: #999;
+}
+
+.about-section {
+    margin: 40px 0px 40px 0px;
+}
+
+.about-section h2 {
+    font-size: 1.0em;
+}
+
+.about-section p {
+    font-size: 0.8em;
+}
+
+.newsletter {
+    display: block;
+    padding: 10px;
+    background-color: #eee;
+}
+
+.newsletter label {
+    color: #999;
+}
+
+.newsletter .message {
+    margin-bottom: 10px;
+}
+
+.need-help {
+    font-size: 0.8em;
+    text-align: right;
+}
+
+.browser-walkthrough {
+    display: block;
+    list-style-type: none;
+}
+
+.browser-walkthrough li {
+    display: block;
+    float: left;
+    width: 100px;
+    height: 110px;
+    text-align: center;
+    border: 1px solid #999;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 1px 1px 4px #444;
+    -webkit-box-shadow: 1px 1px 4px #444;
+}
+
+.browser-walkthrough li.disabled {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 1px 1px 4px #444;
+    -webkit-box-shadow: 1px 1px 4px #ccc;
+}
+
+.browser-walkthrough .disabled img {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.browser-walkthrough .enabled .volunteers-needed {
+    display: none;
+}
+
+.browser-walkthrough .disabled .volunteers-needed {
+    display: block;
+    color: #999;
+    font-size: 9px;
+}
+
+
+.browser-walkthrough li a {
+    display: block;
+    text-decoration: none;
+}
+
+.browser-walkthrough li a .label {
+    display: block;
+    font-size: 10px;
+}
+
+.clearfix {
+    display: block;
+    clear: both;
+    padding: 10px;
+}
+
+.answer {
+    color: #777;
+    margin-left: 15px;
+}
+
+.go-to-discussions {
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    margin: 50px 0px 80px 0px;
+}
+
+.alert {
+    color: #A71914;
+    font-style: italic;
+}
+
+.alert a {
+    color: #7D120F;
+    font-weight: bold;
+}
+
+.announcement {
+    color: #338013;
+    font-style: italic;
+}
+
+.announcement a {
+    color: #29670F;
+    font-weight: bold;
+}
+
+.press-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.press-links .message {
+    color: #999;
+    display: block;
+    font-size: 9pt;
+    margin-bottom: 5px;
+    font-style: italic;
+}
+
+.press-links a {
+    display: block;
+    width: 110px;
+    margin: 0px auto 10px auto;
+    padding: 0px;
+}
+
+.press-links a span {
+    display: none;
+}
+
+#press-lifehacker {
+    height: 35px;
+    background-image: url('../images/lifehacker-logo.png');
+    background-position: 111 0;
+}
+
+#press-lifehacker:hover {
+    background-position: 0 0;
+}
+
+#press-wired {
+    height: 22px;
+    background-image: url('../images/wired-logo.png');
+    background-position: 110 0;
+}
+
+#press-wired:hover {
+    background-position: 0 0;
+}
+
+#press-wsj {
+    height: 18px;
+    background-image: url('../images/wsj-logo.png');
+    background-position: 110 0;
+}
+
+#press-wsj:hover {
+    background-position: 0 0;
+}
+
+#press-forbes {
+    height: 42px;
+    background-image: url('../images/forbes-logo.png');
+    background-position: 110 0;
+}
+
+#press-forbes:hover {
+    background-position: 0 0;
+}
+
+#press-venturebeat {
+    height: 19px;
+    background-image: url('../images/venturebeat-logo.png');
+    background-position: 110 0;
+}
+
+#press-venturebeat:hover {
+    background-position: 0 0;
+}
+
+#press-pcworld {
+    height: 32px;
+    background-image: url('../images/pcworld-logo.png');
+    background-position: 110 0;
+}
+
+#press-pcworld:hover {
+    background-position: 0 0;
+}
+
+.donation-amount {
+    padding: 4px;
+    color: #66FF26;
+    background-color: #338013;
+}
+
+.donation-people {
+    padding: 4px;
+    color: #eee;
+    background: #777;
+}
+
+.helper-arrow {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 0px;
+    background-image: url(../images/arrow.png);
+    width: 200px;
+    height: 200px;
+}
+
+a:hover .helper-arrow {
+    display: block;
+}
+
+a:hover .arrow-on-msie {
+    position: absolute;
+    top: -105px;
+    left: -200px;
+    background-image: url(../images/arrow-rightclick.png);
+}
+
+.donation-summary {
+    color: black;
+}
+
+.donation-summary strong {
+    color: #2B6C10;
+}
+
+.instructions {
+    margin: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #eee;
+}
+
+.fresh-banner {
+    padding: 10px;
+    margin: 0px;
+    background: #3D528B;
+    color: #eee;
+}
+
+.fresh-banner .label {
+    padding: 3px;
+    margin-right: 5px;
+    color: #92ABD5;
+}
+
+.code-javascript {
+    font-size: 0.9em;
+    white-space: pre;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background: #eee;
+    margin-bottom: 80px;
+}
+.note-banner {
+    padding: 10px;
+    margin: 0px;
+    background: #FF6810;
+    color: #FFEC94;
+}
+
+.note-banner .label {
+    padding: 3px;
+    margin-right: 5px;
+    color: #FFBF01;
+}
