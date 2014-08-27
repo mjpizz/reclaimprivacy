@@ -16,9 +16,6 @@ handlers:
   static_dir: stylesheets
   expiration: 1m
 
-- url: /javascripts
-  static_dir: javascripts
-  expiration: 1m
-
 - url: /.*
-  script: handler.py
+  static_files: index.html
+  upload: index.html

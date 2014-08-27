@@ -1,30 +1,10 @@
-Using it
-========
+# ReclaimPrivacy is no longer being maintained.
 
-1. go to http://www.reclaimprivacy.org
-2. drag the bookmarklet into your browser bar
-3. log in to Facebook
-4. click the bookmarklet
+It appears the time has come to shut down this project. We had a good run,
+and in the end we were able to play a part in raising awareness around privacy,
+and hopefully influence some of the privacy improvements that Facebook did
+eventually implement.
 
-Improving it
-============
-
-1. download the Google AppEngine launcher: http://code.google.com/appengine/downloads.html
-2. open the launcher
-3. add this directory
-4. click the "Run" button in the launcher
-5. preview in your browser
-6. add the bookmarklet you see there (it will point at your local copy of the bookmarklet)
-7. edit `javascripts/privacyscanner.js` :)
-
-
-Known Issues (or, a Todo List)
-==============================
-
-- blocked apps are not detected properly
-- does not scan Photo privacy yet
-- does not scan Wall Post privacy yet
-- the scanner for the dropdown settings is wonky sometimes in Firefox
-- "Re-scan" buttons don't work (need to click the bookmarklet instead)
-- Internet Explorer and Opera are not tested (only Safari 4 and FF3 have been tested)
-- need to ensure that this entire list of settings is covered: http://www.nytimes.com/interactive/2010/05/12/business/facebook-privacy.html
+Even though this was a small after-hours project for me, I am thankful to
+everyone who was a part of this a few years back. Please continue to keep safe
+on the web, and keep track of your privacy.
